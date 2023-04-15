@@ -1,0 +1,238 @@
+commit 6f29d3e1ae044a8a8f812b7cc4f62acf7c59757c (HEAD, tag: v0.9.0, origin/main, origin/HEAD, main)
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-24
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-24
+
+    Bump package and library versions
+
+commit 3101cf35a59d85b191fa5d2665c6cd241f511890
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-24
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-24
+
+    Update AUTHORS
+
+commit 3c07012aa278285070c8ad3fa575a97b319294d4
+Merge: be6ca22 0a1780a
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2023-02-24
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2023-02-24
+
+    Merge pull request #110 from ngtcp2/doc-nghttp3_conn_is_drained
+    
+    Add the use case of nghttp3_conn_is_drained to the programmers' guide
+
+commit 0a1780a85254f4700add71307e3668182b6a3f30
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-24
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-24
+
+    Add the use case of nghttp3_conn_is_drained to the programmers' guide
+
+commit be6ca22369293aae5b19e7a83ee0cc785c470224
+Merge: d7f9c57 7ce3aab
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2023-02-24
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2023-02-24
+
+    Merge pull request #109 from ngtcp2/conn_is_drained
+    
+    Add nghttp3_conn_is_drained
+
+commit 7ce3aab4044657c54016ae9341f9be35ab0a0162
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-23
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-23
+
+    Add nghttp3_conn_is_drained
+
+commit d7f9c57e5476dce87f0af529d0e5eef46784caaf
+Merge: 75b772c d3676ac
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2023-02-23
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2023-02-23
+
+    Merge pull request #108 from ngtcp2/update-doc
+    
+    Update doc
+
+commit 75b772cae5639f59ef3fec3f18b9165a01d2d452
+Merge: 2f1c82d 15dc8c8
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2023-02-23
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2023-02-23
+
+    Merge pull request #107 from ngtcp2/add-is_ws
+    
+    Add is_ws helper function
+
+commit d3676ac0770835b57ddac0a2af03a7caf29079d4
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-23
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-23
+
+    Update doc
+
+commit 15dc8c8d2ac6959f83df81892ed038513b283cd8
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-23
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-23
+
+    Add is_ws helper function
+
+commit 2f1c82dc368a866154874bc1971c4599ac9a67f6
+Merge: 32dae1a f46195f
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2023-02-19
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2023-02-19
+
+    Merge pull request #106 from ngtcp2/remove-outq-limit
+    
+    Remove stream outq limit
+
+commit f46195fad18f1a25ab1c0b050d5a1655fc42e50e
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-19
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-19
+
+    Remove stream outq limit
+    
+    Remove stream outq limit by the library.  Instead, let an application
+    manage the amount of buffer they can burn because the most of the
+    items in outq is data provided by the application.  For example, the
+    application can track the number of bytes it has provided to the
+    library in nghttp3_read_data_callback.  If it exceeds the limit,
+    return NGHTTP3_ERR_WOULDBLOCK from the callback.  The tracked bytes
+    should be updated when the data is acknowledged (see
+    nghttp3_acked_stream_data callback).
+
+commit 32dae1a29b11eb32b223949a8c530790842e4d7e
+Merge: e8c393a eb30d83
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2023-02-19
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2023-02-19
+
+    Merge pull request #105 from ngtcp2/increase-stream-ringbuf-cap
+    
+    Increase stream outq capacity
+
+commit eb30d83c1eb09e15f3e8f8208dcc32bf30c3b513
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-19
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-19
+
+    Increase stream outq capacity
+    
+    Increase stream outq capacity because the previous value is too small
+    for high latency network.  As the comment suggests, we should provide
+    a knob for an application to set this limit.
+
+commit e8c393a601427051f8c99479e4c7474139542b4c
+Merge: 98126cd f8df292
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2023-02-18
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2023-02-18
+
+    Merge pull request #104 from amirlivneh/nghttp2-ref
+    
+    Fix reference to nghttp2_buf_left() in comment
+
+commit f8df292f18521313b28bdc49f64dabc0aab33c56
+Author:     Your Name <you@example.com>
+AuthorDate: 2023-02-13
+Commit:     Your Name <you@example.com>
+CommitDate: 2023-02-13
+
+    Fix reference to nghttp2_buf_left() in comment
+
+commit 98126cdd72964c0dcb2376632eb9a1c35f0f7481
+Merge: 099e1ca e7e14fb
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2023-02-05
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2023-02-05
+
+    Merge pull request #102 from ngtcp2/qpack-late-hash
+    
+    Hash field name if the field is not indexed in static table
+
+commit e7e14fbe65e7714d8d99a06397398bd0fd0640d1
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-05
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-05
+
+    Hash field name if the field is not indexed in static table
+
+commit 099e1ca4af486a9a6a2e19e79acf7ed227538e12
+Merge: 4790818 8782cf0
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2023-02-05
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2023-02-05
+
+    Merge pull request #101 from ngtcp2/qpack-try-index
+    
+    Allow application to specify which field should be indexed by QPACK
+
+commit 8782cf067e5c24e3de33fdde11684227ee565849
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-05
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-05
+
+    Allow application to specify which field should be indexed by QPACK
+    
+    Allow application to specify which field should be indexed by
+    including NGHTTP3_NV_FLAG_TRY_INDEX in nghttp3_nv.flags.  This is just
+    a hint, and QPACK encoder might not index it in various reasons.
+
+commit 4790818a0de61c75d5ec5a0b0dc2be17b3dadf8f
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-05
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-05
+
+    Update doc
+
+commit 8191bc57442274dbcc9518198c77ae89876b0bdb
+Merge: 472c4d3 0765787
+Author:     Tatsuhiro Tsujikawa <404610+tatsuhiro-t@users.noreply.github.com>
+AuthorDate: 2022-12-22
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2022-12-22
+
+    Merge pull request #99 from vszakats/warnfix
+    
+    add casts to silence implicit conversion warnings
+
+commit 0765787c69f7a0a6dcff5bb08893be3934676344
+Author:     Viktor Szakats <commit@vsz.me>
+AuthorDate: 2022-12-19
+Commit:     Viktor Szakats <commit@vsz.me>
+CommitDate: 2022-12-19
+
+    add casts to silence implicit conversion warnings
+
+commit 472c4d39490da11984adfb61bf19195087803f89
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2022-12-10
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2022-12-10
+
+    Bump package version

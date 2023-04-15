@@ -1,0 +1,23 @@
+commit 61625319ffcb74892da23635bfa04967cbdf1f19 (HEAD, tag: v0.13.1, origin/release-0.13, origin/HEAD, release-0.13)
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-09
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-09
+
+    Bump package and library versions
+
+commit 2793ff5b3b8480570d18e4d088f19f6d40169cb7
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-02-01
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-02
+
+    Fix bug that a remote uni stream never be closed
+
+commit 384f6ecfc224eff1842372b2d61ed5bdf1141aa9
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2023-01-31
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2023-02-02
+
+    Workaround Handshake packet deadlock by exceeding CWND limit
