@@ -128,18 +128,11 @@ MainWindow::MainWindow(QWidget *parent)
     setHourlyForecast(this, "TemperatureDegrees", 0, setHourlyForecastTemperature, Weather);
     setHourlyForecastScrollBar(ui->hourlyForecastScrollArea->horizontalScrollBar());
 
-    /*DailyForecastScrollArea* forecastScrollArea = new DailyForecastScrollArea(this);
-    forecastScrollArea->setForecast(Weather);
-    forecastScrollArea->move(110, 462);
-    fadeWidget(forecastScrollArea, 0, 450);*/
     ui->forecastScrollArea->setVisible(false);
-    //ui->widget->setVisible(false);
     DailyForecastWidget* forecastWidget = new DailyForecastWidget(ui->widget);
     forecastWidget->setBackground(":/background/assets/backgrounds/Bottom_Left_Corner_Background.png");
     forecastWidget->setForecast(Weather);
     fadeWidget(forecastWidget, 0, 450);
-    //forecastWidget->installEventFilter(this);
-    //forecastWidget->setMouseTracking(true);
 }
 
 MainWindow::~MainWindow()

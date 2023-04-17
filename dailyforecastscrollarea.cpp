@@ -43,8 +43,8 @@ void DailyForecastScrollArea::setForecast(Weather &weather)
                         "        QScrollBar:vertical {"
                         "            border: 0px solid #999999;"
                         "            background:transparent;"
-                        "            width:4px;    "
-                        "            margin: 28px 0px 28px 0px;"
+                        "            width:7px;    "
+                        "            margin: 28px 3px 28px 0px;"
                         "        }"
                         "        QScrollBar::handle:vertical {  "
                         "            min-height: 0px;"
@@ -61,7 +61,11 @@ void DailyForecastScrollArea::setForecast(Weather &weather)
                         "            height: 0 px;"
                         "            subcontrol-position: top;"
                         "            subcontrol-origin: margin;"
-                        "        }");
+                        "        }"
+                        "        QScrollBar::handle:vertical:hover { "
+                        "        background-color: rgb(35, 25, 66);"
+                        "        }"
+                        );
 }
 
 bool DailyForecastScrollArea::eventFilter(QObject *object, QEvent *event){
