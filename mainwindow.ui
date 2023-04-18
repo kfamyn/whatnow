@@ -288,13 +288,13 @@
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/assets/assets/Backgrounds/Grid_template.png);</string>
+     <string notr="true">border-image: url(:/background/assets/backgrounds/Grid_template_3.png)</string>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="assets.qrc">:/background/assets/backgrounds/Grid_template.png</pixmap>
+     <pixmap resource="assets.qrc">:/background/assets/backgrounds/Grid_template_3.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -11338,22 +11338,22 @@ QScrollBar::sub-line:horizontal {
      <rect>
       <x>510</x>
       <y>17</y>
-      <width>147</width>
+      <width>132</width>
       <height>361</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="hourlyForecast_24" stretch="0,0,0,0,0">
      <property name="spacing">
-      <number>3</number>
+      <number>1</number>
      </property>
      <property name="topMargin">
-      <number>11</number>
+      <number>0</number>
      </property>
      <property name="rightMargin">
       <number>0</number>
      </property>
      <property name="bottomMargin">
-      <number>18</number>
+      <number>16</number>
      </property>
      <item>
       <widget class="QLabel" name="hourlyForecastDate_24">
@@ -11389,7 +11389,7 @@ QScrollBar::sub-line:horizontal {
         <string>12AM</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -11403,21 +11403,21 @@ QScrollBar::sub-line:horizontal {
        </property>
        <property name="minimumSize">
         <size>
-         <width>145</width>
-         <height>145</height>
+         <width>130</width>
+         <height>130</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>145</width>
-         <height>145</height>
+         <width>130</width>
+         <height>130</height>
         </size>
        </property>
        <property name="text">
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="assets.qrc">:/weatherIcons/assets/weatherIcons/Thunder.png</pixmap>
+        <pixmap resource="assets.qrc">:/weatherIcons/assets/weatherIcons/showers-night.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -11469,7 +11469,7 @@ QScrollBar::sub-line:horizontal {
           <string>10% </string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
@@ -11479,7 +11479,7 @@ QScrollBar::sub-line:horizontal {
           <number>0</number>
          </property>
          <property name="topMargin">
-          <number>15</number>
+          <number>4</number>
          </property>
          <property name="bottomMargin">
           <number>2</number>
@@ -11488,14 +11488,14 @@ QScrollBar::sub-line:horizontal {
           <widget class="QLabel" name="hourlyForecastPrecipitationIcon_24">
            <property name="minimumSize">
             <size>
-             <width>16</width>
-             <height>16</height>
+             <width>15</width>
+             <height>15</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>16</width>
-             <height>16</height>
+             <width>15</width>
+             <height>15</height>
             </size>
            </property>
            <property name="text">
@@ -11570,7 +11570,7 @@ QScrollBar::sub-line:horizontal {
          <property name="font">
           <font>
            <family>SF Pro Display</family>
-           <pointsize>40</pointsize>
+           <pointsize>39</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -11642,12 +11642,1235 @@ QScrollBar::sub-line:horizontal {
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>26</y>
+      <width>141</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <property name="spacing">
+      <number>6</number>
+     </property>
+     <property name="topMargin">
+      <number>17</number>
+     </property>
+     <property name="bottomMargin">
+      <number>24</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="hourlyForecastDate_25">
+       <property name="font">
+        <font>
+         <family>SF Pro Display</family>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
+       </property>
+       <property name="text">
+        <string>28MAR</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="hourlyForecastTime_25">
+       <property name="font">
+        <font>
+         <family>SF Pro Display</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:70, stop:0.76089 rgba(255, 255, 255, 255), stop:0.611285 rgba(50, 50, 50, 255))</string>
+       </property>
+       <property name="text">
+        <string>12AM</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="hourlyForecastIcon_25">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>125</width>
+         <height>125</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>125</width>
+         <height>125</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="assets.qrc">:/weatherIcons/assets/weatherIcons/showers-night.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="hourlyForecastPrecipitationLayout_25">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <spacer name="hourlyForecastPrecipitationSpacer1_25">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="hourlyForecastPrecipitationProbability_25">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>6</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>54</width>
+           <height>44</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>SF Pro Display</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:78, stop:0.72089 rgba(255, 255, 255, 255), stop:0.131285 rgba(0, 0, 0, 255))</string>
+         </property>
+         <property name="text">
+          <string>10% </string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="hourlyForecastPrecipitationIconLayout_25" stretch="0">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>9</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="hourlyForecastPrecipitationIcon_25">
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="assets.qrc">:/additionalWeatherIcons/assets/additionalWeatherIcons/Precipitations.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="hourlyForecastPrecipitationSpacer2_25">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="hourlyForecastTemperatureLayout_25">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <spacer name="hourlyForecastTemperatureSpacer1_25">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>37</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="hourlyForecastTemperatureDegrees_25">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>SF Pro Display</family>
+           <pointsize>39</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.9 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));</string>
+         </property>
+         <property name="text">
+          <string>27</string>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <property name="indent">
+          <number>-1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="hourlyForecastTemperatureCelcius_25">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>SF Pro Display</family>
+             <pointsize>24</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.6 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));</string>
+           </property>
+           <property name="text">
+            <string>°C</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="hourlyForecastTemperatureSpacer2_25">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="widget_3" native="true">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>26</y>
+      <width>141</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_5">
+     <property name="spacing">
+      <number>6</number>
+     </property>
+     <property name="topMargin">
+      <number>17</number>
+     </property>
+     <property name="bottomMargin">
+      <number>24</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="hourlyForecastDate_26">
+       <property name="font">
+        <font>
+         <family>SF Pro Display</family>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
+       </property>
+       <property name="text">
+        <string>28MAR</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="hourlyForecastTime_26">
+       <property name="font">
+        <font>
+         <family>SF Pro Display</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:70, stop:0.76089 rgba(255, 255, 255, 255), stop:0.611285 rgba(50, 50, 50, 255))</string>
+       </property>
+       <property name="text">
+        <string>12AM</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="hourlyForecastIcon_26">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>125</width>
+         <height>125</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>125</width>
+         <height>125</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="assets.qrc">:/weatherIcons/assets/weatherIcons/showers-night.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="hourlyForecastPrecipitationLayout_26">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <spacer name="hourlyForecastPrecipitationSpacer1_26">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="hourlyForecastPrecipitationProbability_26">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>6</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>54</width>
+           <height>44</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>SF Pro Display</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:78, stop:0.72089 rgba(255, 255, 255, 255), stop:0.131285 rgba(0, 0, 0, 255))</string>
+         </property>
+         <property name="text">
+          <string>10% </string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="hourlyForecastPrecipitationIconLayout_26" stretch="0">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>9</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="hourlyForecastPrecipitationIcon_26">
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="assets.qrc">:/additionalWeatherIcons/assets/additionalWeatherIcons/Precipitations.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="hourlyForecastPrecipitationSpacer2_26">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="hourlyForecastTemperatureLayout_26">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <spacer name="hourlyForecastTemperatureSpacer1_26">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>37</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="hourlyForecastTemperatureDegrees_26">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>SF Pro Display</family>
+           <pointsize>39</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.9 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));</string>
+         </property>
+         <property name="text">
+          <string>27</string>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <property name="indent">
+          <number>-1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="hourlyForecastTemperatureCelcius_26">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>SF Pro Display</family>
+             <pointsize>24</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.6 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));</string>
+           </property>
+           <property name="text">
+            <string>°C</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="hourlyForecastTemperatureSpacer2_26">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="widget_4" native="true">
+    <property name="geometry">
+     <rect>
+      <x>827</x>
+      <y>26</y>
+      <width>141</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_7">
+     <property name="spacing">
+      <number>6</number>
+     </property>
+     <property name="topMargin">
+      <number>17</number>
+     </property>
+     <property name="bottomMargin">
+      <number>24</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="hourlyForecastDate_27">
+       <property name="font">
+        <font>
+         <family>SF Pro Display</family>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
+       </property>
+       <property name="text">
+        <string>28MAR</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="hourlyForecastTime_27">
+       <property name="font">
+        <font>
+         <family>SF Pro Display</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:70, stop:0.76089 rgba(255, 255, 255, 255), stop:0.611285 rgba(50, 50, 50, 255))</string>
+       </property>
+       <property name="text">
+        <string>12AM</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="hourlyForecastIcon_27">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>125</width>
+         <height>125</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>125</width>
+         <height>125</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="assets.qrc">:/weatherIcons/assets/weatherIcons/showers-night.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="hourlyForecastPrecipitationLayout_27">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <spacer name="hourlyForecastPrecipitationSpacer1_27">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="hourlyForecastPrecipitationProbability_27">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>6</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>54</width>
+           <height>44</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>SF Pro Display</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:78, stop:0.72089 rgba(255, 255, 255, 255), stop:0.131285 rgba(0, 0, 0, 255))</string>
+         </property>
+         <property name="text">
+          <string>10% </string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="hourlyForecastPrecipitationIconLayout_27" stretch="0">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>9</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="hourlyForecastPrecipitationIcon_27">
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="assets.qrc">:/additionalWeatherIcons/assets/additionalWeatherIcons/Precipitations.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="hourlyForecastPrecipitationSpacer2_27">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="hourlyForecastTemperatureLayout_27">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <spacer name="hourlyForecastTemperatureSpacer1_27">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>37</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="hourlyForecastTemperatureDegrees_27">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>SF Pro Display</family>
+           <pointsize>39</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.9 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));</string>
+         </property>
+         <property name="text">
+          <string>27</string>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <property name="indent">
+          <number>-1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="hourlyForecastTemperatureCelcius_27">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>SF Pro Display</family>
+             <pointsize>24</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.6 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));</string>
+           </property>
+           <property name="text">
+            <string>°C</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="hourlyForecastTemperatureSpacer2_27">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="widget_5" native="true">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>26</y>
+      <width>141</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_9">
+     <property name="spacing">
+      <number>6</number>
+     </property>
+     <property name="topMargin">
+      <number>17</number>
+     </property>
+     <property name="bottomMargin">
+      <number>24</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="hourlyForecastDate_28">
+       <property name="font">
+        <font>
+         <family>SF Pro Display</family>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
+       </property>
+       <property name="text">
+        <string>28MAR</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="hourlyForecastTime_28">
+       <property name="font">
+        <font>
+         <family>SF Pro Display</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:70, stop:0.76089 rgba(255, 255, 255, 255), stop:0.611285 rgba(50, 50, 50, 255))</string>
+       </property>
+       <property name="text">
+        <string>12AM</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="hourlyForecastIcon_28">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>125</width>
+         <height>125</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>125</width>
+         <height>125</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="assets.qrc">:/weatherIcons/assets/weatherIcons/showers-night.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="hourlyForecastPrecipitationLayout_28">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <spacer name="hourlyForecastPrecipitationSpacer1_28">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="hourlyForecastPrecipitationProbability_28">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>6</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>54</width>
+           <height>44</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>SF Pro Display</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:78, stop:0.72089 rgba(255, 255, 255, 255), stop:0.131285 rgba(0, 0, 0, 255))</string>
+         </property>
+         <property name="text">
+          <string>10% </string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="hourlyForecastPrecipitationIconLayout_28" stretch="0">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>9</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="hourlyForecastPrecipitationIcon_28">
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="assets.qrc">:/additionalWeatherIcons/assets/additionalWeatherIcons/Precipitations.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="hourlyForecastPrecipitationSpacer2_28">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="hourlyForecastTemperatureLayout_28">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <spacer name="hourlyForecastTemperatureSpacer1_28">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>37</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="hourlyForecastTemperatureDegrees_28">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>SF Pro Display</family>
+           <pointsize>39</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.9 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));</string>
+         </property>
+         <property name="text">
+          <string>27</string>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <property name="indent">
+          <number>-1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_10">
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="hourlyForecastTemperatureCelcius_28">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>SF Pro Display</family>
+             <pointsize>24</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.6 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));</string>
+           </property>
+           <property name="text">
+            <string>°C</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="hourlyForecastTemperatureSpacer2_28">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
    <zorder>hourlyForecastScrollArea</zorder>
    <zorder>Bottom_Right_Corner_Background</zorder>
    <zorder>Background</zorder>
    <zorder>Upper_Left_Corner_Background</zorder>
    <zorder>Bottom_Left_Corner_Background</zorder>
-   <zorder>Upper_Right_Corner_Background</zorder>
    <zorder>CurrentLocation</zorder>
    <zorder>horizontalLayoutWidget</zorder>
    <zorder>CurrentConditions</zorder>
@@ -11656,6 +12879,11 @@ QScrollBar::sub-line:horizontal {
    <zorder>forecastScrollArea</zorder>
    <zorder>widget</zorder>
    <zorder>layoutWidget</zorder>
+   <zorder>Upper_Right_Corner_Background</zorder>
+   <zorder>widget_2</zorder>
+   <zorder>widget_3</zorder>
+   <zorder>widget_4</zorder>
+   <zorder>widget_5</zorder>
   </widget>
  </widget>
  <resources>

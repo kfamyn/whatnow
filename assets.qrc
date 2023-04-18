@@ -107,6 +107,7 @@
         <file>assets/backgrounds/Tool_Bar.png</file>
         <file>assets/backgrounds/Upper_Left_Corner_Background.png</file>
         <file>assets/backgrounds/Upper_Right_Corner_Background.png</file>
+        <file>assets/backgrounds/Grid_template_3.png</file>
     </qresource>
     <qresource prefix="/buttonIcons">
         <file>assets/buttonIcons/exitButton.png</file>
