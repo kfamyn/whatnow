@@ -14,7 +14,8 @@ class DailyForecastLine : public QWidget
 {
     Q_OBJECT
 public:
-    DailyForecastLine(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek);
+    DailyForecastLine(QWidget* parent);
+    void setup(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek);
 private:
     QHBoxLayout *forecastLayout;
     QLabel *iconLabel;

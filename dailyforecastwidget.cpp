@@ -18,5 +18,5 @@ void DailyForecastWidget::setBackground(QString path){
 }
 
 void DailyForecastWidget::setForecast(Weather& weather){
-    forecastScrollArea->setForecast(weather);
+    forecastScrollArea->setup(weather);
 }

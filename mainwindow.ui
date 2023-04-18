@@ -11364,7 +11364,7 @@ QScrollBar::sub-line:horizontal {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:78, stop:0.72089 rgba(255, 255, 255, 255), stop:0.631285 rgba(0, 0, 0, 255))</string>
+        <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:78, stop:0.51089 rgba(0, 0, 0, 255), stop:0.721285 rgba(255, 255, 255, 255))</string>
        </property>
        <property name="text">
         <string>28MAR</string>
@@ -11383,7 +11383,7 @@ QScrollBar::sub-line:horizontal {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:75, stop:0.76089 rgba(255, 255, 255, 255), stop:0.611285 rgba(50, 50, 50, 255))</string>
        </property>
        <property name="text">
         <string>12AM</string>
@@ -11463,7 +11463,7 @@ QScrollBar::sub-line:horizontal {
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.89 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));</string>
+          <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:78, stop:0.72089 rgba(255, 255, 255, 255), stop:0.131285 rgba(0, 0, 0, 255))</string>
          </property>
          <property name="text">
           <string>10% </string>
@@ -11479,7 +11479,7 @@ QScrollBar::sub-line:horizontal {
           <number>0</number>
          </property>
          <property name="topMargin">
-          <number>0</number>
+          <number>15</number>
          </property>
          <property name="bottomMargin">
           <number>2</number>
@@ -11502,7 +11502,7 @@ QScrollBar::sub-line:horizontal {
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>:/WeatherIconsMain/assets/Icons/Additional/Precipitations.png</pixmap>
+            <pixmap resource="assets.qrc">:/additionalWeatherIcons/assets/additionalWeatherIcons/Precipitations.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -11570,7 +11570,7 @@ QScrollBar::sub-line:horizontal {
          <property name="font">
           <font>
            <family>SF Pro Display</family>
-           <pointsize>38</pointsize>
+           <pointsize>40</pointsize>
           </font>
          </property>
          <property name="styleSheet">

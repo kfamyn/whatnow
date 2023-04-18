@@ -17,7 +17,7 @@ SOURCES += \
     format.cpp \
     main.cpp \
     mainwindow.cpp \
-    weatherAPI.hpp
+    weatherAPI.h
 
 HEADERS += \
     dailyforecastline.h \

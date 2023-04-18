@@ -4,17 +4,14 @@
 #include "qpropertyanimation.h"
 #include "qscrollbar.h"
 
-DailyForecastScrollArea::DailyForecastScrollArea(QWidget* parent)
+DailyForecastScrollArea::DailyForecastScrollArea(QWidget* parent): QScrollArea(parent){}
+
+void DailyForecastScrollArea::setup(Weather &weather)
 {
-    this->setParent(parent);
     this->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOn );
     this->setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
     this->setWidgetResizable(true);
     this->setGeometry(0, 0, 340, 323);
-}
-
-void DailyForecastScrollArea::setForecast(Weather &weather)
-{
     QWidget* scrollAreaWidgetContents = new QWidget(this);
     this->setWidget(scrollAreaWidgetContents);
     QVBoxLayout* scrollLayout = new QVBoxLayout(scrollAreaWidgetContents);
@@ -29,7 +26,8 @@ void DailyForecastScrollArea::setForecast(Weather &weather)
         int month = date.mid(5,2).toInt();
         int day = date.mid(8,2).toInt();
         QString dayOfWeek = QString::fromStdString(formatDayOfWeek(year, month, day));
-        DailyForecastLine* forecastLine = new DailyForecastLine(iconURL, temperatureDay, temperatureNight, dayOfWeek);
+        DailyForecastLine* forecastLine = new DailyForecastLine(this);
+        forecastLine->setup(iconURL, temperatureDay, temperatureNight, dayOfWeek);
         scrollLayout->addWidget(forecastLine);
     }
     scrollAreaWidgetContents->setStyleSheet("background-color:transparent;");

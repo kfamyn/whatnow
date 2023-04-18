@@ -1,6 +1,8 @@
 #include "dailyforecastline.h"
 
-DailyForecastLine::DailyForecastLine(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek)
+DailyForecastLine::DailyForecastLine(QWidget* parent): QWidget(parent) {};
+
+void DailyForecastLine::setup(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek)
 {
     this->setFixedSize(317, 50);
     QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");

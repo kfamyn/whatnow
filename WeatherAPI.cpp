@@ -1,4 +1,4 @@
-#include "weatherAPI.hpp"
+#include "weatherAPI.h"
 #include <vector>
 Weather::Weather(std::string unprocessedCityData){
         std::string unprocessedData = request(formatInput(unprocessedCityData));

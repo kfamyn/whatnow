@@ -115,4 +115,7 @@
     <qresource prefix="/icon">
         <file>assets/applicationIcon/wIcon.ico</file>
     </qresource>
+    <qresource prefix="/additionalWeatherIcons">
+        <file>assets/additionalWeatherIcons/Precipitations.png</file>
+    </qresource>
 </RCC>

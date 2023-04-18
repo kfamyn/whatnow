@@ -9,14 +9,14 @@
 #include <QScrollBar>
 #include <QEvent>
 #include <QWheelEvent>
-#include "weatherAPI.hpp"
+#include "weatherAPI.h"
 
 class DailyForecastScrollArea : public QScrollArea
 {
     Q_OBJECT
 public:
     DailyForecastScrollArea(QWidget* parent);
-    void setForecast(Weather& weather);
+    void setup(Weather& weather);
 private:
     bool eventFilter(QObject *object, QEvent *event);
     int calculateEndScrollBarValue(int delta);
