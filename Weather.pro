@@ -15,6 +15,7 @@ SOURCES += \
     dailyforecastscrollarea.cpp \
     dailyforecastwidget.cpp \
     format.cpp \
+    hourlyforecastline.cpp \
     main.cpp \
     mainwindow.cpp \
     weatherAPI.h
@@ -24,6 +25,7 @@ HEADERS += \
     dailyforecastscrollarea.h \
     dailyforecastwidget.h \
     format.hpp \
+    hourlyforecastline.h \
     mainwindow.h
 
 FORMS += \

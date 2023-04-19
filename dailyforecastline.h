@@ -27,7 +27,6 @@ private:
     QLabel *celciusLabelNight;
     QLabel *plainTextDay;
     QLabel *plainTextNight;
-
     QHBoxLayout *temperatureLayout;
     QHBoxLayout *temperatureLayoutDay;
     QVBoxLayout *celciusLayoutDay;

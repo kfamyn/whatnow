@@ -8,7 +8,7 @@ void DailyForecastLine::setup(QString iconURL, QString temperatureDay, QString t
     QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
     QFont SFPro = QFont("SF Pro Display", 22, 0);
 
-    iconLabel = new QLabel();
+    iconLabel = new QLabel(this);
     iconLabel->setPixmap(QPixmap(iconURL));
     iconLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     iconLabel->setFixedSize(50, 50);
@@ -67,8 +67,8 @@ void DailyForecastLine::setup(QString iconURL, QString temperatureDay, QString t
     forecastLayout->addWidget(dayOfWeekLabel);
 }
 
-QLabel* DailyForecastLine::createQLabel(QString text,QFont& font, int fontSize, QFont::Weight weight, float gradientStop, Qt::Alignment alignment, QSizePolicy::Policy policy1, QSizePolicy::Policy policy2){
-    QLabel* label = new QLabel();
+QLabel* DailyForecastLine::createQLabel(QString text, QFont& font, int fontSize, QFont::Weight weight, float gradientStop, Qt::Alignment alignment, QSizePolicy::Policy policy1, QSizePolicy::Policy policy2){
+    QLabel* label = new QLabel(this);
     label->setText(text);
     font.setPointSize(fontSize);
     font.setWeight(weight);
