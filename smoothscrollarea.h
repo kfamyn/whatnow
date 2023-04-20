@@ -13,7 +13,7 @@
 #include <QPropertyAnimation>
 #include <QScrollBar>
 
-class SmoothScrollArea : QScrollArea
+class SmoothScrollArea : public QScrollArea
 {
     Q_OBJECT
 public:

@@ -16,6 +16,7 @@ SOURCES += \
     dailyforecastwidget.cpp \
     format.cpp \
     hourlyforecastline.cpp \
+    hourlyforecastwidget.cpp \
     main.cpp \
     mainwindow.cpp \
     smoothscrollarea.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     dailyforecastwidget.h \
     format.hpp \
     hourlyforecastline.h \
+    hourlyforecastwidget.h \
     mainwindow.h \
     smoothscrollarea.h
 

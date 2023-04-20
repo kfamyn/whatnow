@@ -9,7 +9,7 @@ void DailyForecastScrollArea::setup(Weather &weather)
     this->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOn );
     this->setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
     this->setWidgetResizable(true);
-    this->setGeometry(0, 0, 340, 323); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    this->setGeometry(0, 0, 340, 324); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     QWidget* scrollAreaWidgetContents = new QWidget(this);
     this->setWidget(scrollAreaWidgetContents);
     QVBoxLayout* scrollLayout = new QVBoxLayout(scrollAreaWidgetContents);

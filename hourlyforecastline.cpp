@@ -5,6 +5,7 @@ HourlyForecastLine::HourlyForecastLine(QWidget *parent): QWidget(parent){}
 void HourlyForecastLine::setup(QString date, QString time, QString iconURL, QString precipitationProbability, QString temperature)
 {
     this->setFixedSize(141, 351);
+    this->setStyleSheet("background-color:transparent;");
     dateLabel = createTextLabel(date, 13, QFont::Light, "color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))", Qt::AlignHCenter | Qt::AlignBottom);
     timeLabel = createTextLabel(time, 24, QFont::Normal, "color: qconicalgradient(cx:1, cy:0, angle:70, stop:0.76089 rgba(255, 255, 255, 255), stop:0.611285 rgba(50, 50, 50, 255))", Qt::AlignHCenter | Qt::AlignVCenter);
     iconVerticalSpacer = new QSpacerItem(20, 10, QSizePolicy::Fixed, QSizePolicy::Fixed);

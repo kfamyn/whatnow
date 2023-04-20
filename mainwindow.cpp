@@ -16,7 +16,7 @@
 #include <QSequentialAnimationGroup>
 #include "format.hpp"
 #include "dailyforecastwidget.h"
-#include "hourlyforecastline.h"
+#include "hourlyforecastwidget.h"
 
 void fadeWidget(QWidget* widget, int mode, int duration);
 
@@ -135,8 +135,9 @@ MainWindow::MainWindow(QWidget *parent)
     forecastWidget->setForecast(Weather);
     fadeWidget(forecastWidget, 0, 450);
 
-    HourlyForecastLine* hourlyForecastLineTest = new HourlyForecastLine(ui->widget_2);
-    hourlyForecastLineTest->setup("23 MAR", "12AM", ":/weatherIcons/assets/weatherIcons/thunder-rain.png", "10", "15");
+    HourlyForecastWidget* hourlyForecastWidget = new HourlyForecastWidget(ui->widget_7);
+    hourlyForecastWidget->setup(Weather);
+    hourlyForecastWidget->setBackground(":/background/assets/backgrounds/Upper_Right_Corner_Background.png");
 }
 
 MainWindow::~MainWindow()
