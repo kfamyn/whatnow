@@ -9,6 +9,8 @@
 #include <QScrollBar>
 #include <QEvent>
 #include <QWheelEvent>
+#include <QPropertyAnimation>
+#include <QScrollBar>
 #include "weatherAPI.h"
 
 class DailyForecastScrollArea : public QScrollArea
