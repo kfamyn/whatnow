@@ -83,14 +83,26 @@ bool SmoothScrollArea::eventFilter(QObject *object, QEvent *event){
         QWheelEvent* wheelEvent = static_cast<QWheelEvent *>(event);
         QPoint numPixels = wheelEvent->angleDelta();
         QScrollBar* scrollBar = orientation == VERTICAL ? verticalScrollBar() : horizontalScrollBar();
-        QPropertyAnimation* smoothScrollingAnimation = new QPropertyAnimation(scrollBar, "value");
-        int scrollByValue = orientation == VERTICAL ? numPixels.y() : numPixels.y() * 1.5;
+        int scrollByValue = orientation == VERTICAL ? numPixels.y() : numPixels.y();
         int endValue = calculateEndScrollBarValue(scrollByValue, scrollBar);
-        smoothScrollingAnimation->setDuration(240);
-        smoothScrollingAnimation->setStartValue(scrollBar->value());
-        smoothScrollingAnimation->setEndValue(endValue);
-        smoothScrollingAnimation->setEasingCurve(QEasingCurve::OutCubic);
-        smoothScrollingAnimation->start(QAbstractAnimation::DeleteWhenStopped);
+        if (smoothScrollingAnimation == NULL){
+            smoothScrollingAnimation = new QPropertyAnimation(scrollBar, "value");
+        }
+        if (smoothScrollingAnimation->state() == QPropertyAnimation::Stopped){
+            smoothScrollingAnimation->setDuration(240);
+            smoothScrollingAnimation->setStartValue(scrollBar->value());
+            smoothScrollingAnimation->setEndValue(endValue);
+            smoothScrollingAnimation->setEasingCurve(QEasingCurve::OutCubic);
+            smoothScrollingAnimation->start();
+        }
+        else {
+            int acceleratedEndValue = smoothScrollingAnimation->endValue().toInt() - scrollByValue;
+            int delta = scrollBar->value() - acceleratedEndValue;
+            smoothScrollingAnimation->stop();
+            smoothScrollingAnimation->setStartValue(scrollBar->value());
+            smoothScrollingAnimation->setEndValue(calculateEndScrollBarValue(delta, scrollBar));
+            smoothScrollingAnimation->start();
+        }
         return true;
     }
     return QObject::eventFilter(object, event);

@@ -23,8 +23,9 @@ public:
     void setupContents(QWidget* contentsLayout, orientations orientation);
 private:
     orientations orientation;
-    bool eventFilter(QObject *object, QEvent *event);
+    bool eventFilter(QObject *object, QEvent *event) override;
     int calculateEndScrollBarValue(int delta, QScrollBar* scrollBar);
+    QPropertyAnimation* smoothScrollingAnimation = NULL;
 };
 
 #endif // SMOOTHSCROLLAREA_H
