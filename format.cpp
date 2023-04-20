@@ -19,17 +19,13 @@ std::string formatDate(std::string rawDate){
 std::string formatTime(std::string rawTime){
     static std::string ampm[] = {"AM", "PM"};
     std::string TimeFormatted = "";
-
     TimeFormatted += (std::stoi(rawTime.substr(0, 2)) % 12 != 0) ? std::to_string(std::stoi(rawTime.substr(0, 2)) % 12) : std::to_string(12);
     TimeFormatted += ampm[std::stoi(rawTime.substr(0, 2)) >= 12];
     return TimeFormatted;
 }
 
 std::string formatPrecipitationProbability(std::string rawProbability){
-    std::string probabilityFormatted = "";
-    probabilityFormatted += std::to_string(std::stoi(rawProbability));
-    probabilityFormatted += "%";
-    return probabilityFormatted;
+    return std::to_string(std::stoi(rawProbability)).append("%");
 }
 
 std::string formatTemperature(std::string rawTemperature){

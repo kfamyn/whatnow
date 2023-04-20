@@ -1,8 +1,5 @@
 #ifndef FORMAT_HPP
 #define FORMAT_HPP
-
-#endif // FORMAT_HPP
-
 #include <iostream>
 #include <stdlib.h>
 
@@ -17,3 +14,5 @@ std::string formatPrecipitationProbability(std::string rawProbability);
 std::string formatTemperature(std::string rawTemperature);
 
 int formatTimeToInt(std::string rawTime);
+
+#endif // FORMAT_HPP
