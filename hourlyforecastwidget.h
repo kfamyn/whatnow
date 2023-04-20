@@ -3,11 +3,8 @@
 
 #include "smoothscrollarea.h"
 #include "hourlyforecastline.h"
-#ifndef WEATHERAPIH
-#define WEATHERAPIH
 #include "weatherAPI.h"
-#endif
-
+#include "format.hpp"
 
 class HourlyForecastWidget : public QWidget
 {
@@ -15,7 +12,7 @@ class HourlyForecastWidget : public QWidget
 public:
     HourlyForecastWidget(QWidget* parent);
     void setup(Weather& weather);
-    void setBackground(QString path);
+    void setBackground(QString path, QSize size);
 private:
     SmoothScrollArea* widgetScrollarea;
     QWidget* scrollAreaWidgetContents;

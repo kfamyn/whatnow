@@ -137,7 +137,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     HourlyForecastWidget* hourlyForecastWidget = new HourlyForecastWidget(ui->widget_7);
     hourlyForecastWidget->setup(Weather);
-    hourlyForecastWidget->setBackground(":/background/assets/backgrounds/Upper_Right_Corner_Background.png");
+    hourlyForecastWidget->setBackground(":/background/assets/backgrounds/Upper_Right_Corner_Background.png", QSize(677, 360));
+
 }
 
 MainWindow::~MainWindow()

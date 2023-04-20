@@ -42,9 +42,11 @@ QLabel *HourlyForecastLine::createIconLabel(QString iconURL, int size)
 void HourlyForecastLine::setupPrecipitationProbabilityLayout(QString& precipitationProbability)
 {
     precipitationProbabilityLeftSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Fixed);
-    precipitationProbabilityLabel = createTextLabel(precipitationProbability.append("%"), 13, QFont::Light, "color: qconicalgradient(cx:1, cy:0, angle:78, stop:0.72089 rgba(255, 255, 255, 255), stop:0.131285 rgba(0, 0, 0, 255))", Qt::AlignRight | Qt::AlignBottom);
+    QString precipitationProbabilityProcessed = precipitationProbability == "0" ? "" : precipitationProbability.append("%");
+    precipitationProbabilityLabel = createTextLabel(precipitationProbabilityProcessed, 13, QFont::Light, "color: qconicalgradient(cx:1, cy:0, angle:78, stop:0.72089 rgba(255, 255, 255, 255), stop:0.131285 rgba(0, 0, 0, 255))", Qt::AlignRight | Qt::AlignBottom);
     precipitationIconLabel = new QLabel(this);
-    precipitationIconLabel = createIconLabel(":/additionalWeatherIcons/assets/additionalWeatherIcons/Precipitations.png", 15);
+    QString precipitationIconPath = precipitationProbability == "0" ? ":/additionalWeatherIcons/assets/additionalWeatherIcons/NoPrecipitations.png" : ":/additionalWeatherIcons/assets/additionalWeatherIcons/Precipitations.png";
+    precipitationIconLabel = createIconLabel(precipitationIconPath, 15);
     precipitationIconLayout = new QVBoxLayout();
     precipitationIconLayout->addWidget(precipitationIconLabel);
     precipitationIconLayout->setContentsMargins(0, 9, 0, 2);

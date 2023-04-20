@@ -1,3 +1,5 @@
+#ifndef WEATHERAPIH
+#define WEATHERAPIH
 #include <cstddef>
 #include <iostream>
 #include <stdlib.h>
@@ -32,3 +34,5 @@ std::string getValue(nlohmann::json& weatherByDay, std::string key);
 std::string getAddress(nlohmann::json& OutputData);
 
 std::string dayOfWeek(int year, int month, int day);
+
+#endif
