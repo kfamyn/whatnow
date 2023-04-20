@@ -14,14 +14,18 @@ class HourlyForecastLine : public QWidget
     Q_OBJECT
 public:
     HourlyForecastLine(QWidget* parent);
-    void setup(QString date, QString time, QString iconURL, QString precipitationProbability, QString currentTemperature);
+    void setup(QString date, QString time, QString iconURL, QString precipitationProbability, QString temperature);
 private:
     QLabel* createTextLabel(QString text, int fontSize, QFont::Weight weight, QString styleSheet, Qt::Alignment alignment, QSizePolicy::Policy policy1 = QSizePolicy::Preferred, QSizePolicy::Policy policy2 = QSizePolicy::Preferred);
     QLabel* createIconLabel(QString iconURL, int size);
+    void setupPrecipitationProbabilityLayout(QString& precipitationProbability);
+    void setupTemperatureLayout(QString& temperature);
+    void setupHourlyForecastLayout();
+
     QLabel* dateLabel;
     QLabel* timeLabel;
     QSpacerItem* iconVerticalSpacer;
-    QLabel* iconLabel;
+    QLabel* weatherIconLabel;
     QHBoxLayout* precipitationProbabilityLayout;
     QSpacerItem* precipitationProbabilityLeftSpacer;
     QLabel* precipitationProbabilityLabel;

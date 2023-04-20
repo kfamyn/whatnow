@@ -136,7 +136,7 @@ MainWindow::MainWindow(QWidget *parent)
     fadeWidget(forecastWidget, 0, 450);
 
     HourlyForecastLine* hourlyForecastLineTest = new HourlyForecastLine(ui->widget_2);
-    hourlyForecastLineTest->setup("23 MAR", "12AM", ":/weatherIcons/assets/weatherIcons/clear-day.png", "10", "15");
+    hourlyForecastLineTest->setup("23 MAR", "12AM", ":/weatherIcons/assets/weatherIcons/thunder-rain.png", "10", "15");
 }
 
 MainWindow::~MainWindow()
