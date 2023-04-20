@@ -118,5 +118,6 @@
     </qresource>
     <qresource prefix="/additionalWeatherIcons">
         <file>assets/additionalWeatherIcons/Precipitations.png</file>
+        <file>assets/additionalWeatherIcons/NoPrecipitations.png</file>
     </qresource>
 </RCC>
