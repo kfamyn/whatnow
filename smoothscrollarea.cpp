@@ -72,10 +72,11 @@ void SmoothScrollArea::setup()
 void SmoothScrollArea::setupContents(QWidget *contentsLayout, orientations orientation)
 {
     this->orientation = orientation;
-    this->setGeometry(0, 0, 677, 360); // !!!!!!!!!!!!!!!!!!
+    this->setGeometry(contentsLayout->geometry()); // !!!!!!!!!!!!!!!!!!
     this->setVerticalScrollBarPolicy( orientation == VERTICAL ? Qt::ScrollBarAlwaysOn : Qt::ScrollBarAlwaysOff);
     this->setHorizontalScrollBarPolicy( orientation == VERTICAL ? Qt::ScrollBarAlwaysOff : Qt::ScrollBarAlwaysOn);
     this->setWidget(contentsLayout);
+    this->setWidgetResizable(true);
 }
 
 bool SmoothScrollArea::eventFilter(QObject *object, QEvent *event){
