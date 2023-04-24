@@ -61,7 +61,8 @@ void SmoothScrollAreaWidget::setupHourlyForecast(Weather &weather)
     background = new QLabel(this);
     scrollAreaWidgetContents = new QWidget(this);
     QHBoxLayout* scrollLayout = new QHBoxLayout(scrollAreaWidgetContents);
-    scrollLayout->setSpacing(10);
+    scrollLayout->setSpacing(20);
+    scrollLayout->setContentsMargins(25, 0, 25, 0);
     std::time_t timeT = std::time(NULL);
     std::string timeStdString = std::ctime(&timeT);
     int currentHour = std::stoi(timeStdString.substr(timeStdString.size() - 14, 2));
