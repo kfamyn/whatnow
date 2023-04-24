@@ -2,10 +2,8 @@
 #define SMOOTHSCROLLAREAWIDGET_H
 
 #include "smoothscrollarea.h"
-#include "hourlyforecastline.h"
-#include "dailyforecastline.h"
 #include "weatherAPI.h"
-#include "format.hpp"
+#include <QLabel>
 
 class SmoothScrollAreaWidget : public QWidget
 {
@@ -22,6 +20,8 @@ private:
 
     void setupDailyForecast(Weather& weather);
     void setupHourlyForecast(Weather& weather);
+
+    void setupDailyForecastLines(Weather& weather);
 };
 
 #endif // SMOOTHSCROLLAREAWIDGET_H

@@ -1,4 +1,7 @@
 #include "smoothscrollareawidget.h"
+#include "hourlyforecastline.h"
+#include "dailyforecastline.h"
+#include "format.hpp"
 
 SmoothScrollAreaWidget::SmoothScrollAreaWidget(QWidget *parent): QWidget(parent){}
 
