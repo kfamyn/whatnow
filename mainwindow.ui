@@ -131,7 +131,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="assets.qrc">:/weatherIcons/assets/weatherIcons/Thunder.png</pixmap>
+     <pixmap resource="assets.qrc">:/weatherIcons/assets/weatherIcons/clear-night-full-moon.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -344,7 +344,7 @@ border: 0px;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QScrollArea" name="forecastScrollArea">
+   <widget class="QScrollArea" name="forecastScrollAreaSample">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -11323,7 +11323,7 @@ QScrollBar::sub-line:horizontal {
      </layout>
     </widget>
    </widget>
-   <widget class="QWidget" name="widget" native="true">
+   <widget class="QWidget" name="DailyForecastWidget" native="true">
     <property name="geometry">
      <rect>
       <x>114</x>
@@ -11333,7 +11333,7 @@ QScrollBar::sub-line:horizontal {
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="widget_3" native="true">
+   <widget class="QWidget" name="HourlyForecastLineSample" native="true">
     <property name="geometry">
      <rect>
       <x>504</x>
@@ -11655,7 +11655,7 @@ QScrollBar::sub-line:horizontal {
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="widget_7" native="true">
+   <widget class="QWidget" name="HourlyForecastWidget" native="true">
     <property name="geometry">
      <rect>
       <x>482</x>
@@ -11665,8 +11665,8 @@ QScrollBar::sub-line:horizontal {
      </rect>
     </property>
    </widget>
-   <zorder>widget_3</zorder>
-   <zorder>widget_7</zorder>
+   <zorder>forecastScrollAreaSample</zorder>
+   <zorder>HourlyForecastLineSample</zorder>
    <zorder>hourlyForecastScrollArea</zorder>
    <zorder>Bottom_Right_Corner_Background</zorder>
    <zorder>Background</zorder>
@@ -11677,9 +11677,9 @@ QScrollBar::sub-line:horizontal {
    <zorder>CurrentConditions</zorder>
    <zorder>ToolBar</zorder>
    <zorder>Exit</zorder>
-   <zorder>forecastScrollArea</zorder>
-   <zorder>widget</zorder>
+   <zorder>DailyForecastWidget</zorder>
    <zorder>Upper_Right_Corner_Background</zorder>
+   <zorder>HourlyForecastWidget</zorder>
   </widget>
  </widget>
  <resources>

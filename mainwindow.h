@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <weatherAPI.h>
+#include <smoothscrollareawidget.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,10 +16,20 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void fadeWidget(QWidget* widget, int mode, int duration);
 private slots:
     void on_Exit_clicked();
-
 private:
     Ui::MainWindow *ui;
+    Weather* weather;
+    SmoothScrollAreaWidget* hourlyForecastWidget;
+    SmoothScrollAreaWidget* dailyForecastWidget;
+
+    void setupAttributes();
+    void setupFonts();
+    void animateFadingIn();
+    void setupCurrentConditionsWidget();
+    void adjustCurrentTemperatureFont();
+    void fadeWidgetsIn();
 };
 #endif // MAINWINDOW_H
