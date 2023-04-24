@@ -26,7 +26,6 @@ MainWindow::MainWindow(QWidget *parent)
     hourlyForecastWidget = new SmoothScrollAreaWidget(ui->HourlyForecastWidget);
     hourlyForecastWidget->setup(*weather, SmoothScrollAreaWidget::HOURLYFORECAST);
     hourlyForecastWidget->setBackground(":/background/assets/backgrounds/Upper_Right_Corner_Background.png", QSize(677, 360));
-
     this->fadeWidgetsIn();
 }
 
@@ -114,18 +113,16 @@ void MainWindow::adjustCurrentTemperatureFont()
 
 void MainWindow::fadeWidgetsIn()
 {
-    fadeWidget(ui->CurrentTemperature, 0, 450);
-    fadeWidget(ui->DegreesCelcius, 0, 450);
-    fadeWidget(ui->CurrentConditions, 0, 450);
-    fadeWidget(ui->CurrentLocation, 0, 450);
-    fadeWidget(ui->forecastScrollAreaSample, 0, 450);
-    fadeWidget(ui->hourlyForecastScrollArea, 0, 450);
-    fadeWidget(ui->Exit, 0, 250);
-    fadeWidget(dailyForecastWidget, 0, 450);
-    fadeWidget(hourlyForecastWidget, 0, 450);
+    fadeWidget(ui->Exit, 0, 250)->start(QPropertyAnimation::DeleteWhenStopped);
+    fadeWidget(ui->CurrentTemperature, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
+    fadeWidget(ui->DegreesCelcius, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
+    fadeWidget(ui->CurrentConditions, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
+    fadeWidget(ui->CurrentLocation, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
+    fadeWidget(dailyForecastWidget, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
+    fadeWidget(hourlyForecastWidget, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
-void MainWindow::fadeWidget(QWidget* widget, int mode, int duration){ //0 - in, 1 - out
+QPropertyAnimation* MainWindow::fadeWidget(QWidget* widget, int mode, int duration){ //0 - in, 1 - out
     QGraphicsOpacityEffect *widgetOpacity = new QGraphicsOpacityEffect(widget);
     widget->setGraphicsEffect(widgetOpacity);
     QPropertyAnimation *widgetOpacityAnimation = new QPropertyAnimation(widgetOpacity, "opacity");
@@ -133,5 +130,5 @@ void MainWindow::fadeWidget(QWidget* widget, int mode, int duration){ //0 - in, 
     widgetOpacityAnimation->setStartValue(mode);
     widgetOpacityAnimation->setEndValue(1 - mode);
     widgetOpacityAnimation->setEasingCurve(QEasingCurve::InBack);
-    widgetOpacityAnimation->start(QPropertyAnimation::DeleteWhenStopped);
+    return widgetOpacityAnimation;
 }

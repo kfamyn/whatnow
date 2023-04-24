@@ -16,7 +16,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void fadeWidget(QWidget* widget, int mode, int duration);
+    QPropertyAnimation* fadeWidget(QWidget* widget, int mode, int duration);
 private slots:
     void on_Exit_clicked();
 private:
@@ -31,5 +31,6 @@ private:
     void setupCurrentConditionsWidget();
     void adjustCurrentTemperatureFont();
     void fadeWidgetsIn();
+    void msleep(int msec);
 };
 #endif // MAINWINDOW_H
