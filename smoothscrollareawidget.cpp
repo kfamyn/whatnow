@@ -1,9 +1,8 @@
-#include "hourlyforecastwidget.h"
+#include "smoothscrollareawidget.h"
 
+SmoothScrollAreaWidget::SmoothScrollAreaWidget(QWidget *parent): QWidget(parent){}
 
-HourlyForecastWidget::HourlyForecastWidget(QWidget *parent): QWidget(parent){}
-
-void HourlyForecastWidget::setup(Weather &weather, contents typeOfContents)
+void SmoothScrollAreaWidget::setup(Weather &weather, contents typeOfContents)
 {
     switch (typeOfContents){
     case DAILYFORECAST:
@@ -17,7 +16,7 @@ void HourlyForecastWidget::setup(Weather &weather, contents typeOfContents)
     }
 }
 
-void HourlyForecastWidget::setBackground(QString path, QSize size){
+void SmoothScrollAreaWidget::setBackground(QString path, QSize size){
     this->setFixedSize(size);
     background->setScaledContents(true);
     background->setFixedSize(size);
@@ -27,7 +26,7 @@ void HourlyForecastWidget::setBackground(QString path, QSize size){
     widgetScrollarea->setMask(mask);
 }
 
-void HourlyForecastWidget::setupDailyForecast(Weather &weather)
+void SmoothScrollAreaWidget::setupDailyForecast(Weather &weather)
 {
     background = new QLabel(this);
     scrollAreaWidgetContents = new QWidget(this);
@@ -49,13 +48,12 @@ void HourlyForecastWidget::setupDailyForecast(Weather &weather)
     }
     scrollAreaWidgetContents->setStyleSheet("background-color:transparent;");
     scrollAreaWidgetContents->setGeometry(0, 0, 340, 324); //default daily forecast geometry
-
     widgetScrollarea = new SmoothScrollArea(this);
     widgetScrollarea->setup();
     widgetScrollarea->setupContents(scrollAreaWidgetContents, SmoothScrollArea::VERTICAL);
 }
 
-void HourlyForecastWidget::setupHourlyForecast(Weather &weather)
+void SmoothScrollAreaWidget::setupHourlyForecast(Weather &weather)
 {
     background = new QLabel(this);
     scrollAreaWidgetContents = new QWidget(this);

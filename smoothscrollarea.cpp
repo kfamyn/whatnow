@@ -84,7 +84,7 @@ bool SmoothScrollArea::eventFilter(QObject *object, QEvent *event){
         QWheelEvent* wheelEvent = static_cast<QWheelEvent *>(event);
         QPoint numPixels = wheelEvent->angleDelta();
         QScrollBar* scrollBar = orientation == VERTICAL ? verticalScrollBar() : horizontalScrollBar();
-        int scrollByValue = orientation == VERTICAL ? numPixels.y() : numPixels.y();
+        int scrollByValue = orientation == VERTICAL ? numPixels.y() / 2 : numPixels.y();
         int endValue = calculateEndScrollBarValue(scrollByValue, scrollBar);
         if (smoothScrollingAnimation == NULL){
             smoothScrollingAnimation = new QPropertyAnimation(scrollBar, "value");

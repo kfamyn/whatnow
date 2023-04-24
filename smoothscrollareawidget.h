@@ -1,5 +1,5 @@
-#ifndef HOURLYFORECASTWIDGET_H
-#define HOURLYFORECASTWIDGET_H
+#ifndef SMOOTHSCROLLAREAWIDGET_H
+#define SMOOTHSCROLLAREAWIDGET_H
 
 #include "smoothscrollarea.h"
 #include "hourlyforecastline.h"
@@ -7,12 +7,12 @@
 #include "weatherAPI.h"
 #include "format.hpp"
 
-class HourlyForecastWidget : public QWidget
+class SmoothScrollAreaWidget : public QWidget
 {
     Q_OBJECT
 public:
     enum contents {DAILYFORECAST = 0, HOURLYFORECAST = 1, NEWS = 2};
-    HourlyForecastWidget(QWidget* parent);
+    SmoothScrollAreaWidget(QWidget* parent);
     void setup(Weather& weather, contents typeOfContents );
     void setBackground(QString path, QSize size);
 private:
@@ -24,4 +24,4 @@ private:
     void setupHourlyForecast(Weather& weather);
 };
 
-#endif // HOURLYFORECASTWIDGET_H
+#endif // SMOOTHSCROLLAREAWIDGET_H

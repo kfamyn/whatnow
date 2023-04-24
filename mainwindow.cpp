@@ -16,7 +16,7 @@
 #include <QSequentialAnimationGroup>
 #include "format.hpp"
 #include "dailyforecastwidget.h"
-#include "hourlyforecastwidget.h"
+#include "smoothscrollareawidget.h"
 
 void fadeWidget(QWidget* widget, int mode, int duration);
 
@@ -130,13 +130,13 @@ MainWindow::MainWindow(QWidget *parent)
     setHourlyForecastScrollBar(ui->hourlyForecastScrollArea->horizontalScrollBar());
 
     ui->forecastScrollArea->setVisible(false);
-    HourlyForecastWidget* forecastWidget = new HourlyForecastWidget(ui->widget);
-    forecastWidget->setup(Weather, HourlyForecastWidget::DAILYFORECAST);
+    SmoothScrollAreaWidget* forecastWidget = new SmoothScrollAreaWidget(ui->widget);
+    forecastWidget->setup(Weather, SmoothScrollAreaWidget::DAILYFORECAST);
     forecastWidget->setBackground(":/background/assets/backgrounds/Bottom_Left_Corner_Background.png", QSize(340, 324));
     fadeWidget(forecastWidget, 0, 450);
 
-    HourlyForecastWidget* hourlyForecastWidget = new HourlyForecastWidget(ui->widget_7);
-    hourlyForecastWidget->setup(Weather, HourlyForecastWidget::HOURLYFORECAST);
+    SmoothScrollAreaWidget* hourlyForecastWidget = new SmoothScrollAreaWidget(ui->widget_7);
+    hourlyForecastWidget->setup(Weather, SmoothScrollAreaWidget::HOURLYFORECAST);
     hourlyForecastWidget->setBackground(":/background/assets/backgrounds/Upper_Right_Corner_Background.png", QSize(677, 360));
     fadeWidget(hourlyForecastWidget, 0, 450);
 }
