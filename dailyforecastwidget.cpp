@@ -1,6 +1,6 @@
 #include "dailyforecastwidget.h"
 
-DailyForecastWidget::DailyForecastWidget(QWidget* parent) {
+DailyForecastWidget::DailyForecastWidget(QWidget* parent) : QWidget(parent) {
     widgetSize = QSize(340, 324);
     this->setParent(parent);
     this->setFixedSize(widgetSize);

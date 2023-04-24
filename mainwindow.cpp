@@ -130,15 +130,15 @@ MainWindow::MainWindow(QWidget *parent)
     setHourlyForecastScrollBar(ui->hourlyForecastScrollArea->horizontalScrollBar());
 
     ui->forecastScrollArea->setVisible(false);
-    DailyForecastWidget* forecastWidget = new DailyForecastWidget(ui->widget);
-    forecastWidget->setBackground(":/background/assets/backgrounds/Bottom_Left_Corner_Background.png");
-    forecastWidget->setForecast(Weather);
+    HourlyForecastWidget* forecastWidget = new HourlyForecastWidget(ui->widget);
+    forecastWidget->setup(Weather, HourlyForecastWidget::DAILYFORECAST);
+    forecastWidget->setBackground(":/background/assets/backgrounds/Bottom_Left_Corner_Background.png", QSize(340, 324));
     fadeWidget(forecastWidget, 0, 450);
 
     HourlyForecastWidget* hourlyForecastWidget = new HourlyForecastWidget(ui->widget_7);
-    hourlyForecastWidget->setup(Weather);
+    hourlyForecastWidget->setup(Weather, HourlyForecastWidget::HOURLYFORECAST);
     hourlyForecastWidget->setBackground(":/background/assets/backgrounds/Upper_Right_Corner_Background.png", QSize(677, 360));
-
+    fadeWidget(hourlyForecastWidget, 0, 450);
 }
 
 MainWindow::~MainWindow()
