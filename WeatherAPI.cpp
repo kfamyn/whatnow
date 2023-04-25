@@ -76,7 +76,7 @@ std::string request(std::string city) {
                 }));
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &result);
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-        curl_easy_setopt(curl, CURLOPT_USERAGENT, "simple scraper");
+        curl_easy_setopt(curl, CURLOPT_USERAGENT, "Weather getter");
         res_code = curl_easy_perform(curl);
         if (res_code != CURLE_OK) {
             return curl_easy_strerror(res_code);
