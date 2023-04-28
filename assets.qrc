@@ -112,6 +112,7 @@
         <file>assets/backgrounds/Grid_Template_4.png</file>
         <file>assets/backgrounds/sunWidgetBackground.png</file>
         <file>assets/backgrounds/calendarWidgetBackground.png</file>
+        <file>assets/backgrounds/gridTemplate.png</file>
     </qresource>
     <qresource prefix="/buttonIcons">
         <file>assets/buttonIcons/exitButton.png</file>
@@ -126,5 +127,8 @@
         <file>assets/additionalWeatherIcons/compass.png</file>
         <file>assets/additionalWeatherIcons/sun.png</file>
         <file>assets/additionalWeatherIcons/windDirectionArrow.png</file>
+        <file>assets/additionalWeatherIcons/sunCurve.png</file>
+        <file>assets/additionalWeatherIcons/temperatureGradient.png</file>
+        <file>assets/additionalWeatherIcons/thermometerMask.png</file>
     </qresource>
 </RCC>
