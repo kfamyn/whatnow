@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setupAttributes();
     this->setupFonts();
     this->animateFadingIn();
-    weather = new Weather("Saint-Petersburg");
+    weather = new Weather("Los-Angeles");
     this->setupCurrentConditionsWidget();
     this->adjustCurrentTemperatureFont();
 

@@ -2,8 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <weatherAPI.h>
-#include <smoothscrollareawidget.h>
+#include <QFontDatabase>
+#include <QPropertyAnimation>
+#include <QGraphicsOpacityEffect>
+#include <QSequentialAnimationGroup>
+#include "weatherAPI.h"
+#include "smoothscrollareawidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
