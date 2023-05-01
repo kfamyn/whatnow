@@ -1,9 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QFontDatabase>
-#include <QPropertyAnimation>
-#include <QGraphicsOpacityEffect>
-#include <QSequentialAnimationGroup>
+
 #include "smoothscrollareawidget.h"
 
 MainWindow::MainWindow(QWidget *parent)

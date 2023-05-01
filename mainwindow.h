@@ -5,7 +5,6 @@
 #include <QFontDatabase>
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
-#include <QSequentialAnimationGroup>
 #include "weatherAPI.h"
 #include "smoothscrollareawidget.h"
 
