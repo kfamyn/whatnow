@@ -15,7 +15,7 @@ void HourlyForecastLine::setup(QString date, QString time, QString iconURL, QStr
     setupHourlyForecastLayout();
 }
 
-void HourlyForecastLine::updateForecast(QString date, QString time, QString iconURL, QString precipitationProbability, QString temperature)
+void HourlyForecastLine::fill(QString date, QString time, QString iconURL, QString precipitationProbability, QString temperature)
 {
     this->dateLabel->setText(date);
     this->timeLabel->setText(time);
