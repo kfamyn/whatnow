@@ -79,6 +79,7 @@ void SmoothScrollAreaWidget::setupDailyForecast(Weather &weather)
     widgetScrollarea = new SmoothScrollArea(this);
     widgetScrollarea->setup();
     widgetScrollarea->setupContents(scrollAreaWidgetContents, SmoothScrollArea::VERTICAL);
+    scrollAreaWidgetContents->setCursor(Qt::PointingHandCursor);
 }
 
 void SmoothScrollAreaWidget::setupHourlyForecast(Weather &weather)
