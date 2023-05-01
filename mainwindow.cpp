@@ -24,6 +24,9 @@ MainWindow::MainWindow(QWidget *parent)
     hourlyForecastWidget->setup(*weather, SmoothScrollAreaWidget::HOURLYFORECAST);
     hourlyForecastWidget->setBackground(":/background/assets/backgrounds/Upper_Right_Corner_Background.png", QSize(677, 360));
     this->fadeWidgetsIn();
+    for (int index = 0; index < 14; ++index) {
+        QObject::connect(dailyForecastWidget->getDailyForecastLine(index), SIGNAL(linePressed(int)), hourlyForecastWidget, SLOT(setHourlyForecast(int)));
+    }
 }
 
 MainWindow::~MainWindow()

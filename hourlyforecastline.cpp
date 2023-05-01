@@ -15,6 +15,15 @@ void HourlyForecastLine::setup(QString date, QString time, QString iconURL, QStr
     setupHourlyForecastLayout();
 }
 
+void HourlyForecastLine::updateForecast(QString date, QString time, QString iconURL, QString precipitationProbability, QString temperature)
+{
+    this->dateLabel->setText(date);
+    this->timeLabel->setText(time);
+    this->weatherIconLabel->setPixmap(QPixmap(iconURL));
+    this->precipitationProbabilityLabel->setText(precipitationProbability.append("%"));
+    this->temperatureLabel->setText(temperature);
+}
+
 QLabel* HourlyForecastLine::createTextLabel(QString text, int fontSize, QFont::Weight weight, QString styleSheet, Qt::Alignment alignment, QSizePolicy::Policy policy1, QSizePolicy::Policy policy2)
 {
     QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");

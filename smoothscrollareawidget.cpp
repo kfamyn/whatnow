@@ -1,5 +1,4 @@
 #include "smoothscrollareawidget.h"
-#include "hourlyforecastline.h"
 #include "dailyforecastline.h"
 #include "format.hpp"
 
@@ -29,13 +28,33 @@ void SmoothScrollAreaWidget::setBackground(QString path, QSize size){
     widgetScrollarea->setMask(mask);
 }
 
+HourlyForecastLine *SmoothScrollAreaWidget::getHourlyForecastLine(int index)
+{
+    return hourlyForecastLines[index];
+}
+
+DailyForecastLine *SmoothScrollAreaWidget::getDailyForecastLine(int index)
+{
+    return dailyForecastLines[index];
+}
+
 void SmoothScrollAreaWidget::setHourlyForecast(int dayIndex)
 {
-    qDebug()<<dayIndex;
+    for (int index = 0; index < 24; ++index) {
+        QString iconURL = ":/weatherIcons/assets/weatherIcons/";
+        iconURL += QString::fromStdString(weather->getHourlyConditions(dayIndex, index, "icon"));
+        iconURL += ".png";
+        QString temperature = QString::fromStdString(formatTemperature(weather->getHourlyConditions(dayIndex, index, "temp")));
+        QString date = QString::fromStdString(formatDate(weather->getValue(dayIndex, "datetime")));
+        QString time = QString::fromStdString(formatTime(weather->getHourlyConditions(dayIndex, index, "datetime")));
+        QString precipitationProbability = QString::number(std::stoi(weather->getHourlyConditions(dayIndex, index, "precipprob")));
+        hourlyForecastLines[index]->updateForecast(date, time , iconURL, precipitationProbability, temperature);
+    }
 }
 
 void SmoothScrollAreaWidget::setupDailyForecast(Weather &weather)
 {
+    this->weather = &weather;
     background = new QLabel(this);
     scrollAreaWidgetContents = new QWidget(this);
     QVBoxLayout* scrollLayout = new QVBoxLayout(scrollAreaWidgetContents);
@@ -50,10 +69,10 @@ void SmoothScrollAreaWidget::setupDailyForecast(Weather &weather)
         int month = date.mid(5, 2).toInt();
         int day = date.mid(8, 2).toInt();
         QString dayOfWeek = QString::fromStdString(formatDayOfWeek(year, month, day));
-        DailyForecastLine* forecastLine = new DailyForecastLine(this);
-        forecastLine->setup(iconURL, temperatureDay, temperatureNight, dayOfWeek, index);
-        scrollLayout->addWidget(forecastLine);
-        QObject::connect(forecastLine, SIGNAL(linePressed(int)), this, SLOT(setHourlyForecast(int)));
+        dailyForecastLines[index] = new DailyForecastLine(this);
+        dailyForecastLines[index]->setup(iconURL, temperatureDay, temperatureNight, dayOfWeek, index);
+        scrollLayout->addWidget(dailyForecastLines[index]);
+        //QObject::connect(dailyForecastLines[index], SIGNAL(linePressed(int)), this, SLOT(setHourlyForecast(int)));
     }
     scrollAreaWidgetContents->setStyleSheet("background-color:transparent;");
     scrollAreaWidgetContents->setGeometry(0, 0, 340, 324); //default daily forecast geometry
@@ -64,6 +83,7 @@ void SmoothScrollAreaWidget::setupDailyForecast(Weather &weather)
 
 void SmoothScrollAreaWidget::setupHourlyForecast(Weather &weather)
 {
+    this->weather = &weather;
     background = new QLabel(this);
     scrollAreaWidgetContents = new QWidget(this);
     QHBoxLayout* scrollLayout = new QHBoxLayout(scrollAreaWidgetContents);
@@ -82,9 +102,9 @@ void SmoothScrollAreaWidget::setupHourlyForecast(Weather &weather)
         QString date = QString::fromStdString(formatDate(weather.getValue(dayToGet, "datetime")));
         QString time = QString::fromStdString(formatTime(weather.getHourlyConditions(dayToGet, hourToGet, "datetime")));
         QString precipitationProbability = QString::number(std::stoi(weather.getHourlyConditions(dayToGet, hourToGet, "precipprob")));
-        HourlyForecastLine* hourlyForecastLine = new HourlyForecastLine(this);
-        hourlyForecastLine->setup(date, time, iconURL, precipitationProbability, temperature);
-        scrollLayout->addWidget(hourlyForecastLine);
+        hourlyForecastLines[index] = new HourlyForecastLine(this);
+        hourlyForecastLines[index]->setup(date, time, iconURL, precipitationProbability, temperature);
+        scrollLayout->addWidget(hourlyForecastLines[index]);
     }
     scrollAreaWidgetContents->setStyleSheet("background-color:transparent;");
     scrollAreaWidgetContents->setGeometry(0, 0, 677, 360); //default hourly forecast geometry

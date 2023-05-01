@@ -2,7 +2,9 @@
 #define SMOOTHSCROLLAREAWIDGET_H
 
 #include "smoothscrollarea.h"
+#include "hourlyforecastline.h"
 #include "weatherAPI.h"
+#include "DailyForecastLine.h"
 #include <QLabel>
 
 class SmoothScrollAreaWidget : public QWidget
@@ -13,13 +15,17 @@ public:
     SmoothScrollAreaWidget(QWidget* parent);
     void setup(Weather& weather, contents typeOfContents );
     void setBackground(QString path, QSize size);
+    HourlyForecastLine* getHourlyForecastLine(int index);
+    DailyForecastLine* getDailyForecastLine(int index);
 public slots:
     void setHourlyForecast(int dayIndex);
 private:
+    Weather* weather;
+    QLabel* background;
+    HourlyForecastLine* hourlyForecastLines[24];
+    DailyForecastLine* dailyForecastLines[14];
     SmoothScrollArea* widgetScrollarea;
     QWidget* scrollAreaWidgetContents;
-    QLabel* background;
-
     void setupDailyForecast(Weather& weather);
     void setupHourlyForecast(Weather& weather);
 
