@@ -3,6 +3,9 @@
 
 #include "smoothscrollareawidget.h"
 
+#include <QSequentialAnimationGroup>
+#include <QSignalMapper>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -25,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     hourlyForecastWidget->setBackground(":/background/assets/backgrounds/Upper_Right_Corner_Background.png", QSize(677, 360));
     this->fadeWidgetsIn();
     for (int index = 0; index < 14; ++index) {
-        QObject::connect(dailyForecastWidget->getDailyForecastLine(index), SIGNAL(linePressed(int)), hourlyForecastWidget, SLOT(setHourlyForecast(int)));
+        QObject::connect(dailyForecastWidget->getDailyForecastLine(index), SIGNAL(linePressed(int)), this, SLOT(dailyForecastLinePressed(int)));
     }
 }
 
@@ -38,6 +41,34 @@ MainWindow::~MainWindow()
 void MainWindow::on_Exit_clicked()
 {
     qApp->exit();
+}
+
+void MainWindow::dailyForecastLinePressed(int dayIndex)
+{
+    QSignalMapper* signalMapper = new QSignalMapper(this) ;
+    QGraphicsOpacityEffect *widgetOpacity = new QGraphicsOpacityEffect(hourlyForecastWidget);
+    hourlyForecastWidget->setGraphicsEffect(widgetOpacity);
+
+    QPropertyAnimation *widgetOpacityAnimation1 = new QPropertyAnimation(widgetOpacity, "opacity");
+    widgetOpacityAnimation1->setDuration(200);
+    widgetOpacityAnimation1->setStartValue(1);
+    widgetOpacityAnimation1->setEndValue(0);
+    widgetOpacityAnimation1->setEasingCurve(QEasingCurve::OutBack);
+
+    QPropertyAnimation *widgetOpacityAnimation2 = new QPropertyAnimation(widgetOpacity, "opacity");
+    widgetOpacityAnimation2->setDuration(200);
+    widgetOpacityAnimation2->setStartValue(0);
+    widgetOpacityAnimation2->setEndValue(1);
+    widgetOpacityAnimation2->setEasingCurve(QEasingCurve::InBack);
+
+    QSequentialAnimationGroup* sequence = new QSequentialAnimationGroup(this);
+    sequence->addAnimation(widgetOpacityAnimation1);
+    sequence->addAnimation(widgetOpacityAnimation2);
+    sequence->start();
+    connect(widgetOpacityAnimation1, SIGNAL(finished()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(widgetOpacityAnimation1, dayIndex);
+    connect(signalMapper, SIGNAL(mappedInt(int)), hourlyForecastWidget, SLOT(setHourlyForecast(int)));
+
 }
 
 void MainWindow::setupAttributes()
@@ -127,8 +158,10 @@ QPropertyAnimation* MainWindow::fadeWidget(QWidget* widget, int mode, int durati
     widget->setGraphicsEffect(widgetOpacity);
     QPropertyAnimation *widgetOpacityAnimation = new QPropertyAnimation(widgetOpacity, "opacity");
     widgetOpacityAnimation->setDuration(duration);
-    widgetOpacityAnimation->setStartValue(mode);
-    widgetOpacityAnimation->setEndValue(1 - mode);
+    widgetOpacityAnimation->setStartValue(0);
+    widgetOpacityAnimation->setEndValue(1);
     widgetOpacityAnimation->setEasingCurve(QEasingCurve::InBack);
+    if (mode == 1)
+        widgetOpacityAnimation->setDirection(QPropertyAnimation::Backward);
     return widgetOpacityAnimation;
 }

@@ -23,6 +23,7 @@ public:
     QPropertyAnimation* fadeWidget(QWidget* widget, int mode, int duration);
 private slots:
     void on_Exit_clicked();
+    void dailyForecastLinePressed(int dayIndex);
 private:
     Ui::MainWindow *ui;
     Weather* weather;
