@@ -9,14 +9,18 @@
 #include <QFont>
 #include <QFontDatabase>
 #include <QEvent>
+#include <QObject>
 
 class DailyForecastLine : public QWidget
 {
     Q_OBJECT
 public:
     DailyForecastLine(QWidget* parent);
-    void setup(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek);
+    void setup(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek, int index);
+signals:
+    void linePressed(int lineIndex);
 private:
+    int index;
     QHBoxLayout *forecastLayout;
     QLabel *iconLabel;
     QLabel *temperatureLabelDay;

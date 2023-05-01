@@ -29,6 +29,11 @@ void SmoothScrollAreaWidget::setBackground(QString path, QSize size){
     widgetScrollarea->setMask(mask);
 }
 
+void SmoothScrollAreaWidget::setHourlyForecast(int dayIndex)
+{
+    qDebug()<<dayIndex;
+}
+
 void SmoothScrollAreaWidget::setupDailyForecast(Weather &weather)
 {
     background = new QLabel(this);
@@ -46,8 +51,9 @@ void SmoothScrollAreaWidget::setupDailyForecast(Weather &weather)
         int day = date.mid(8, 2).toInt();
         QString dayOfWeek = QString::fromStdString(formatDayOfWeek(year, month, day));
         DailyForecastLine* forecastLine = new DailyForecastLine(this);
-        forecastLine->setup(iconURL, temperatureDay, temperatureNight, dayOfWeek);
+        forecastLine->setup(iconURL, temperatureDay, temperatureNight, dayOfWeek, index);
         scrollLayout->addWidget(forecastLine);
+        QObject::connect(forecastLine, SIGNAL(linePressed(int)), this, SLOT(setHourlyForecast(int)));
     }
     scrollAreaWidgetContents->setStyleSheet("background-color:transparent;");
     scrollAreaWidgetContents->setGeometry(0, 0, 340, 324); //default daily forecast geometry

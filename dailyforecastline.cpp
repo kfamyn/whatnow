@@ -2,9 +2,10 @@
 
 DailyForecastLine::DailyForecastLine(QWidget* parent): QWidget(parent) {};
 
-void DailyForecastLine::setup(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek)
+void DailyForecastLine::setup(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek, int index)
 {
     this->setFixedSize(317, 50);
+    this->index = index;
     QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
     QFont SFPro = QFont("SF Pro Display", 22, 0);
 
@@ -65,6 +66,7 @@ void DailyForecastLine::setup(QString iconURL, QString temperatureDay, QString t
     forecastLayout->addWidget(iconLabel);
     forecastLayout->addLayout(temperatureLayout);
     forecastLayout->addWidget(dayOfWeekLabel);
+    this->installEventFilter(this);
 }
 
 QLabel* DailyForecastLine::createQLabel(QString text, QFont& font, int fontSize, QFont::Weight weight, float gradientStop, Qt::Alignment alignment, QSizePolicy::Policy policy1, QSizePolicy::Policy policy2){
@@ -83,6 +85,8 @@ QLabel* DailyForecastLine::createQLabel(QString text, QFont& font, int fontSize,
 }
 
 bool DailyForecastLine::eventFilter(QObject *object, QEvent *event){
-    qDebug()<<"event->type()";
+    if (event->type() == QEvent::MouseButtonPress){
+        emit linePressed(index);
+    }
     return QObject::eventFilter(object, event);
 }

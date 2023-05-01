@@ -13,6 +13,8 @@ public:
     SmoothScrollAreaWidget(QWidget* parent);
     void setup(Weather& weather, contents typeOfContents );
     void setBackground(QString path, QSize size);
+public slots:
+    void setHourlyForecast(int dayIndex);
 private:
     SmoothScrollArea* widgetScrollarea;
     QWidget* scrollAreaWidgetContents;
