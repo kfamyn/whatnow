@@ -17,6 +17,7 @@ class DailyForecastLine : public QWidget
 public:
     DailyForecastLine(QWidget* parent);
     void setup(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek, int index);
+    void fill(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek);
 signals:
     void linePressed(int lineIndex);
 private:

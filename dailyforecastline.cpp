@@ -69,6 +69,14 @@ void DailyForecastLine::setup(QString iconURL, QString temperatureDay, QString t
     this->installEventFilter(this);
 }
 
+void DailyForecastLine::fill(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek)
+{
+    iconLabel->setPixmap(QPixmap(iconURL));
+    temperatureLabelDay->setText(temperatureDay);
+    temperatureLabelNight->setText(temperatureNight);
+    dayOfWeekLabel->setText(dayOfWeek);
+}
+
 QLabel* DailyForecastLine::createQLabel(QString text, QFont& font, int fontSize, QFont::Weight weight, float gradientStop, Qt::Alignment alignment, QSizePolicy::Policy policy1, QSizePolicy::Policy policy2){
     QLabel* label = new QLabel(this);
     label->setText(text);
