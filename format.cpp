@@ -1,6 +1,6 @@
 #include "format.hpp"
 
-std::string formatDayOfWeek(int year, int month, int day)
+std::string formatDayOfWeek(int day, int month, int year)
 {
     static std::string daysOfWeek[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     static int monthIndex[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };

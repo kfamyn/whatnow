@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdlib.h>
 
-std::string formatDayOfWeek(int year, int month, int day);
+std::string formatDayOfWeek(int day, int month, int year);
 
 std::string formatDate(std::string rawDate);
 
