@@ -40,6 +40,14 @@ private:
 
     QLabel* createQLabel(QString text,QFont& font, int fontSize, QFont::Weight weight, float gradientStop, Qt::Alignment alignment, QSizePolicy::Policy policy1 = QSizePolicy::Preferred, QSizePolicy::Policy policy2 = QSizePolicy::Preferred);
     bool eventFilter(QObject *object, QEvent *event);
+
+    void setupIconLabel(QString &iconURL);
+    void setupCelciusLayoutDay();
+    void setupTemperatureLayoutDay();
+    void setupCelciusLabelNight();
+    void setupTemperatureLayoutNight();
+    void setupTemperatureLayout();
+    void setupForecastLayout();
 };
 
 #endif // DAILYFORECASTLINE_H

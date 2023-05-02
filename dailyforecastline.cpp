@@ -8,64 +8,21 @@ void DailyForecastLine::setup(QString iconURL, QString temperatureDay, QString t
     this->index = index;
     QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
     QFont SFPro = QFont("SF Pro Display", 22, 0);
-
-    iconLabel = new QLabel(this);
-    iconLabel->setPixmap(QPixmap(iconURL));
-    iconLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    iconLabel->setFixedSize(50, 50);
-    iconLabel->setScaledContents(true);
-    iconLabel->setAlignment(Qt::AlignVCenter | Qt::AlignCenter);
-
+    setupIconLabel(iconURL);
     temperatureLabelDay = createQLabel(temperatureDay, SFPro, 22, QFont::DemiBold, 0.9, Qt::AlignVCenter | Qt::AlignRight);
     temperatureLabelDay->setMinimumSize(45, 46);
-
     celciusLabelDay = createQLabel("°C", SFPro, 14, QFont::Normal, 0.6, Qt::AlignVCenter | Qt::AlignLeft);
-
-    celciusLayoutDay = new QVBoxLayout();
-    celciusLayoutDay->setSpacing(0);
-    celciusLayoutDay->addWidget(celciusLabelDay);
-    celciusLayoutDay->setContentsMargins(0, 0, 0, 10);
-
-    temperatureLayoutDay = new QHBoxLayout();
-    temperatureLayoutDay->setSpacing(0);
-    temperatureLayoutDay->addWidget(temperatureLabelDay);
-    temperatureLayoutDay->addLayout(celciusLayoutDay);
-
+    setupCelciusLayoutDay();
+    setupTemperatureLayoutDay();
     slashLabel = createQLabel("/", SFPro, 17, QFont::Normal, 0.3, Qt::AlignVCenter | Qt::AlignCenter);
     temperatureLabelNight = createQLabel(temperatureNight, SFPro, 17, QFont::DemiBold, 0.3, Qt::AlignVCenter | Qt::AlignLeft, QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     celciusLabelNight = createQLabel("°C", SFPro, 12, QFont::Normal, 0.6, Qt::AlignVCenter | Qt::AlignLeft);
-
-    celciusLayoutNight = new QVBoxLayout();
-    celciusLayoutNight->setSpacing(0);
-    celciusLayoutNight->addWidget(celciusLabelNight);
-    celciusLayoutNight->setContentsMargins(0, 0, 0, 8);
-
-    temperatureLayoutNight = new QHBoxLayout();
-    temperatureLayoutNight->setSpacing(0);
-    temperatureLayoutNight->setContentsMargins(5, 0, 0, 0);
-    temperatureLayoutNight->addWidget(temperatureLabelNight);
-    temperatureLayoutNight->addLayout(celciusLayoutNight);
-    temperatureLayoutNight->setStretch(0, 1);
-    temperatureLayoutNight->setStretch(1, 9);
-
-    temperatureLayout = new QHBoxLayout();
-    temperatureLayout->setSpacing(0);
-    temperatureLayout->addLayout(temperatureLayoutDay);
-    temperatureLayout->addWidget(slashLabel);
-    temperatureLayout->addLayout(temperatureLayoutNight);
-
+    setupCelciusLabelNight();
+    setupTemperatureLayoutNight();
+    setupTemperatureLayout();
     dayOfWeekLabel = createQLabel(dayOfWeek, SFPro, 14, QFont::Normal, 0.9, Qt::AlignVCenter | Qt::AlignCenter, QSizePolicy::Fixed, QSizePolicy::Fixed);
     dayOfWeekLabel->setFixedSize(105, 50);
-
-    forecastLayout = new QHBoxLayout(this);
-    forecastLayout->setSpacing(2);
-    forecastLayout->setContentsMargins(12, 0, 0, 0);
-    forecastLayout->setStretch(0, 0);
-    forecastLayout->setStretch(1, 0);
-    forecastLayout->setStretch(2, 1);
-    forecastLayout->addWidget(iconLabel);
-    forecastLayout->addLayout(temperatureLayout);
-    forecastLayout->addWidget(dayOfWeekLabel);
+    setupForecastLayout();
     this->installEventFilter(this);
 }
 
@@ -97,4 +54,71 @@ bool DailyForecastLine::eventFilter(QObject *object, QEvent *event){
         emit linePressed(index);
     }
     return QObject::eventFilter(object, event);
+}
+
+void DailyForecastLine::setupIconLabel(QString &iconURL)
+{
+    iconLabel = new QLabel(this);
+    iconLabel->setPixmap(QPixmap(iconURL));
+    iconLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    iconLabel->setFixedSize(50, 50);
+    iconLabel->setScaledContents(true);
+    iconLabel->setAlignment(Qt::AlignVCenter | Qt::AlignCenter);
+}
+
+void DailyForecastLine::setupCelciusLayoutDay()
+{
+    celciusLayoutDay = new QVBoxLayout();
+    celciusLayoutDay->setSpacing(0);
+    celciusLayoutDay->addWidget(celciusLabelDay);
+    celciusLayoutDay->setContentsMargins(0, 0, 0, 10);
+}
+
+void DailyForecastLine::setupTemperatureLayoutDay()
+{
+    temperatureLayoutDay = new QHBoxLayout();
+    temperatureLayoutDay->setSpacing(0);
+    temperatureLayoutDay->addWidget(temperatureLabelDay);
+    temperatureLayoutDay->addLayout(celciusLayoutDay);
+}
+
+void DailyForecastLine::setupCelciusLabelNight()
+{
+    celciusLayoutNight = new QVBoxLayout();
+    celciusLayoutNight->setSpacing(0);
+    celciusLayoutNight->addWidget(celciusLabelNight);
+    celciusLayoutNight->setContentsMargins(0, 0, 0, 8);
+}
+
+void DailyForecastLine::setupTemperatureLayoutNight()
+{
+    temperatureLayoutNight = new QHBoxLayout();
+    temperatureLayoutNight->setSpacing(0);
+    temperatureLayoutNight->setContentsMargins(5, 0, 0, 0);
+    temperatureLayoutNight->addWidget(temperatureLabelNight);
+    temperatureLayoutNight->addLayout(celciusLayoutNight);
+    temperatureLayoutNight->setStretch(0, 1);
+    temperatureLayoutNight->setStretch(1, 9);
+}
+
+void DailyForecastLine::setupTemperatureLayout()
+{
+    temperatureLayout = new QHBoxLayout();
+    temperatureLayout->setSpacing(0);
+    temperatureLayout->addLayout(temperatureLayoutDay);
+    temperatureLayout->addWidget(slashLabel);
+    temperatureLayout->addLayout(temperatureLayoutNight);
+}
+
+void DailyForecastLine::setupForecastLayout()
+{
+    forecastLayout = new QHBoxLayout(this);
+    forecastLayout->setSpacing(2);
+    forecastLayout->setContentsMargins(12, 0, 0, 0);
+    forecastLayout->setStretch(0, 0);
+    forecastLayout->setStretch(1, 0);
+    forecastLayout->setStretch(2, 1);
+    forecastLayout->addWidget(iconLabel);
+    forecastLayout->addLayout(temperatureLayout);
+    forecastLayout->addWidget(dayOfWeekLabel);
 }
