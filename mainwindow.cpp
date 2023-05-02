@@ -49,25 +49,25 @@ void MainWindow::dailyForecastLinePressed(int dayIndex)
     QGraphicsOpacityEffect *hourlyForecastWidgetOpacity = new QGraphicsOpacityEffect(hourlyForecastWidget);
     hourlyForecastWidget->setGraphicsEffect(hourlyForecastWidgetOpacity);
 
-    QPropertyAnimation *hourlyForecastWidgetOpacityAnimation1 = new QPropertyAnimation(hourlyForecastWidgetOpacity, "opacity");
-    hourlyForecastWidgetOpacityAnimation1->setDuration(200);
-    hourlyForecastWidgetOpacityAnimation1->setStartValue(1);
-    hourlyForecastWidgetOpacityAnimation1->setEndValue(0);
-    hourlyForecastWidgetOpacityAnimation1->setEasingCurve(QEasingCurve::OutBack);
+    QPropertyAnimation *hourlyForecastWidgetFadeOut = new QPropertyAnimation(hourlyForecastWidgetOpacity, "opacity");
+    hourlyForecastWidgetFadeOut->setDuration(200);
+    hourlyForecastWidgetFadeOut->setStartValue(1);
+    hourlyForecastWidgetFadeOut->setEndValue(0);
+    hourlyForecastWidgetFadeOut->setEasingCurve(QEasingCurve::OutBack);
 
-    QPropertyAnimation *hourlyForecastWidgetOpacityAnimation2 = new QPropertyAnimation(hourlyForecastWidgetOpacity, "opacity");
-    hourlyForecastWidgetOpacityAnimation2->setDuration(200);
-    hourlyForecastWidgetOpacityAnimation2->setStartValue(0);
-    hourlyForecastWidgetOpacityAnimation2->setEndValue(1);
-    hourlyForecastWidgetOpacityAnimation2->setEasingCurve(QEasingCurve::InBack);
+    QPropertyAnimation *hourlyForecastWidgetFadeIn = new QPropertyAnimation(hourlyForecastWidgetOpacity, "opacity");
+    hourlyForecastWidgetFadeIn->setDuration(200);
+    hourlyForecastWidgetFadeIn->setStartValue(0);
+    hourlyForecastWidgetFadeIn->setEndValue(1);
+    hourlyForecastWidgetFadeIn->setEasingCurve(QEasingCurve::InBack);
 
     QSequentialAnimationGroup* animationSequence = new QSequentialAnimationGroup(this);
-    animationSequence->addAnimation(hourlyForecastWidgetOpacityAnimation1);
-    animationSequence->addAnimation(hourlyForecastWidgetOpacityAnimation2);
+    animationSequence->addAnimation(hourlyForecastWidgetFadeOut);
+    animationSequence->addAnimation(hourlyForecastWidgetFadeIn);
     animationSequence->start();
 
-    connect(hourlyForecastWidgetOpacityAnimation1, SIGNAL(finished()), signalMapper, SLOT(map()));
-    signalMapper->setMapping(hourlyForecastWidgetOpacityAnimation1, dayIndex);
+    connect(hourlyForecastWidgetFadeOut, SIGNAL(finished()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(hourlyForecastWidgetFadeOut, dayIndex);
     connect(signalMapper, SIGNAL(mappedInt(int)), hourlyForecastWidget, SLOT(updateHourlyForecast(int)));
 
 }
