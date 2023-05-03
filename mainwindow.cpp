@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include "smoothscrollareawidget.h"
-
+#include "dailyforecastwidget.h"
 #include <QSequentialAnimationGroup>
 #include <QSignalMapper>
 
@@ -19,8 +19,8 @@ MainWindow::MainWindow(QWidget *parent)
     this->adjustCurrentTemperatureFont();
 
     ui->forecastScrollAreaSample->setVisible(false);
-    dailyForecastWidget = new SmoothScrollAreaWidget(ui->DailyForecastWidget);
-    dailyForecastWidget->setup(*weather, SmoothScrollAreaWidget::DAILYFORECAST);
+    dailyForecastWidget = new DailyForecastWidget(ui->DailyForecastWidget);
+    dailyForecastWidget->setup(*weather);
     dailyForecastWidget->setBackground(":/background/assets/backgrounds/Bottom_Left_Corner_Background.png", QSize(340, 324));
 
     hourlyForecastWidget = new SmoothScrollAreaWidget(ui->HourlyForecastWidget);
@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     hourlyForecastWidget->setBackground(":/background/assets/backgrounds/Upper_Right_Corner_Background.png", QSize(677, 360));
     this->fadeWidgetsIn();
     for (int index = 0; index < 14; ++index) {
-        QObject::connect(dailyForecastWidget->getDailyForecastLine(index), SIGNAL(linePressed(int)), this, SLOT(dailyForecastLinePressed(int)));
+        QObject::connect(dailyForecastWidget->getLine(index), SIGNAL(linePressed(int)), this, SLOT(dailyForecastLinePressed(int)));
     }
 }
 
@@ -150,7 +150,7 @@ void MainWindow::fadeWidgetsIn()
     fadeWidget(ui->DegreesCelcius, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
     fadeWidget(ui->CurrentConditions, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
     fadeWidget(ui->CurrentLocation, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
-    fadeWidget(dailyForecastWidget, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
+    //fadeWidget(dailyForecastWidget, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
     fadeWidget(hourlyForecastWidget, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
