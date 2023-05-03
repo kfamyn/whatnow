@@ -12,21 +12,25 @@ CONFIG += c++17
 SOURCES += \
     WeatherAPI.cpp \
     dailyforecastline.cpp \
+    dailyforecastwidget.cpp \
     format.cpp \
     hourlyforecastline.cpp \
     main.cpp \
     mainwindow.cpp \
     smoothscrollarea.cpp \
     smoothscrollareawidget.cpp \
-    weatherAPI.h
+    weatherAPI.h \
+    weatherwidget.cpp
 
 HEADERS += \
     dailyforecastline.h \
+    dailyforecastwidget.h \
     format.hpp \
     hourlyforecastline.h \
     mainwindow.h \
     smoothscrollarea.h \
-    smoothscrollareawidget.h
+    smoothscrollareawidget.h \
+    weatherwidget.h
 
 FORMS += \
     mainwindow.ui
