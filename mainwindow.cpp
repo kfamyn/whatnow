@@ -1,8 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
-#include "smoothscrollareawidget.h"
-#include "dailyforecastwidget.h"
 #include <QSequentialAnimationGroup>
 #include <QSignalMapper>
 
@@ -14,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setupAttributes();
     this->setupFonts();
     this->animateFadingIn();
-    weather = new Weather("Los-Angeles");
+    weather = new Weather("Saint-Petersburg");
     this->setupCurrentConditionsWidget();
     this->adjustCurrentTemperatureFont();
 
@@ -30,6 +27,13 @@ MainWindow::MainWindow(QWidget *parent)
     for (int index = 0; index < 14; ++index) {
         QObject::connect(dailyForecastWidget->getLine(index), SIGNAL(linePressed(int)), this, SLOT(dailyForecastLinePressed(int)));
     }
+
+    ui->label->setVisible(false);
+    ui->widget->setVisible(false);
+    feelsLikeWidget = new FeelsLikeWidget(ui->label_20);
+    feelsLikeWidget->setup(weather);
+    feelsLikeWidget->setHeader("FEELS LIKE");
+    feelsLikeWidget->setBackground(":/background/assets/backgrounds/smallWidgetBackground.png", QSize(132, 132));
 }
 
 MainWindow::~MainWindow()

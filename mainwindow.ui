@@ -11746,7 +11746,7 @@ QScrollBar::sub-line:horizontal {
      <rect>
       <x>538</x>
       <y>495</y>
-      <width>71</width>
+      <width>101</width>
       <height>16</height>
      </rect>
     </property>
@@ -11768,7 +11768,7 @@ QScrollBar::sub-line:horizontal {
      <rect>
       <x>683</x>
       <y>495</y>
-      <width>71</width>
+      <width>101</width>
       <height>16</height>
      </rect>
     </property>
@@ -11788,9 +11788,9 @@ QScrollBar::sub-line:horizontal {
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>513</x>
+      <x>523</x>
       <y>507</y>
-      <width>151</width>
+      <width>131</width>
       <height>78</height>
      </rect>
     </property>
@@ -11843,7 +11843,7 @@ QScrollBar::sub-line:horizontal {
           <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:273, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
          </property>
          <property name="text">
-          <string>-28</string>
+          <string>14</string>
          </property>
          <property name="scaledContents">
           <bool>false</bool>
@@ -12161,9 +12161,9 @@ chance of rain or snow throughout the day.</string>
    <widget class="QLabel" name="label_19">
     <property name="geometry">
      <rect>
-      <x>536</x>
+      <x>538</x>
       <y>587</y>
-      <width>104</width>
+      <width>100</width>
       <height>5</height>
      </rect>
     </property>
@@ -12175,6 +12175,22 @@ chance of rain or snow throughout the day.</string>
     </property>
     <property name="pixmap">
      <pixmap resource="assets.qrc">:/additionalWeatherIcons/assets/additionalWeatherIcons/thermometerMask.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_20">
+    <property name="geometry">
+     <rect>
+      <x>522</x>
+      <y>484</y>
+      <width>132</width>
+      <height>132</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -12214,6 +12230,7 @@ chance of rain or snow throughout the day.</string>
    <zorder>label_17</zorder>
    <zorder>label_18</zorder>
    <zorder>label_19</zorder>
+   <zorder>label_20</zorder>
   </widget>
  </widget>
  <resources>

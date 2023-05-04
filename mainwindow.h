@@ -7,10 +7,10 @@
 #include <QGraphicsOpacityEffect>
 #include <QObject>
 #include "weatherAPI.h"
-#include "smoothscrollareawidget.h"
 #include "weatherwidget.h"
 #include "dailyforecastwidget.h"
 #include "hourlyforecastwidget.h"
+#include "feelslikewidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -32,6 +32,7 @@ private:
     Weather* weather;
     HourlyForecastWidget* hourlyForecastWidget;
     DailyForecastWidget* dailyForecastWidget;
+    FeelsLikeWidget* feelsLikeWidget;
 
     void setupAttributes();
     void setupFonts();
