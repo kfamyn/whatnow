@@ -23,8 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     dailyForecastWidget->setup(*weather);
     dailyForecastWidget->setBackground(":/background/assets/backgrounds/Bottom_Left_Corner_Background.png", QSize(340, 324));
 
-    hourlyForecastWidget = new SmoothScrollAreaWidget(ui->HourlyForecastWidget);
-    hourlyForecastWidget->setup(*weather, SmoothScrollAreaWidget::HOURLYFORECAST);
+    hourlyForecastWidget = new HourlyForecastWidget(ui->HourlyForecastWidget);
+    hourlyForecastWidget->setup(*weather);
     hourlyForecastWidget->setBackground(":/background/assets/backgrounds/Upper_Right_Corner_Background.png", QSize(677, 360));
     this->fadeWidgetsIn();
     for (int index = 0; index < 14; ++index) {
@@ -69,7 +69,6 @@ void MainWindow::dailyForecastLinePressed(int dayIndex)
     connect(hourlyForecastWidgetFadeOut, SIGNAL(finished()), signalMapper, SLOT(map()));
     signalMapper->setMapping(hourlyForecastWidgetFadeOut, dayIndex);
     connect(signalMapper, SIGNAL(mappedInt(int)), hourlyForecastWidget, SLOT(updateHourlyForecast(int)));
-
 }
 
 void MainWindow::setupAttributes()
@@ -150,7 +149,7 @@ void MainWindow::fadeWidgetsIn()
     fadeWidget(ui->DegreesCelcius, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
     fadeWidget(ui->CurrentConditions, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
     fadeWidget(ui->CurrentLocation, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
-    //fadeWidget(dailyForecastWidget, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
+    fadeWidget(dailyForecastWidget, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
     fadeWidget(hourlyForecastWidget, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
 }
 

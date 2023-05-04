@@ -8,8 +8,9 @@
 #include <QObject>
 #include "weatherAPI.h"
 #include "smoothscrollareawidget.h"
-#include "dailyforecastwidget.h"
 #include "weatherwidget.h"
+#include "dailyforecastwidget.h"
+#include "hourlyforecastwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -29,7 +30,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Weather* weather;
-    SmoothScrollAreaWidget* hourlyForecastWidget;
+    HourlyForecastWidget* hourlyForecastWidget;
     DailyForecastWidget* dailyForecastWidget;
 
     void setupAttributes();
