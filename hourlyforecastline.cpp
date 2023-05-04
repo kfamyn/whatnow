@@ -80,6 +80,7 @@ void HourlyForecastLine::setupTemperatureLayout(QString& temperature)
     temperatureRightSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     temperatureLayout = new QHBoxLayout();
+    temperatureLayout->setSpacing(0);
     temperatureLayout->addSpacerItem(temperatureLeftSpacer);
     temperatureLayout->addWidget(temperatureLabel);
     temperatureLayout->addLayout(celciusLayout);
