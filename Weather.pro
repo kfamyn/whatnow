@@ -19,7 +19,6 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     smoothscrollarea.cpp \
-    smoothscrollareawidget.cpp \
     weatherAPI.h \
     weatherwidget.cpp
 
@@ -31,7 +30,6 @@ HEADERS += \
     hourlyforecastwidget.h \
     mainwindow.h \
     smoothscrollarea.h \
-    smoothscrollareawidget.h \
     weatherwidget.h
 
 FORMS += \
