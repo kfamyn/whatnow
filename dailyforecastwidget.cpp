@@ -24,9 +24,7 @@ void DailyForecastWidget::setup(Weather &weather)
 void DailyForecastWidget::fillDailyForecast()
 {
     for (int index = 0; index < 14; ++index) {
-        QString iconURL = ":/weatherIcons/assets/weatherIcons/";
-        iconURL += QString::fromStdString(weather->getValue(index, "icon"));
-        iconURL += ".png";
+        QString iconURL = createIconURL(index);
         QString temperatureDay = QString::number(std::stoi(weather->getValue(index, "tempmax")));
         QString temperatureNight = QString::number(std::stoi(weather->getValue(index, "tempmin")));
         QString date = QString::fromStdString(weather->getValue(index, "datetime"));

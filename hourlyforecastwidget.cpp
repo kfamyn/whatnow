@@ -29,9 +29,7 @@ void HourlyForecastWidget::updateHourlyForecast(int dayIndex)
     }
     else {
         for (int index = 0; index < 24; ++index) {
-            QString iconURL = ":/weatherIcons/assets/weatherIcons/";
-            iconURL += QString::fromStdString(weather->getHourlyConditions(dayIndex, index, "icon"));
-            iconURL += ".png";
+            QString iconURL = createIconURL(dayIndex, index);
             QString temperature = QString::fromStdString(formatTemperature(weather->getHourlyConditions(dayIndex, index, "temp")));
             QString date = QString::fromStdString(formatDate(weather->getValue(dayIndex, "datetime")));
             QString time = QString::fromStdString(formatTime(weather->getHourlyConditions(dayIndex, index, "datetime")));
@@ -49,9 +47,7 @@ void HourlyForecastWidget::fillCurrentHourlyForecast()
     for (int index = 0; index < 24; ++index) {
         int hourToGet = (currentHour + index) % 24;
         int dayToGet = (currentHour + index) / 24;
-        QString iconURL = ":/weatherIcons/assets/weatherIcons/";
-        iconURL += QString::fromStdString(weather->getHourlyConditions(dayToGet, hourToGet, "icon"));
-        iconURL += ".png";
+        QString iconURL = createIconURL(dayToGet, hourToGet);
         QString temperature = QString::fromStdString(formatTemperature(weather->getHourlyConditions(dayToGet, hourToGet, "temp")));
         QString date = QString::fromStdString(formatDate(weather->getValue(dayToGet, "datetime")));
         QString time = QString::fromStdString(formatTime(weather->getHourlyConditions(dayToGet, hourToGet, "datetime")));

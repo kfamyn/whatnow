@@ -22,6 +22,8 @@ protected:
     QVector<typeOfContents*> forecastLines;
     QWidget* scrollAreaWidgetContents;
     SmoothScrollArea* widgetScrollarea;
+    QString createIconURL(int day, int hour);
+    QString createIconURL(int day);
 };
 
 template<typename typeOfContents>
@@ -51,6 +53,26 @@ template<typename typeOfContents>
 QWidget *WeatherWidget<typeOfContents>::getWidgetContents()
 {
     return scrollAreaWidgetContents;
+}
+
+template<typename typeOfContents>
+QString WeatherWidget<typeOfContents>::createIconURL(int day, int hour)
+{
+    QString iconURL;
+    iconURL.append(":/weatherIcons/assets/weatherIcons/");
+    iconURL.append(QString::fromStdString(weather->getHourlyConditions(day, hour, "icon")));
+    iconURL.append(".png");
+    return iconURL;
+}
+
+template<typename typeOfContents>
+QString WeatherWidget<typeOfContents>::createIconURL(int day)
+{
+    QString iconURL;
+    iconURL.append(":/weatherIcons/assets/weatherIcons/");
+    iconURL.append(QString::fromStdString(weather->getValue(day, "icon")));
+    iconURL.append(".png");
+    return iconURL;
 }
 
 #endif // WEATHERWIDGET_H
