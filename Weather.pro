@@ -4,6 +4,7 @@ QT += gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
+CONFIG += rtti
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -13,21 +14,24 @@ SOURCES += \
     WeatherAPI.cpp \
     dailyforecastline.cpp \
     dailyforecastwidget.cpp \
+    feelslikewidget.cpp \
     format.cpp \
     hourlyforecastline.cpp \
     hourlyforecastwidget.cpp \
+    informationwidget.cpp \
     main.cpp \
     mainwindow.cpp \
     smoothscrollarea.cpp \
-    weatherAPI.h \
-    weatherwidget.cpp
+    weatherAPI.h
 
 HEADERS += \
     dailyforecastline.h \
     dailyforecastwidget.h \
+    feelslikewidget.h \
     format.hpp \
     hourlyforecastline.h \
     hourlyforecastwidget.h \
+    informationwidget.h \
     mainwindow.h \
     smoothscrollarea.h \
     weatherwidget.h
