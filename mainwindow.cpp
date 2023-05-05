@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setupAttributes();
     this->setupFonts();
     this->animateFadingIn();
-    weather = new Weather("Saint-Petersburg");
+    weather = new Weather("saint petersburg");
     this->setupCurrentConditionsWidget();
     this->adjustCurrentTemperatureFont();
 
@@ -53,17 +53,9 @@ void MainWindow::dailyForecastLinePressed(int dayIndex)
     QGraphicsOpacityEffect *hourlyForecastWidgetOpacity = new QGraphicsOpacityEffect(hourlyForecastWidget);
     hourlyForecastWidget->setGraphicsEffect(hourlyForecastWidgetOpacity);
 
-    QPropertyAnimation *hourlyForecastWidgetFadeOut = new QPropertyAnimation(hourlyForecastWidgetOpacity, "opacity");
-    hourlyForecastWidgetFadeOut->setDuration(200);
-    hourlyForecastWidgetFadeOut->setStartValue(1);
-    hourlyForecastWidgetFadeOut->setEndValue(0);
-    hourlyForecastWidgetFadeOut->setEasingCurve(QEasingCurve::OutBack);
+    QPropertyAnimation *hourlyForecastWidgetFadeOut = widgetFadeAnimation(hourlyForecastWidgetOpacity, 200, QEasingCurve::OutBack, QAbstractAnimation::Backward);
 
-    QPropertyAnimation *hourlyForecastWidgetFadeIn = new QPropertyAnimation(hourlyForecastWidgetOpacity, "opacity");
-    hourlyForecastWidgetFadeIn->setDuration(200);
-    hourlyForecastWidgetFadeIn->setStartValue(0);
-    hourlyForecastWidgetFadeIn->setEndValue(1);
-    hourlyForecastWidgetFadeIn->setEasingCurve(QEasingCurve::InBack);
+    QPropertyAnimation *hourlyForecastWidgetFadeIn = widgetFadeAnimation(hourlyForecastWidgetOpacity, 200, QEasingCurve::InBack, QAbstractAnimation::Forward);
 
     QSequentialAnimationGroup* animationSequence = new QSequentialAnimationGroup(this);
     animationSequence->addAnimation(hourlyForecastWidgetFadeOut);
@@ -155,6 +147,16 @@ void MainWindow::fadeWidgetsIn()
     fadeWidget(ui->CurrentLocation, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
     fadeWidget(dailyForecastWidget, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
     fadeWidget(hourlyForecastWidget, 0, 450)->start(QPropertyAnimation::DeleteWhenStopped);
+}
+
+QPropertyAnimation *MainWindow::widgetFadeAnimation(QGraphicsEffect *widgetGraphicsEffect, int duration, QEasingCurve easingCurve, QAbstractAnimation::Direction direction)
+{
+    QPropertyAnimation *widgetFadeAnimation = new QPropertyAnimation(widgetGraphicsEffect, "opacity");
+    widgetFadeAnimation->setDuration(duration);
+    widgetFadeAnimation->setStartValue(direction);
+    widgetFadeAnimation->setEndValue(1 - direction);
+    widgetFadeAnimation->setEasingCurve(easingCurve);
+    return widgetFadeAnimation;
 }
 
 QPropertyAnimation* MainWindow::fadeWidget(QWidget* widget, int mode, int duration){ //0 - in, 1 - out

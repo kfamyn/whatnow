@@ -19,7 +19,6 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -41,5 +40,7 @@ private:
     void adjustCurrentTemperatureFont();
     void fadeWidgetsIn();
     void msleep(int msec);
+
+    QPropertyAnimation* widgetFadeAnimation(QGraphicsEffect* widgetGraphicsEffect, int duration, QEasingCurve easingCurve, QAbstractAnimation::Direction direction = QAbstractAnimation::Forward);
 };
 #endif // MAINWINDOW_H
