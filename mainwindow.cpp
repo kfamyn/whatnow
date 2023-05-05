@@ -64,7 +64,9 @@ void MainWindow::dailyForecastLinePressed(int dayIndex)
 
     connect(hourlyForecastWidgetFadeOut, SIGNAL(finished()), signalMapper, SLOT(map()));
     signalMapper->setMapping(hourlyForecastWidgetFadeOut, dayIndex);
+    signalMapper->setMapping(feelsLikeWidget, dayIndex);
     connect(signalMapper, SIGNAL(mappedInt(int)), hourlyForecastWidget, SLOT(updateHourlyForecast(int)));
+    connect(signalMapper, SIGNAL(mappedInt(int)), feelsLikeWidget, SLOT(updateInfo(int)));
 }
 
 void MainWindow::setupAttributes()
