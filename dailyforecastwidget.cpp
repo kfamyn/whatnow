@@ -16,7 +16,6 @@ void DailyForecastWidget::setup(Weather &weather)
     scrollAreaWidgetContents->setStyleSheet("background-color:transparent;");
     scrollAreaWidgetContents->setGeometry(0, 0, 340, 324); //default daily forecast geometry
     widgetScrollarea = new SmoothScrollArea(this);
-    widgetScrollarea->setup();
     widgetScrollarea->setupContents(scrollAreaWidgetContents, SmoothScrollArea::VERTICAL);
     scrollAreaWidgetContents->setCursor(Qt::PointingHandCursor);
 }

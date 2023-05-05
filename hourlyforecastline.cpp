@@ -1,17 +1,14 @@
 #include "hourlyforecastline.h"
 
-HourlyForecastLine::HourlyForecastLine(QWidget *parent): QWidget(parent){}
-
-void HourlyForecastLine::setup(QString date, QString time, QString iconURL, QString precipitationProbability, QString temperature)
-{
+HourlyForecastLine::HourlyForecastLine(QWidget *parent): QWidget(parent){
     this->setFixedSize(141, 351);
     this->setStyleSheet("background-color:transparent;");
-    dateLabel = createTextLabel(date, 13, QFont::Light, "color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))", Qt::AlignHCenter | Qt::AlignBottom);
-    timeLabel = createTextLabel(time, 24, QFont::Normal, "color: qconicalgradient(cx:1, cy:0, angle:70, stop:0.76089 rgba(255, 255, 255, 255), stop:0.611285 rgba(50, 50, 50, 255))", Qt::AlignHCenter | Qt::AlignVCenter);
+    dateLabel = createTextLabel("date", 13, QFont::Light, "color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))", Qt::AlignHCenter | Qt::AlignBottom);
+    timeLabel = createTextLabel("time", 24, QFont::Normal, "color: qconicalgradient(cx:1, cy:0, angle:70, stop:0.76089 rgba(255, 255, 255, 255), stop:0.611285 rgba(50, 50, 50, 255))", Qt::AlignHCenter | Qt::AlignVCenter);
     iconVerticalSpacer = new QSpacerItem(20, 10, QSizePolicy::Fixed, QSizePolicy::Fixed);
-    weatherIconLabel = createIconLabel(iconURL, 120);
-    setupPrecipitationProbabilityLayout(precipitationProbability);
-    setupTemperatureLayout(temperature);
+    weatherIconLabel = createIconLabel("iconURL", 120);
+    setupPrecipitationProbabilityLayout("precipitationProbability");
+    setupTemperatureLayout("temperature");
     setupHourlyForecastLayout();
 }
 
@@ -48,7 +45,7 @@ QLabel *HourlyForecastLine::createIconLabel(QString iconURL, int size)
     return iconLabel;
 }
 
-void HourlyForecastLine::setupPrecipitationProbabilityLayout(QString& precipitationProbability)
+void HourlyForecastLine::setupPrecipitationProbabilityLayout(QString precipitationProbability)
 {
     precipitationProbabilityLeftSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Fixed);
     QString precipitationProbabilityProcessed = precipitationProbability == "0" ? "" : precipitationProbability.append("%");
@@ -69,7 +66,7 @@ void HourlyForecastLine::setupPrecipitationProbabilityLayout(QString& precipitat
     precipitationProbabilityLayout->addSpacerItem(precipitationProbabilityRightSpacer);
 }
 
-void HourlyForecastLine::setupTemperatureLayout(QString& temperature)
+void HourlyForecastLine::setupTemperatureLayout(QString temperature)
 {
     temperatureLeftSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Fixed);
     temperatureLabel = createTextLabel(temperature, 39, QFont::Normal, "color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.9 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));", Qt::AlignTop | Qt::AlignRight);

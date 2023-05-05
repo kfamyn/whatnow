@@ -11,14 +11,12 @@ void HourlyForecastWidget::setup(Weather &weather)
     scrollLayout->setContentsMargins(25, 0, 25, 0);
     for (int index = 0; index < 24; ++index) {
         forecastLines.append(new HourlyForecastLine(this));
-        forecastLines[index]->setup("date", "time", "iconURL", "precipitationProbability", "temperature");
         scrollLayout->addWidget(forecastLines[index]);
     }
     fillCurrentHourlyForecast();
     scrollAreaWidgetContents->setStyleSheet("background-color:transparent;");
     scrollAreaWidgetContents->setGeometry(0, 0, 677, 360); //default hourly forecast geometry
     widgetScrollarea = new SmoothScrollArea(this);
-    widgetScrollarea->setup();
     widgetScrollarea->setupContents(scrollAreaWidgetContents, SmoothScrollArea::HORIZONTAL);
 }
 

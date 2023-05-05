@@ -19,8 +19,8 @@ public:
 private:
     QLabel* createTextLabel(QString text, int fontSize, QFont::Weight weight, QString styleSheet, Qt::Alignment alignment, QSizePolicy::Policy policy1 = QSizePolicy::Preferred, QSizePolicy::Policy policy2 = QSizePolicy::Preferred);
     QLabel* createIconLabel(QString iconURL, int size);
-    void setupPrecipitationProbabilityLayout(QString& precipitationProbability);
-    void setupTemperatureLayout(QString& temperature);
+    void setupPrecipitationProbabilityLayout(QString precipitationProbability);
+    void setupTemperatureLayout(QString temperature);
     void setupHourlyForecastLayout();
 
     QLabel* dateLabel;

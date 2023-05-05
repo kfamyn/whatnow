@@ -1,9 +1,6 @@
 #include "smoothscrollarea.h"
 
-SmoothScrollArea::SmoothScrollArea(QWidget *parent): QScrollArea(parent){}
-
-void SmoothScrollArea::setup()
-{
+SmoothScrollArea::SmoothScrollArea(QWidget *parent): QScrollArea(parent){
     orientation = VERTICAL;
     this->verticalScrollBar()->setStyle(new QCommonStyle);
     this->verticalScrollBar()->setSingleStep(7);
