@@ -18,6 +18,7 @@ public:
 public slots:
     void updateInfo(int day) final;
 private:
+    int feelsLike;
     QWidget* temperatureLayoutWidget;
     QHBoxLayout* temperatureLayout;
     QLabel* temperatureLabel;

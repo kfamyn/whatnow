@@ -1,5 +1,6 @@
 #include "feelslikewidget.h"
 #include "format.hpp"
+#include <QPropertyAnimation>
 
 void FeelsLikeWidget::setup(Weather* weather)
 {
@@ -15,26 +16,36 @@ void FeelsLikeWidget::setup(Weather* weather)
     temperatureScaleLabel = new QLabel(thermometerWidget);
     temperatureScaleLabel->setFixedSize(940, 35);
     temperatureScaleLabel->setPixmap(QPixmap(":/additionalWeatherIcons/assets/additionalWeatherIcons/temperatureGradient.png"));
+    feelsLike = -35;
     updateThermometerWidget(0);
 }
 
 void FeelsLikeWidget::updateInfo(int day)
 {
     this->temperatureLabel->setText(QString::fromStdString(formatTemperature(weather->getValue(day, "feelslike"))));
+    updateThermometerWidget(day);
 }
 
 void FeelsLikeWidget::updateThermometerWidget(int dayIndex)
 {
-    int feelsLike = 0;
+    int newFeelsLike = 0;
     if (dayIndex == 0){
-        feelsLike = std::stoi(weather->getCurrentConditions("feelslike"));
+        newFeelsLike = std::stoi(weather->getCurrentConditions("feelslike"));
     }
     else {
-        feelsLike = std::stoi(weather->getValue(dayIndex, "feelslike"));
+        newFeelsLike = std::stoi(weather->getValue(dayIndex, "feelslike"));
     }
-    int degreesDelta = feelsLike - (-35);
+    int degreesDelta = newFeelsLike - feelsLike;
     int pixelsDelta = -degreesDelta * 12;
-    temperatureScaleLabel->move(pixelsDelta, 0);
+    QPropertyAnimation* temperatureScaleLabelMoveAnimation = new QPropertyAnimation(temperatureScaleLabel, "pos");
+    QPoint oldPosition = temperatureScaleLabel->pos();
+    QPoint newPosition = QPoint(oldPosition.x() + pixelsDelta, oldPosition.y());
+    temperatureScaleLabelMoveAnimation->setDuration(800);
+    temperatureScaleLabelMoveAnimation->setStartValue(oldPosition);
+    temperatureScaleLabelMoveAnimation->setEndValue(newPosition);
+    temperatureScaleLabelMoveAnimation->setEasingCurve(QEasingCurve::OutCubic);
+    temperatureScaleLabelMoveAnimation->start(QAbstractAnimation::DeleteWhenStopped);
+    feelsLike = newFeelsLike;
 }
 
 void FeelsLikeWidget::setupTemperatureLayout()
