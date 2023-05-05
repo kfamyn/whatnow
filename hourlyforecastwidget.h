@@ -9,7 +9,7 @@ class HourlyForecastWidget : public WeatherWidget<HourlyForecastLine>
 {
     Q_OBJECT
 public:
-    HourlyForecastWidget(QWidget *parent = nullptr) : WeatherWidget<HourlyForecastLine>(parent){};
+    HourlyForecastWidget(QWidget *parent = nullptr);
     void setup(Weather& weather);
 public slots:
     void updateHourlyForecast(int dayIndex);

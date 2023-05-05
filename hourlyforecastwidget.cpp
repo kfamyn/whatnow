@@ -1,9 +1,7 @@
 #include "hourlyforecastwidget.h"
 #include "format.hpp"
 
-void HourlyForecastWidget::setup(Weather &weather)
-{
-    this->weather = &weather;
+HourlyForecastWidget::HourlyForecastWidget(QWidget *parent) : WeatherWidget<HourlyForecastLine>(parent){
     background = new QLabel(this);
     scrollAreaWidgetContents = new QWidget(this);
     QHBoxLayout* scrollLayout = new QHBoxLayout(scrollAreaWidgetContents);
@@ -13,11 +11,16 @@ void HourlyForecastWidget::setup(Weather &weather)
         forecastLines.append(new HourlyForecastLine(this));
         scrollLayout->addWidget(forecastLines[index]);
     }
-    fillCurrentHourlyForecast();
     scrollAreaWidgetContents->setStyleSheet("background-color:transparent;");
     scrollAreaWidgetContents->setGeometry(0, 0, 677, 360); //default hourly forecast geometry
     widgetScrollarea = new SmoothScrollArea(this);
     widgetScrollarea->setupContents(scrollAreaWidgetContents, SmoothScrollArea::HORIZONTAL);
+}
+
+void HourlyForecastWidget::setup(Weather &weather)
+{
+    this->weather = &weather;
+    fillCurrentHourlyForecast();
 }
 
 void HourlyForecastWidget::updateHourlyForecast(int dayIndex)

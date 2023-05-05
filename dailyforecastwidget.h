@@ -7,7 +7,7 @@ class DailyForecastWidget : public WeatherWidget<DailyForecastLine>
 {
     Q_OBJECT
 public:
-    DailyForecastWidget(QWidget *parent = nullptr) : WeatherWidget<DailyForecastLine>(parent){};
+    DailyForecastWidget(QWidget *parent = nullptr);
     void setup(Weather& weather);
 private:
     void fillDailyForecast();

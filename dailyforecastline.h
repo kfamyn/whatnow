@@ -18,6 +18,7 @@ public:
     DailyForecastLine(QWidget* parent);
     void setup(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek, int index);
     void fill(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek);
+    int& getIndex();
 signals:
     void linePressed(int lineIndex);
 private:
@@ -41,7 +42,7 @@ private:
     QLabel* createQLabel(QString text,QFont& font, int fontSize, QFont::Weight weight, float gradientStop, Qt::Alignment alignment, QSizePolicy::Policy policy1 = QSizePolicy::Preferred, QSizePolicy::Policy policy2 = QSizePolicy::Preferred);
     bool eventFilter(QObject *object, QEvent *event);
 
-    void setupIconLabel(QString &iconURL);
+    void setupIconLabel(QString iconURL);
     void setupCelciusLayoutDay();
     void setupTemperatureLayoutDay();
     void setupCelciusLabelNight();

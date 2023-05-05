@@ -1,23 +1,26 @@
 #include "dailyforecastwidget.h"
 #include "format.hpp"
 
-void DailyForecastWidget::setup(Weather &weather)
-{
-    this->weather = &weather;
+DailyForecastWidget::DailyForecastWidget(QWidget *parent) : WeatherWidget<DailyForecastLine>(parent){
     background = new QLabel(this);
     scrollAreaWidgetContents = new QWidget(this);
     QVBoxLayout* scrollLayout = new QVBoxLayout(scrollAreaWidgetContents);//
     for (int index = 0; index < 14; ++index) {
         forecastLines.append(new DailyForecastLine(this));
-        forecastLines[index]->setup("iconURL", "temperatureDay", "temperatureNight", "dayOfWeek", index);
         scrollLayout->addWidget(forecastLines[index]);
+        forecastLines[index]->getIndex() = index;
     }
-    fillDailyForecast();
     scrollAreaWidgetContents->setStyleSheet("background-color:transparent;");
     scrollAreaWidgetContents->setGeometry(0, 0, 340, 324); //default daily forecast geometry
     widgetScrollarea = new SmoothScrollArea(this);
     widgetScrollarea->setupContents(scrollAreaWidgetContents, SmoothScrollArea::VERTICAL);
     scrollAreaWidgetContents->setCursor(Qt::PointingHandCursor);
+}
+
+void DailyForecastWidget::setup(Weather &weather)
+{
+    this->weather = &weather;
+    fillDailyForecast();
 }
 
 void DailyForecastWidget::fillDailyForecast()

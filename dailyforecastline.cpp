@@ -1,30 +1,26 @@
 #include "dailyforecastline.h"
 
-DailyForecastLine::DailyForecastLine(QWidget* parent): QWidget(parent) {};
-
-void DailyForecastLine::setup(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek, int index)
-{
+DailyForecastLine::DailyForecastLine(QWidget* parent): QWidget(parent) {
     this->setFixedSize(317, 50);
-    this->index = index;
     QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
     QFont SFPro = QFont("SF Pro Display", 22, 0);
-    setupIconLabel(iconURL);
-    temperatureLabelDay = createQLabel(temperatureDay, SFPro, 22, QFont::DemiBold, 0.9, Qt::AlignVCenter | Qt::AlignRight);
+    setupIconLabel("iconURL");
+    temperatureLabelDay = createQLabel("temperatureDay", SFPro, 22, QFont::DemiBold, 0.9, Qt::AlignVCenter | Qt::AlignRight);
     temperatureLabelDay->setMinimumSize(45, 46);
     celciusLabelDay = createQLabel("°C", SFPro, 14, QFont::Normal, 0.6, Qt::AlignVCenter | Qt::AlignLeft);
     setupCelciusLayoutDay();
     setupTemperatureLayoutDay();
     slashLabel = createQLabel("/", SFPro, 17, QFont::Normal, 0.3, Qt::AlignVCenter | Qt::AlignCenter);
-    temperatureLabelNight = createQLabel(temperatureNight, SFPro, 17, QFont::DemiBold, 0.3, Qt::AlignVCenter | Qt::AlignLeft, QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+    temperatureLabelNight = createQLabel("temperatureNight", SFPro, 17, QFont::DemiBold, 0.3, Qt::AlignVCenter | Qt::AlignLeft, QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     celciusLabelNight = createQLabel("°C", SFPro, 12, QFont::Normal, 0.6, Qt::AlignVCenter | Qt::AlignLeft);
     setupCelciusLabelNight();
     setupTemperatureLayoutNight();
     setupTemperatureLayout();
-    dayOfWeekLabel = createQLabel(dayOfWeek, SFPro, 14, QFont::Normal, 0.9, Qt::AlignVCenter | Qt::AlignCenter, QSizePolicy::Fixed, QSizePolicy::Fixed);
+    dayOfWeekLabel = createQLabel("dayOfWeek", SFPro, 14, QFont::Normal, 0.9, Qt::AlignVCenter | Qt::AlignCenter, QSizePolicy::Fixed, QSizePolicy::Fixed);
     dayOfWeekLabel->setFixedSize(105, 50);
     setupForecastLayout();
     this->installEventFilter(this);
-}
+};
 
 void DailyForecastLine::fill(QString iconURL, QString temperatureDay, QString temperatureNight, QString dayOfWeek)
 {
@@ -32,6 +28,11 @@ void DailyForecastLine::fill(QString iconURL, QString temperatureDay, QString te
     temperatureLabelDay->setText(temperatureDay);
     temperatureLabelNight->setText(temperatureNight);
     dayOfWeekLabel->setText(dayOfWeek);
+}
+
+int& DailyForecastLine::getIndex()
+{
+    return index;
 }
 
 QLabel* DailyForecastLine::createQLabel(QString text, QFont& font, int fontSize, QFont::Weight weight, float gradientStop, Qt::Alignment alignment, QSizePolicy::Policy policy1, QSizePolicy::Policy policy2){
@@ -56,7 +57,7 @@ bool DailyForecastLine::eventFilter(QObject *object, QEvent *event){
     return QObject::eventFilter(object, event);
 }
 
-void DailyForecastLine::setupIconLabel(QString &iconURL)
+void DailyForecastLine::setupIconLabel(QString iconURL)
 {
     iconLabel = new QLabel(this);
     iconLabel->setPixmap(QPixmap(iconURL));
