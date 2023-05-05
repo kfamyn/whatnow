@@ -16,7 +16,7 @@ public:
     FeelsLikeWidget(QWidget *parent = nullptr) : InformationWidget(parent){};
     void setup(Weather* weather) override;
 public slots:
-    void updateInfo(int day) final;
+    void updateInfo(int dayIndex) final;
 private:
     int feelsLike;
     QWidget* temperatureLayoutWidget;
@@ -29,7 +29,7 @@ private:
     QLabel* temperatureScaleLabel;
     QWidget* thermometerWidget;
 
-    void updateThermometerWidget(int dayIndex);
+    void updateThermometerWidget(int newFeelsLike);
     void setupTemperatureLayout();
 };
 

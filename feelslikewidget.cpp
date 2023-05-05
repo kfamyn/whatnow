@@ -17,16 +17,10 @@ void FeelsLikeWidget::setup(Weather* weather)
     temperatureScaleLabel->setFixedSize(940, 35);
     temperatureScaleLabel->setPixmap(QPixmap(":/additionalWeatherIcons/assets/additionalWeatherIcons/temperatureGradient.png"));
     feelsLike = -35;
-    updateThermometerWidget(0);
+    updateInfo(0);
 }
 
-void FeelsLikeWidget::updateInfo(int day)
-{
-    this->temperatureLabel->setText(QString::fromStdString(formatTemperature(weather->getValue(day, "feelslike"))));
-    updateThermometerWidget(day);
-}
-
-void FeelsLikeWidget::updateThermometerWidget(int dayIndex)
+void FeelsLikeWidget::updateInfo(int dayIndex)
 {
     int newFeelsLike = 0;
     if (dayIndex == 0){
@@ -35,6 +29,13 @@ void FeelsLikeWidget::updateThermometerWidget(int dayIndex)
     else {
         newFeelsLike = std::stoi(weather->getValue(dayIndex, "feelslike"));
     }
+    updateThermometerWidget(newFeelsLike);
+    feelsLike = newFeelsLike;
+    this->temperatureLabel->setText(QString::number(feelsLike));
+}
+
+void FeelsLikeWidget::updateThermometerWidget(int newFeelsLike)
+{
     int degreesDelta = newFeelsLike - feelsLike;
     int pixelsDelta = -degreesDelta * 12;
     QPropertyAnimation* temperatureScaleLabelMoveAnimation = new QPropertyAnimation(temperatureScaleLabel, "pos");
@@ -45,14 +46,12 @@ void FeelsLikeWidget::updateThermometerWidget(int dayIndex)
     temperatureScaleLabelMoveAnimation->setEndValue(newPosition);
     temperatureScaleLabelMoveAnimation->setEasingCurve(QEasingCurve::OutCubic);
     temperatureScaleLabelMoveAnimation->start(QAbstractAnimation::DeleteWhenStopped);
-    feelsLike = newFeelsLike;
 }
 
 void FeelsLikeWidget::setupTemperatureLayout()
 {
-    QString temperature = QString::fromStdString(formatTemperature(weather->getCurrentConditions("feelslike")));
     leftSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Fixed);
-    temperatureLabel = createTextLabel(temperature, 37, QFont::Normal, "color: qconicalgradient(cx:1, cy:0, angle:273, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255));", Qt::AlignTop | Qt::AlignRight);
+    temperatureLabel = createTextLabel("temperature", 37, QFont::Normal, "color: qconicalgradient(cx:1, cy:0, angle:273, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255));", Qt::AlignTop | Qt::AlignRight);
     celciusLabel = createTextLabel("°C", 22, QFont::Normal, "color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255));", Qt::AlignLeft | Qt::AlignTop);
     celciusLayout = new QVBoxLayout();
     celciusLayout->addWidget(celciusLabel);
