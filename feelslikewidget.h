@@ -13,7 +13,7 @@ class FeelsLikeWidget : public InformationWidget
 {
     Q_OBJECT
 public:
-    FeelsLikeWidget(QWidget *parent = nullptr) : InformationWidget(parent){};
+    FeelsLikeWidget(QWidget *parent = nullptr);
     void setup(Weather* weather) override;
 public slots:
     void updateInfo(int dayIndex) final;

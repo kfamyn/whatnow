@@ -1,10 +1,7 @@
 #include "feelslikewidget.h"
-#include "format.hpp"
 #include <QPropertyAnimation>
 
-void FeelsLikeWidget::setup(Weather* weather)
-{
-    this->weather = weather;
+FeelsLikeWidget::FeelsLikeWidget(QWidget *parent) : InformationWidget(parent){
     background = new QLabel(this);
     header = new QLabel(this);
     setupTemperatureLayout();
@@ -17,6 +14,11 @@ void FeelsLikeWidget::setup(Weather* weather)
     temperatureScaleLabel->setFixedSize(940, 35);
     temperatureScaleLabel->setPixmap(QPixmap(":/additionalWeatherIcons/assets/additionalWeatherIcons/temperatureGradient.png"));
     feelsLike = -35;
+}
+
+void FeelsLikeWidget::setup(Weather* weather)
+{
+    this->weather = weather;
     updateInfo(0);
 }
 
