@@ -3,7 +3,7 @@
 
 FeelsLikeWidget::FeelsLikeWidget(QWidget *parent) : InformationWidget(parent){
     background = new QLabel(this);
-    header = new QLabel(this);
+    this->setHeader("FEELS LIKE");
     setupTemperatureLayout();
     QImage img(":/additionalWeatherIcons/assets/additionalWeatherIcons/thermometerMask.png");
     QBitmap mask = QBitmap::fromImage(img.scaled(100, 5, Qt::IgnoreAspectRatio, Qt::SmoothTransformation).createAlphaMask());
@@ -13,7 +13,7 @@ FeelsLikeWidget::FeelsLikeWidget(QWidget *parent) : InformationWidget(parent){
     temperatureScaleLabel = new QLabel(thermometerWidget);
     temperatureScaleLabel->setFixedSize(940, 35);
     temperatureScaleLabel->setPixmap(QPixmap(":/additionalWeatherIcons/assets/additionalWeatherIcons/temperatureGradient.png"));
-    feelsLike = -35;
+    feelsLike = MIN_THERMOMETER_VISUALIZATION_TEMPERATURE;
 }
 
 void FeelsLikeWidget::setup(Weather* weather)
@@ -38,8 +38,23 @@ void FeelsLikeWidget::updateInfo(int dayIndex)
 
 void FeelsLikeWidget::updateThermometerWidget(int newFeelsLike)
 {
-    int degreesDelta = newFeelsLike - feelsLike;
-    int pixelsDelta = -degreesDelta * 12;
+    int degreesDelta;
+    if (feelsLike >= MAX_THERMOMETER_VISUALIZATION_TEMPERATURE && newFeelsLike >= MAX_THERMOMETER_VISUALIZATION_TEMPERATURE){
+        return;
+    }
+    else if (feelsLike <= MIN_THERMOMETER_VISUALIZATION_TEMPERATURE && newFeelsLike <= MIN_THERMOMETER_VISUALIZATION_TEMPERATURE){
+        return;
+    }
+    if (newFeelsLike > MAX_THERMOMETER_VISUALIZATION_TEMPERATURE){
+        degreesDelta = feelsLike - MAX_THERMOMETER_VISUALIZATION_TEMPERATURE;
+    }
+    else if (newFeelsLike < MIN_THERMOMETER_VISUALIZATION_TEMPERATURE){
+        degreesDelta = feelsLike - MIN_THERMOMETER_VISUALIZATION_TEMPERATURE;
+    }
+    else {
+        degreesDelta = feelsLike - newFeelsLike;
+    }
+    int pixelsDelta = degreesDelta * PIXELS_PER_DEGREE_IN_THERMOMETER;
     QPropertyAnimation* temperatureScaleLabelMoveAnimation = new QPropertyAnimation(temperatureScaleLabel, "pos");
     QPoint oldPosition = temperatureScaleLabel->pos();
     QPoint newPosition = QPoint(oldPosition.x() + pixelsDelta, oldPosition.y());
@@ -53,8 +68,8 @@ void FeelsLikeWidget::updateThermometerWidget(int newFeelsLike)
 void FeelsLikeWidget::setupTemperatureLayout()
 {
     leftSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Fixed);
-    temperatureLabel = createTextLabel("temperature", 37, QFont::Normal, "color: qconicalgradient(cx:1, cy:0, angle:273, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255));", Qt::AlignTop | Qt::AlignRight);
-    celciusLabel = createTextLabel("°C", 22, QFont::Normal, "color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255));", Qt::AlignLeft | Qt::AlignTop);
+    temperatureLabel = createTextLabel("temperature", 37, QFont::Normal, FEELS_LIKE_WIDGET_TEXT_STYLESHEET, Qt::AlignTop | Qt::AlignRight);
+    celciusLabel = createTextLabel("°C", 22, QFont::Normal, FEELS_LIKE_WIDGET_TEXT_STYLESHEET, Qt::AlignLeft | Qt::AlignTop);
     celciusLayout = new QVBoxLayout();
     celciusLayout->addWidget(celciusLabel);
     celciusLayout->setContentsMargins(0, 4, 0, 0);
