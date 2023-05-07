@@ -33,7 +33,17 @@ void WindWidget::setup(Weather *weather)
 
 void WindWidget::updateInfo(int dayIndex)
 {
-
+    int newWindSpeed = 0;
+    qreal newWindDirection = 0;
+    if (dayIndex == 0){
+        newWindSpeed = std::stoi(weather->getCurrentConditions("windspeed"));
+        newWindDirection = std::stoi(weather->getCurrentConditions("winddir"));
+    }
+    else {
+        newWindSpeed = std::stoi(weather->getValue(dayIndex, "windspeed"));
+        newWindDirection = std::stoi(weather->getValue(dayIndex, "winddir"));
+    }
+    this->windSpeedLabel->setText(QString::number(newWindSpeed).append(" M/S"));
 }
 
 QLabel *WindWidget::createPixmapLabel(QString path, QSize size){
