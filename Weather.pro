@@ -22,7 +22,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     smoothscrollarea.cpp \
-    weatherAPI.h
+    weatherAPI.h \
+    windwidget.cpp
 
 HEADERS += \
     dailyforecastline.h \
@@ -34,7 +35,8 @@ HEADERS += \
     informationwidget.h \
     mainwindow.h \
     smoothscrollarea.h \
-    weatherwidget.h
+    weatherwidget.h \
+    windwidget.h
 
 FORMS += \
     mainwindow.ui

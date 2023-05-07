@@ -1,5 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QGraphicsItem>
+#include <QGraphicsPixmapItem>
+#include <QMovie>
+#include <QPainter>
 #include <QSequentialAnimationGroup>
 #include <QSignalMapper>
 
@@ -11,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setupAttributes();
     this->setupFonts();
     this->animateFadingIn();
-    weather = new Weather("saint petersburg");
+    weather = new Weather("los angeles");
     this->setupCurrentConditionsWidget();
     this->adjustCurrentTemperatureFont();
 
@@ -28,12 +32,16 @@ MainWindow::MainWindow(QWidget *parent)
         QObject::connect(dailyForecastWidget->getLine(index), SIGNAL(linePressed(int)), this, SLOT(dailyForecastLinePressed(int)));
     }
 
-    ui->label->setVisible(false);
-    ui->widget->setVisible(false);
-    feelsLikeWidget = new FeelsLikeWidget(ui->label_20);
+    ui->feelsLikeBackground->setVisible(false);
+    ui->feelsLikeSample->setVisible(false);
+    feelsLikeWidget = new FeelsLikeWidget(ui->feelsLike);
     feelsLikeWidget->setup(weather);
-    feelsLikeWidget->setHeader("FEELS LIKE");
     feelsLikeWidget->setBackground(":/background/assets/backgrounds/smallWidgetBackground.png", QSize(132, 132));
+
+    ui->windWidgetSample->setVisible(false);
+    windWidget = new WindWidget(ui->windWidget);
+    windWidget->setup(weather);
+    windWidget->setBackground(":/background/assets/backgrounds/smallWidgetBackground.png", QSize(132, 132));
 }
 
 MainWindow::~MainWindow()
