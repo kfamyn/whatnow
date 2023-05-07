@@ -14,6 +14,7 @@ void InformationWidget::setBackground(QString path, QSize size)
 
 void InformationWidget::setHeader(QString text)
 {
+    header = new QLabel(this);
     header->setText(text);
     header->setFixedSize(101, 16);
     header->setStyleSheet("color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))");
@@ -22,7 +23,8 @@ void InformationWidget::setHeader(QString text)
     SFProLight10.setWeight(QFont::Light);
     header->setFont(SFProLight10);
     header->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-    header->move(16, 11);
+    header->setMargin(2);
+    header->move(14, 11);
 }
 
 QLabel *InformationWidget::createTextLabel(QString text, int fontSize, QFont::Weight weight, QString styleSheet, Qt::Alignment alignment, QSizePolicy::Policy policy1, QSizePolicy::Policy policy2)
