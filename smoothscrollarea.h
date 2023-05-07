@@ -19,7 +19,6 @@ class SmoothScrollArea : public QScrollArea
 public:
     SmoothScrollArea(QWidget* parent);
     enum orientations {VERTICAL = 0, HORIZONTAL = 1};
-    void setup();
     void setupContents(QWidget* contentsLayout, orientations orientation);
 private:
     orientations orientation;
