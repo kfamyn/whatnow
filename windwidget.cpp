@@ -6,15 +6,15 @@ WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
     windDirection = 0;
     background = new QLabel(this);
     this->setHeader("WIND");
-    QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Semibold.ttf");
-    QFont SFPro = QFont("SF Pro Display", 12, 0);
-    windSpeedLabel = createTextLabel("X M/S", SFPro, 10, QFont::Light, WIND_WIDGET_TEXT_STYLESHEET, QSize(60, 16));
+    QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
+    QFont SFPro = QFont("SF Pro Display", 10, 0);
+    windSpeedLabel = createTextLabel("X M/S", SFPro, 10, QFont::Normal, WIND_WIDGET_TEXT_STYLESHEET, QSize(60, 16));
     arrow = createPixmapLabel(":/additionalWeatherIcons/assets/additionalWeatherIcons/sun.png", QSize(31, 31));
     compass = createPixmapLabel(":/additionalWeatherIcons/assets/additionalWeatherIcons/compass.png", QSize(87, 87));
-    south = createTextLabel("S", SFPro, 10, QFont::Light);
-    east = createTextLabel("E", SFPro, 10, QFont::Light);
-    north = createTextLabel("N", SFPro, 10, QFont::Light);
-    west = createTextLabel("W", SFPro, 10, QFont::Light);
+    south = createTextLabel("S", SFPro, 10, QFont::Normal);
+    east = createTextLabel("E", SFPro, 10, QFont::Normal);
+    north = createTextLabel("N", SFPro, 10, QFont::Normal);
+    west = createTextLabel("W", SFPro, 10, QFont::Normal);
 
     windSpeedLabel->move(39, 68);
     arrow->move(79, 26);

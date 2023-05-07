@@ -20,7 +20,7 @@ void InformationWidget::setHeader(QString text)
     header->setStyleSheet("color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))");
     QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
     QFont SFProLight10 = QFont("SF Pro Display", 10, 0);
-    SFProLight10.setWeight(QFont::Light);
+    SFProLight10.setWeight(QFont::Normal);
     header->setFont(SFProLight10);
     header->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     header->setMargin(2);
