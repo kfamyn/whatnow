@@ -1,6 +1,7 @@
 #include "windwidget.h"
 #include <QFontDatabase>
 #include <QPainter>
+#include <QtMath>
 
 WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
     windSpeed = 0;
@@ -24,7 +25,6 @@ WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
     east->move(100, 66);
     north->move(57, 109);
     west->move(15, 66);
-    cartesianToQPoint(70, 70);
 }
 
 void WindWidget::setup(Weather *weather)
@@ -46,6 +46,7 @@ void WindWidget::updateInfo(int dayIndex)
         newWindDirection = std::stoi(weather->getValue(dayIndex, "winddir"));
     }
     this->windSpeedLabel->setText(QString::number(newWindSpeed).append(" M/S"));
+    setWindDirectionArrow(newWindDirection);
 }
 
 QLabel *WindWidget::createPixmapLabel(QString path, QSize size){
@@ -69,7 +70,42 @@ QLabel *WindWidget::createTextLabel(QString text, QFont font, int fontSize, QFon
     return textLabel;
 }
 
-QPoint *WindWidget::cartesianToQPoint(int x, int y)
+QPoint WindWidget::cartesianToQPoint(int x, int y)
 {
-    qDebug()<<this->parentWidget()->size();
+    return QPoint(x, this->parentWidget()->size().height() - y);
+}
+
+QPoint WindWidget::qPointToCartesian(QPoint qPoint)
+{
+    return QPoint(qPoint.x(), this->parentWidget()->size().height()-qPoint.y());
+}
+
+void WindWidget::setWindDirectionArrow(int angle)
+{
+    float compassRadius = this->compass->size().width() / 2;
+    QPoint compassLeftUpperCornerCoordinates = compass->pos();
+    QPoint compassCenterCoordinates = QPoint(compassLeftUpperCornerCoordinates.x()+compassRadius, compassLeftUpperCornerCoordinates.y()+compassRadius);
+    QPoint compassCartesianCoordinates = qPointToCartesian(compassCenterCoordinates);
+    float compassX0 = compassCartesianCoordinates.x();
+    float compassY0 = compassCartesianCoordinates.y();
+
+    float arrowCartesianX = compassX0 + compassRadius * qCos(qDegreesToRadians(angle));
+    float arrowCartesianY = compassY0 + compassRadius * qSin(qDegreesToRadians(angle));
+
+    float arrowLeftCornerX = arrowCartesianX - arrow->width() / 2;
+    float arrowLeftCornerY = arrowCartesianY + arrow->height() / 2 + ARROW_Y_AMENDMENT;
+
+    this->arrow->move(cartesianToQPoint(arrowLeftCornerX, arrowLeftCornerY));
+    this->arrow->raise();
+    qDebug()<<"angle: "<<angle;
+    qDebug()<<"compassX0: "<<compassX0;
+    qDebug()<<"compassY0: "<<compassY0;
+    qDebug()<<"compassLeftUpperCornerCoordinates: "<<compassLeftUpperCornerCoordinates;
+    qDebug()<<"compassCenterCoordinates: "<<compassCenterCoordinates;
+    qDebug()<<"compassCartesianCoordinates: "<<compassCartesianCoordinates;
+    qDebug()<<"compassRadius: "<<compassRadius;
+    qDebug()<<"arrowCartesianX: "<<arrowCartesianX;
+    qDebug()<<"arrowCartesianY: "<<arrowCartesianY;
+    qDebug()<<"arrowLeftCornerX: "<<arrowLeftCornerX;
+    qDebug()<<"arrowLeftCornerY: "<<arrowLeftCornerY;
 }
