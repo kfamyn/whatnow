@@ -29,6 +29,7 @@ private:
     QLabel* createPixmapLabel(QString path, QSize size);
     QLabel* createTextLabel(QString text, QFont font, int fontSize, QFont::Weight weight,
                             QString styleSheet = WIND_WIDGET_TEXT_STYLESHEET, QSize labelSize = QSize(20, 20));
+    QPoint cartesianToQPoint(int x, int y);
 };
 
 #endif // WINDWIDGET_H

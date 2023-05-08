@@ -1,5 +1,6 @@
 #include "windwidget.h"
 #include <QFontDatabase>
+#include <QPainter>
 
 WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
     windSpeed = 0;
@@ -10,7 +11,7 @@ WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
     QFont SFPro = QFont("SF Pro Display", 10, 0);
     windSpeedLabel = createTextLabel("X M/S", SFPro, 10, QFont::Normal, WIND_WIDGET_TEXT_STYLESHEET, QSize(60, 16));
     arrow = createPixmapLabel(":/additionalWeatherIcons/assets/additionalWeatherIcons/sun.png", QSize(31, 31));
-    compass = createPixmapLabel(":/additionalWeatherIcons/assets/additionalWeatherIcons/compass.png", QSize(87, 87));
+    compass = createPixmapLabel(":/additionalWeatherIcons/assets/additionalWeatherIcons/compass.png", QSize(88, 88));
     south = createTextLabel("S", SFPro, 10, QFont::Normal);
     east = createTextLabel("E", SFPro, 10, QFont::Normal);
     north = createTextLabel("N", SFPro, 10, QFont::Normal);
@@ -18,11 +19,12 @@ WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
 
     windSpeedLabel->move(39, 68);
     arrow->move(79, 26);
-    compass->move(24, 33);
+    compass->move(23, 32);
     south->move(57, 23);
     east->move(100, 66);
     north->move(57, 109);
     west->move(15, 66);
+    cartesianToQPoint(70, 70);
 }
 
 void WindWidget::setup(Weather *weather)
@@ -65,4 +67,9 @@ QLabel *WindWidget::createTextLabel(QString text, QFont font, int fontSize, QFon
     textLabel->setStyleSheet(styleSheet);
     textLabel->setFixedSize(labelSize);
     return textLabel;
+}
+
+QPoint *WindWidget::cartesianToQPoint(int x, int y)
+{
+    qDebug()<<this->parentWidget()->size();
 }
