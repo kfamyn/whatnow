@@ -80,7 +80,7 @@ QPoint WindWidget::qPointToCartesian(QPoint qPoint)
     return QPoint(qPoint.x(), this->parentWidget()->size().height()-qPoint.y());
 }
 
-void WindWidget::setWindDirectionArrow(int angle)
+void WindWidget::setWindDirectionArrow(int meteorologicalDegrees) // to float!, to statics
 {
     float compassRadius = this->compass->size().width() / 2;
     QPoint compassLeftUpperCornerCoordinates = compass->pos();
@@ -88,16 +88,16 @@ void WindWidget::setWindDirectionArrow(int angle)
     QPoint compassCartesianCoordinates = qPointToCartesian(compassCenterCoordinates);
     float compassX0 = compassCartesianCoordinates.x();
     float compassY0 = compassCartesianCoordinates.y();
+    float meteorologicalToPolarDegrees = -meteorologicalDegrees + 90;
+    float arrowCartesianX = compassX0 + compassRadius * qCos(qDegreesToRadians(meteorologicalToPolarDegrees));
+    float arrowCartesianY = compassY0 + compassRadius * qSin(qDegreesToRadians(meteorologicalToPolarDegrees));
 
-    float arrowCartesianX = compassX0 + compassRadius * qCos(qDegreesToRadians(angle));
-    float arrowCartesianY = compassY0 + compassRadius * qSin(qDegreesToRadians(angle));
-
-    float arrowLeftCornerX = arrowCartesianX - arrow->width() / 2;
-    float arrowLeftCornerY = arrowCartesianY + arrow->height() / 2 + ARROW_Y_AMENDMENT;
+    float arrowLeftCornerX = arrowCartesianX - arrow->width() / 2 - ARROW_AMENDMENT;
+    float arrowLeftCornerY = arrowCartesianY + arrow->height() / 2 + ARROW_AMENDMENT;
 
     this->arrow->move(cartesianToQPoint(arrowLeftCornerX, arrowLeftCornerY));
     this->arrow->raise();
-    qDebug()<<"angle: "<<angle;
+    qDebug()<<"angle: "<<meteorologicalDegrees;
     qDebug()<<"compassX0: "<<compassX0;
     qDebug()<<"compassY0: "<<compassY0;
     qDebug()<<"compassLeftUpperCornerCoordinates: "<<compassLeftUpperCornerCoordinates;
