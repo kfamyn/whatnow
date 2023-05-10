@@ -1,6 +1,7 @@
 #include "windwidget.h"
 #include <QFontDatabase>
 #include <QPainter>
+#include <QPropertyAnimation>
 #include <QtMath>
 
 WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
@@ -45,8 +46,16 @@ void WindWidget::updateInfo(int dayIndex)
         newWindSpeed = std::stoi(weather->getValue(dayIndex, "windspeed"));
         newWindDirection = std::stoi(weather->getValue(dayIndex, "winddir"));
     }
-    this->windSpeedLabel->setText(QString::number(newWindSpeed).append(" M/S"));
-    setWindDirection(newWindDirection);
+    QPropertyAnimation* windDirectionArrowAnimation = new QPropertyAnimation(this, "windDirection");
+    int animationDuration = 200 + abs(m_windDirection - newWindDirection) * 3;
+    windDirectionArrowAnimation->setDuration(animationDuration);
+    windDirectionArrowAnimation->setStartValue(m_windDirection);
+    windDirectionArrowAnimation->setEndValue(newWindDirection);
+    windDirectionArrowAnimation->setEasingCurve(QEasingCurve::OutCubic);
+    windDirectionArrowAnimation->start(QAbstractAnimation::DeleteWhenStopped);
+    windSpeed = newWindSpeed;
+    m_windDirection = newWindDirection;
+    this->windSpeedLabel->setText(QString::number(windSpeed).append(" M/S"));
 }
 
 QLabel *WindWidget::createPixmapLabel(QString path, QSize size){
