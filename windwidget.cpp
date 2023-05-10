@@ -5,7 +5,7 @@
 
 WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
     windSpeed = 0;
-    windDirection = 0;
+    m_windDirection = 0;
     background = new QLabel(this);
     this->setHeader("WIND");
     QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
@@ -46,7 +46,7 @@ void WindWidget::updateInfo(int dayIndex)
         newWindDirection = std::stoi(weather->getValue(dayIndex, "winddir"));
     }
     this->windSpeedLabel->setText(QString::number(newWindSpeed).append(" M/S"));
-    setWindDirectionArrow(newWindDirection);
+    setWindDirection(newWindDirection);
 }
 
 QLabel *WindWidget::createPixmapLabel(QString path, QSize size){
@@ -80,12 +80,12 @@ QPoint WindWidget::qPointToCartesian(QPoint qPoint)
     return QPoint(qPoint.x(), this->parentWidget()->size().height()-qPoint.y());
 }
 
-void WindWidget::setWindDirectionArrow(int meteorologicalDegrees) // to float!, to statics
+void WindWidget::setWindDirection(qreal meteorologicalDegrees) // to float!, to statics
 {
     static float compassRadius = this->compass->size().width() / 2;
     static QPoint compassLeftUpperCornerQPointCoordinates = compass->pos();
-    static QPoint compassCenterQPointCoordinates = QPoint(compassLeftUpperCornerQPointCoordinates.x()+compassRadius,
-                                                          compassLeftUpperCornerQPointCoordinates.y()+compassRadius);
+    static QPoint compassCenterQPointCoordinates = QPoint(compassLeftUpperCornerQPointCoordinates.x() + compassRadius,
+                                                          compassLeftUpperCornerQPointCoordinates.y() + compassRadius);
     static QPoint compassCenterCartesianCoordinates = qPointToCartesian(compassCenterQPointCoordinates);
     static float compassCenterCartesianX0 = compassCenterCartesianCoordinates.x();
     static float compassCenterCartesianY0 = compassCenterCartesianCoordinates.y();

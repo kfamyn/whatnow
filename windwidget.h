@@ -11,6 +11,7 @@ const int ARROW_AMENDMENT = 1;
 class WindWidget : public InformationWidget
 {
     Q_OBJECT
+    Q_PROPERTY(qreal windDirection MEMBER m_windDirection WRITE setWindDirection )
 public:
     WindWidget(QWidget *parent = nullptr);
     void setup(Weather* weather) override;
@@ -19,7 +20,7 @@ public slots:
     void setWindDirectionArrow(int meteorologicalDegrees);
 private:
     int windSpeed;
-    qreal windDirection;
+    qreal m_windDirection;
     QLabel* windSpeedLabel;
     QLabel* arrow;
     QLabel* compass;
@@ -27,6 +28,7 @@ private:
     QLabel* east;
     QLabel* north;
     QLabel* west;
+    void setWindDirection(qreal meteorologicalDegrees);
 
     QLabel* createPixmapLabel(QString path, QSize size);
     QLabel* createTextLabel(QString text, QFont font, int fontSize, QFont::Weight weight,
