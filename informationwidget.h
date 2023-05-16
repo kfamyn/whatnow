@@ -24,9 +24,9 @@ protected:
     QLabel* header;
 
     QLabel* createPixmapLabel(QString path, QSize size);
-    QLabel* createFixedSizeTextLabel(QString text, QFont font, int fontSize, QFont::Weight weight,
+    QLabel* createFixedSizeTextLabel(QString text, int fontSize, QFont::Weight weight,
                             QSize labelSize = QSize(20, 20), QString styleSheet = DEFAULT_STYLESHEET);
-    QLabel* createTextLabel(QString text, QFont font, int fontSize, QFont::Weight weight,
+    QLabel* createTextLabel(QString text, int fontSize, QFont::Weight weight,
                             QString styleSheet = DEFAULT_STYLESHEET);
 };
 
