@@ -20,6 +20,12 @@ void InformationWidget::setHeader(QString text)
     header->move(14, 11);
 }
 
+void InformationWidget::setup(Weather* weather)
+{
+    this->weather = weather;
+    updateInfo(0);
+}
+
 QLabel *InformationWidget::createPixmapLabel(QString path, QSize size){
     QLabel* newLabel = new QLabel(this);
     newLabel->setFixedSize(size);

@@ -15,7 +15,7 @@ public:
     InformationWidget(QWidget *parent = nullptr) : QWidget(parent){};
     void setBackground(QString path, QSize size);
     virtual void setHeader(QString text);
-    virtual void setup(Weather* weather) = 0;
+    void setup(Weather* weather);
 public slots:
     virtual void updateInfo(int day) = 0;
 protected:

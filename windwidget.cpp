@@ -25,12 +25,6 @@ WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
     west->move(15, 66);
 }
 
-void WindWidget::setup(Weather *weather)
-{
-    this->weather = weather;
-    updateInfo(0);
-}
-
 void WindWidget::updateInfo(int dayIndex)
 {
     int newWindSpeed = 0;

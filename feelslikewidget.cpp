@@ -16,12 +16,6 @@ FeelsLikeWidget::FeelsLikeWidget(QWidget *parent) : InformationWidget(parent){
     feelsLike = MIN_THERMOMETER_VISUALIZATION_TEMPERATURE;
 }
 
-void FeelsLikeWidget::setup(Weather* weather)
-{
-    this->weather = weather;
-    updateInfo(0);
-}
-
 void FeelsLikeWidget::updateInfo(int dayIndex)
 {
     int newFeelsLike = 0;

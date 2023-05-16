@@ -13,7 +13,6 @@ class WindWidget : public InformationWidget
     Q_PROPERTY(qreal windDirection MEMBER m_windDirection WRITE setWindDirection )
 public:
     WindWidget(QWidget *parent = nullptr);
-    void setup(Weather* weather) override;
 public slots:
     void updateInfo(int dayIndex) final;
 private:
