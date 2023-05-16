@@ -31,17 +31,18 @@ MainWindow::MainWindow(QWidget *parent)
     for (int index = 0; index < 14; ++index) {
         QObject::connect(dailyForecastWidget->getLine(index), SIGNAL(linePressed(int)), this, SLOT(dailyForecastLinePressed(int)));
     }
-
     ui->feelsLikeBackground->setVisible(false);
     ui->feelsLikeSample->setVisible(false);
     feelsLikeWidget = new FeelsLikeWidget(ui->feelsLike);
     feelsLikeWidget->setup(weather);
-    feelsLikeWidget->setBackground(":/background/assets/backgrounds/smallWidgetBackground.png", QSize(132, 132));
 
     ui->windWidgetSample->setVisible(false);
     windWidget = new WindWidget(ui->windWidget);
     windWidget->setup(weather);
-    windWidget->setBackground(":/background/assets/backgrounds/smallWidgetBackground.png", QSize(132, 132));
+
+    ui->sunWidgetSample->setVisible(false);
+    sunWidget = new SunWidget(ui->sunWidget);
+    sunWidget->setup(weather);
 }
 
 MainWindow::~MainWindow()

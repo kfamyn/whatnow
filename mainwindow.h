@@ -13,6 +13,7 @@
 #include "hourlyforecastwidget.h"
 #include "feelslikewidget.h"
 #include "windwidget.h"
+#include "sunwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -36,6 +37,7 @@ private:
     DailyForecastWidget* dailyForecastWidget;
     FeelsLikeWidget* feelsLikeWidget;
     WindWidget* windWidget;
+    SunWidget* sunWidget;
 
     void setupAttributes();
     void setupFonts();
