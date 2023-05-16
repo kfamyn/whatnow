@@ -17,7 +17,6 @@ public:
     void setup(Weather* weather) override;
 public slots:
     void updateInfo(int dayIndex) final;
-    void setWindDirectionArrow(int meteorologicalDegrees);
 private:
     int windSpeed;
     qreal m_windDirection;
