@@ -3,6 +3,7 @@
 
 FeelsLikeWidget::FeelsLikeWidget(QWidget *parent) : InformationWidget(parent){
     background = new QLabel(this);
+    this->setBackground(":/background/assets/backgrounds/smallWidgetBackground.png", QSize(132, 132));
     this->setHeader("FEELS LIKE");
     setupTemperatureLayout();
     QImage img(":/additionalWeatherIcons/assets/additionalWeatherIcons/thermometerMask.png");

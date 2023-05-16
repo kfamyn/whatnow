@@ -7,6 +7,7 @@ WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
     windSpeed = 0;
     m_windDirection = 0;
     background = new QLabel(this);
+    this->setBackground(":/background/assets/backgrounds/smallWidgetBackground.png", QSize(132, 132));
     this->setHeader("WIND");
     windSpeedLabel = createFixedSizeTextLabel("X M/S", 10, QFont::Normal, QSize(60, 16));
     arrow = createPixmapLabel(":/additionalWeatherIcons/assets/additionalWeatherIcons/sun.png", QSize(31, 31));
