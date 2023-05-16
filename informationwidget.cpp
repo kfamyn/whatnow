@@ -14,14 +14,7 @@ void InformationWidget::setBackground(QString path, QSize size)
 
 void InformationWidget::setHeader(QString text)
 {
-    header = new QLabel(this);
-    header->setText(text);
-    header->setFixedSize(101, 16);
-    header->setStyleSheet("color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))");
-    QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
-    QFont SFProLight10 = QFont("SF Pro Display", 10, 0);
-    SFProLight10.setWeight(QFont::Normal);
-    header->setFont(SFProLight10);
+    header = createFixedSizeTextLabel(text, 10, QFont::Normal, QSize(101, 16));
     header->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     header->setMargin(2);
     header->move(14, 11);
