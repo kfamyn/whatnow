@@ -12,7 +12,6 @@
 const int MIN_THERMOMETER_VISUALIZATION_TEMPERATURE = -35;
 const int MAX_THERMOMETER_VISUALIZATION_TEMPERATURE = 35;
 const int PIXELS_PER_DEGREE_IN_THERMOMETER = 12;
-const QString FEELS_LIKE_WIDGET_TEXT_STYLESHEET = "color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255));";
 
 class FeelsLikeWidget : public InformationWidget
 {

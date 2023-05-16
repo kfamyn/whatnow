@@ -11,13 +11,13 @@ WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
     this->setHeader("WIND");
     QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
     QFont SFPro = QFont("SF Pro Display", 10, 0);
-    windSpeedLabel = createTextLabel("X M/S", SFPro, 10, QFont::Normal, WIND_WIDGET_TEXT_STYLESHEET, QSize(60, 16));
+    windSpeedLabel = createFixedSizeTextLabel("X M/S", SFPro, 10, QFont::Normal, QSize(60, 16));
     arrow = createPixmapLabel(":/additionalWeatherIcons/assets/additionalWeatherIcons/sun.png", QSize(31, 31));
     compass = createPixmapLabel(":/additionalWeatherIcons/assets/additionalWeatherIcons/compass.png", QSize(88, 88));
-    south = createTextLabel("S", SFPro, 10, QFont::Normal);
-    east = createTextLabel("E", SFPro, 10, QFont::Normal);
-    north = createTextLabel("N", SFPro, 10, QFont::Normal);
-    west = createTextLabel("W", SFPro, 10, QFont::Normal);
+    south = createFixedSizeTextLabel("S", SFPro, 10, QFont::Normal);
+    east = createFixedSizeTextLabel("E", SFPro, 10, QFont::Normal);
+    north = createFixedSizeTextLabel("N", SFPro, 10, QFont::Normal);
+    west = createFixedSizeTextLabel("W", SFPro, 10, QFont::Normal);
 
     windSpeedLabel->move(39, 68);
     arrow->move(79, 26);
@@ -56,27 +56,6 @@ void WindWidget::updateInfo(int dayIndex)
     windSpeed = newWindSpeed;
     m_windDirection = newWindDirection;
     this->windSpeedLabel->setText(QString::number(windSpeed).append(" M/S"));
-}
-
-QLabel *WindWidget::createPixmapLabel(QString path, QSize size){
-    QLabel* newLabel = new QLabel(this);
-    newLabel->setFixedSize(size);
-    newLabel->setPixmap(QPixmap(path));
-    newLabel->setScaledContents(true);
-    return newLabel;
-}
-
-QLabel *WindWidget::createTextLabel(QString text, QFont font, int fontSize, QFont::Weight weight, QString styleSheet, QSize labelSize)
-{
-    QLabel* textLabel = new QLabel(this);
-    textLabel->setAlignment(Qt::AlignVCenter | Qt::AlignHCenter);
-    textLabel->setText(text);
-    font.setWeight(weight);
-    font.setPointSize(fontSize);
-    textLabel->setFont(font);
-    textLabel->setStyleSheet(styleSheet);
-    textLabel->setFixedSize(labelSize);
-    return textLabel;
 }
 
 QPoint WindWidget::cartesianToQPoint(int x, int y)

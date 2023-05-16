@@ -6,6 +6,8 @@
 #include <QLabel>
 #include "weatherAPI.h"
 
+const QString DEFAULT_STYLESHEET = "color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))";
+
 class InformationWidget : public QWidget
 {
     Q_OBJECT
@@ -21,7 +23,11 @@ protected:
     QLabel* background;
     QLabel* header;
 
-    QLabel* createTextLabel(QString text, int fontSize, QFont::Weight weight, QString styleSheet, Qt::Alignment alignment, QSizePolicy::Policy policy1 = QSizePolicy::Preferred, QSizePolicy::Policy policy2 = QSizePolicy::Preferred);
+    QLabel* createPixmapLabel(QString path, QSize size);
+    QLabel* createFixedSizeTextLabel(QString text, QFont font, int fontSize, QFont::Weight weight,
+                            QSize labelSize = QSize(20, 20), QString styleSheet = DEFAULT_STYLESHEET);
+    QLabel* createTextLabel(QString text, QFont font, int fontSize, QFont::Weight weight,
+                            QString styleSheet = DEFAULT_STYLESHEET);
 };
 
 #endif // INFORMATIONWIDGET_H

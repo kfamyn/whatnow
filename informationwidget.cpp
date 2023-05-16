@@ -27,16 +27,29 @@ void InformationWidget::setHeader(QString text)
     header->move(14, 11);
 }
 
-QLabel *InformationWidget::createTextLabel(QString text, int fontSize, QFont::Weight weight, QString styleSheet, Qt::Alignment alignment, QSizePolicy::Policy policy1, QSizePolicy::Policy policy2)
+QLabel *InformationWidget::createPixmapLabel(QString path, QSize size){
+    QLabel* newLabel = new QLabel(this);
+    newLabel->setFixedSize(size);
+    newLabel->setPixmap(QPixmap(path));
+    newLabel->setScaledContents(true);
+    return newLabel;
+}
+
+QLabel *InformationWidget::createTextLabel(QString text, QFont font, int fontSize, QFont::Weight weight, QString styleSheet)
 {
-    QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
-    QFont SFPro = QFont("SF Pro Display", fontSize, 0);
     QLabel* textLabel = new QLabel(this);
+    textLabel->setAlignment(Qt::AlignVCenter | Qt::AlignHCenter);
     textLabel->setText(text);
-    SFPro.setWeight(weight);
-    textLabel->setFont(SFPro);
-    textLabel->setSizePolicy(policy1, policy2);
+    font.setWeight(weight);
+    font.setPointSize(fontSize);
+    textLabel->setFont(font);
     textLabel->setStyleSheet(styleSheet);
-    textLabel->setAlignment(alignment);
+    return textLabel;
+}
+
+QLabel *InformationWidget::createFixedSizeTextLabel(QString text, QFont font, int fontSize, QFont::Weight weight, QSize labelSize, QString styleSheet)
+{
+    QLabel* textLabel = createTextLabel(text, font, fontSize, weight, styleSheet);
+    textLabel->setFixedSize(labelSize);
     return textLabel;
 }

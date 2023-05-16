@@ -5,7 +5,6 @@
 #include <QObject>
 #include <QWidget>
 
-const QString WIND_WIDGET_TEXT_STYLESHEET = "color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))";
 const int ARROW_AMENDMENT = 1;
 
 class WindWidget : public InformationWidget
@@ -29,9 +28,6 @@ private:
     QLabel* west;
     void setWindDirection(qreal meteorologicalDegrees);
 
-    QLabel* createPixmapLabel(QString path, QSize size);
-    QLabel* createTextLabel(QString text, QFont font, int fontSize, QFont::Weight weight,
-                            QString styleSheet = WIND_WIDGET_TEXT_STYLESHEET, QSize labelSize = QSize(20, 20));
     QPoint cartesianToQPoint(int x, int y);
     QPoint qPointToCartesian(QPoint qPoint);
 };

@@ -1,5 +1,6 @@
 #include "feelslikewidget.h"
 #include <QPropertyAnimation>
+#include <QFontDatabase>
 
 FeelsLikeWidget::FeelsLikeWidget(QWidget *parent) : InformationWidget(parent){
     background = new QLabel(this);
@@ -67,9 +68,13 @@ void FeelsLikeWidget::updateThermometerWidget(int newFeelsLike)
 
 void FeelsLikeWidget::setupTemperatureLayout()
 {
+    QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
+    QFont SFPro = QFont("SF Pro Display", 10, 0);
     leftSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Fixed);
-    temperatureLabel = createTextLabel("temperature", 37, QFont::Normal, FEELS_LIKE_WIDGET_TEXT_STYLESHEET, Qt::AlignTop | Qt::AlignRight);
-    celciusLabel = createTextLabel("°C", 22, QFont::Normal, FEELS_LIKE_WIDGET_TEXT_STYLESHEET, Qt::AlignLeft | Qt::AlignTop);
+    temperatureLabel = createTextLabel("temperature", SFPro, 37, QFont::Normal);
+    temperatureLabel->setAlignment(Qt::AlignTop | Qt::AlignRight);
+    celciusLabel = createTextLabel("°C", SFPro, 22, QFont::Normal);
+    celciusLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     celciusLayout = new QVBoxLayout();
     celciusLayout->addWidget(celciusLabel);
     celciusLayout->setContentsMargins(0, 4, 0, 0);
