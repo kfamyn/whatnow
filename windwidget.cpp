@@ -1,5 +1,4 @@
 #include "windwidget.h"
-#include <QFontDatabase>
 #include <QPainter>
 #include <QPropertyAnimation>
 #include <QtMath>
