@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setupAttributes();
     this->setupFonts();
     this->animateFadingIn();
-    weather = new Weather("los angeles");
+    weather = new Weather("saint petersburg");
     this->setupCurrentConditionsWidget();
     this->adjustCurrentTemperatureFont();
 
@@ -183,3 +183,5 @@ QPropertyAnimation* MainWindow::fadeWidget(QWidget* widget, int mode, int durati
         widgetOpacityAnimation->setDirection(QPropertyAnimation::Backward);
     return widgetOpacityAnimation;
 }
+
+

@@ -6,6 +6,7 @@
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
 #include <QObject>
+#include <QGraphicsScene>
 #include "weatherAPI.h"
 #include "weatherwidget.h"
 #include "dailyforecastwidget.h"
@@ -27,6 +28,7 @@ public:
 private slots:
     void on_Exit_clicked();
     void dailyForecastLinePressed(int dayIndex);
+
 private:
     Ui::MainWindow *ui;
     Weather* weather;

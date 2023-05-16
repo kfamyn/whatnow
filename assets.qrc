@@ -96,18 +96,11 @@
     <qresource prefix="/config"/>
     <qresource prefix="/background">
         <file>assets/backgrounds/Bottom_Left_Corner_Background.png</file>
-        <file>assets/backgrounds/Bottom_Left_Corner_Background.psd</file>
-        <file>assets/backgrounds/Bottom_Left_Corner_Background_Mask.png</file>
         <file>assets/backgrounds/Bottom_Right_Corner_Background.png</file>
-        <file>assets/backgrounds/Gradient.png</file>
-        <file>assets/backgrounds/Grid_template.png</file>
-        <file>assets/backgrounds/Grid_template_2.png</file>
-        <file>assets/backgrounds/Main_Section_Starry_Sky.png</file>
         <file>assets/backgrounds/Solid_Night.png</file>
         <file>assets/backgrounds/Tool_Bar.png</file>
         <file>assets/backgrounds/Upper_Left_Corner_Background.png</file>
         <file>assets/backgrounds/Upper_Right_Corner_Background.png</file>
-        <file>assets/backgrounds/Grid_template_3.png</file>
         <file>assets/backgrounds/smallWidgetBackground.png</file>
         <file>assets/backgrounds/Grid_Template_4.png</file>
         <file>assets/backgrounds/sunWidgetBackground.png</file>
