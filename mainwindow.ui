@@ -11684,25 +11684,6 @@ QScrollBar::sub-line:horizontal {
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>522</x>
-      <y>632</y>
-      <width>281</width>
-      <height>132</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="assets.qrc">:/background/assets/backgrounds/sunWidgetBackground.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
@@ -11722,7 +11703,7 @@ QScrollBar::sub-line:horizontal {
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="feelsLikeHeader">
     <property name="geometry">
      <rect>
       <x>538</x>
@@ -11867,28 +11848,6 @@ QScrollBar::sub-line:horizontal {
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>538</x>
-      <y>643</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>SF Pro Display</family>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
-    </property>
-    <property name="text">
-     <string>SUN</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
@@ -11966,95 +11925,7 @@ chance of rain or snow throughout the day.</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_15">
-    <property name="geometry">
-     <rect>
-      <x>516</x>
-      <y>665</y>
-      <width>295</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="assets.qrc">:/additionalWeatherIcons/assets/additionalWeatherIcons/sunCurve.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_16">
-    <property name="geometry">
-     <rect>
-      <x>692</x>
-      <y>671</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="assets.qrc">:/additionalWeatherIcons/assets/additionalWeatherIcons/sun.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_17">
-    <property name="geometry">
-     <rect>
-      <x>524</x>
-      <y>683</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>SF Pro Display</family>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
-    </property>
-    <property name="text">
-     <string>7:42AM</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_18">
-    <property name="geometry">
-     <rect>
-      <x>736</x>
-      <y>683</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>SF Pro Display</family>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:50, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255))</string>
-    </property>
-    <property name="text">
-     <string>8:23PM</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_19">
+   <widget class="QLabel" name="thermometerSample">
     <property name="geometry">
      <rect>
       <x>538</x>
@@ -12325,17 +12196,159 @@ chance of rain or snow throughout the day.</string>
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QWidget" name="sunWidgetSample" native="true">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>380</y>
-      <width>36</width>
-      <height>36</height>
+      <x>520</x>
+      <y>630</y>
+      <width>281</width>
+      <height>132</height>
      </rect>
     </property>
-    <property name="text">
-     <string/>
+    <widget class="QLabel" name="sunWidgetBackground">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>281</width>
+       <height>132</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="assets.qrc">:/background/assets/backgrounds/sunWidgetBackground.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="sunrise">
+     <property name="geometry">
+      <rect>
+       <x>3</x>
+       <y>51</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>SF Pro Display</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
+     </property>
+     <property name="text">
+      <string>7:42AM</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="sunset">
+     <property name="geometry">
+      <rect>
+       <x>207</x>
+       <y>51</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>SF Pro Display</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:50, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255))</string>
+     </property>
+     <property name="text">
+      <string>8:23PM</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="sun">
+     <property name="geometry">
+      <rect>
+       <x>168</x>
+       <y>39</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="assets.qrc">:/additionalWeatherIcons/assets/additionalWeatherIcons/sun.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="sunHeader">
+     <property name="geometry">
+      <rect>
+       <x>16</x>
+       <y>11</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>SF Pro Display</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
+     </property>
+     <property name="text">
+      <string>SUN</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="sunCurve">
+     <property name="geometry">
+      <rect>
+       <x>-8</x>
+       <y>33</y>
+       <width>295</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="assets.qrc">:/additionalWeatherIcons/assets/additionalWeatherIcons/sunCurve.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>sunWidgetBackground</zorder>
+    <zorder>sunHeader</zorder>
+    <zorder>sunCurve</zorder>
+    <zorder>sun</zorder>
+    <zorder>sunrise</zorder>
+    <zorder>sunset</zorder>
+   </widget>
+   <widget class="QWidget" name="sunWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>630</y>
+      <width>281</width>
+      <height>132</height>
+     </rect>
     </property>
    </widget>
    <zorder>Background</zorder>
@@ -12354,23 +12367,18 @@ chance of rain or snow throughout the day.</string>
    <zorder>Upper_Right_Corner_Background</zorder>
    <zorder>HourlyForecastWidget</zorder>
    <zorder>feelsLikeBackground</zorder>
-   <zorder>label_3</zorder>
    <zorder>label_4</zorder>
-   <zorder>label_7</zorder>
    <zorder>label_12</zorder>
    <zorder>label_13</zorder>
    <zorder>label_14</zorder>
-   <zorder>label_15</zorder>
-   <zorder>label_16</zorder>
-   <zorder>label_17</zorder>
-   <zorder>label_18</zorder>
-   <zorder>label_19</zorder>
+   <zorder>thermometerSample</zorder>
    <zorder>feelsLikeSample</zorder>
    <zorder>feelsLike</zorder>
-   <zorder>label_5</zorder>
+   <zorder>feelsLikeHeader</zorder>
    <zorder>windWidget</zorder>
    <zorder>windWidgetSample</zorder>
-   <zorder>label</zorder>
+   <zorder>sunWidgetSample</zorder>
+   <zorder>sunWidget</zorder>
   </widget>
  </widget>
  <resources>
