@@ -16,11 +16,13 @@ public:
 public slots:
     void updateInfo(int dayIndex) final;
 private:
+    QString sunriseTime;
+    QString sunsetTime;
     int sunPosition;
     QLabel* sunCurve;
     QLabel* sun;
-    QLabel* sunriseTime;
-    QLabel* sunsetTime;
+    QLabel* sunriseTimeLabel;
+    QLabel* sunsetTimeLabel;
 };
 
 #endif // SUNWIDGET_H
