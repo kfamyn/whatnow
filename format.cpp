@@ -16,12 +16,18 @@ std::string formatDate(std::string rawDate){
     return dateFormatted;
 }
 
-std::string formatTime(std::string rawTime){
+std::string formatTime(std::string rawTime, int accuracy){
     static std::string ampm[] = {"AM", "PM"};
-    std::string TimeFormatted = "";
-    TimeFormatted += (std::stoi(rawTime.substr(0, 2)) % 12 != 0) ? std::to_string(std::stoi(rawTime.substr(0, 2)) % 12) : std::to_string(12);
-    TimeFormatted += ampm[std::stoi(rawTime.substr(0, 2)) >= 12];
-    return TimeFormatted;
+    std::string timeFormatted = "";
+    timeFormatted += (std::stoi(rawTime.substr(0, 2)) % 12 != 0) ? std::to_string(std::stoi(rawTime.substr(0, 2)) % 12) : std::to_string(12);
+    if (accuracy == HOURS_AND_MINUTES || accuracy == FULL_ACCURACY){
+        timeFormatted += rawTime.substr(2, 3);
+    }
+    if (accuracy == FULL_ACCURACY){
+        timeFormatted += rawTime.substr(5, 3);
+    }
+    timeFormatted += ampm[std::stoi(rawTime.substr(0, 2)) >= 12];
+    return timeFormatted;
 }
 
 std::string formatPrecipitationProbability(std::string rawProbability){
