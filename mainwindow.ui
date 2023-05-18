@@ -39,7 +39,7 @@
     <string notr="true">#centralwidget{border-image: url(:/assets/assets/Backgrounds/Grid_Template_4.png);}
 </string>
    </property>
-   <widget class="QLabel" name="Bottom_Left_Corner_Background">
+   <widget class="QLabel" name="bottomLeftCornerBackground">
     <property name="geometry">
      <rect>
       <x>114</x>
@@ -55,13 +55,13 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="assets.qrc">:/background/assets/backgrounds/Bottom_Left_Corner_Background.png</pixmap>
+     <pixmap resource="assets.qrc">:/background/assets/backgrounds/bottomLeftCornerBackground.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="Upper_Left_Corner_Background">
+   <widget class="QLabel" name="upperLeftCornerBackground">
     <property name="geometry">
      <rect>
       <x>114</x>
@@ -74,13 +74,13 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="assets.qrc">:/background/assets/backgrounds/Upper_Left_Corner_Background.png</pixmap>
+     <pixmap resource="assets.qrc">:/background/assets/backgrounds/upperLeftCornerBackground.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="Upper_Right_Corner_Background">
+   <widget class="QLabel" name="upperRightCornerBackground">
     <property name="geometry">
      <rect>
       <x>482</x>
@@ -93,13 +93,13 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="assets.qrc">:/background/assets/backgrounds/Upper_Right_Corner_Background.png</pixmap>
+     <pixmap resource="assets.qrc">:/background/assets/backgrounds/upperRightCornerBackground.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="Bottom_Right_Corner_Background">
+   <widget class="QLabel" name="bottomRightCornerBackground">
     <property name="geometry">
      <rect>
       <x>482</x>
@@ -112,7 +112,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="assets.qrc">:/background/assets/backgrounds/Bottom_Right_Corner_Background.png</pixmap>
+     <pixmap resource="assets.qrc">:/background/assets/backgrounds/bottomRightCornerBackground.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -238,7 +238,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="ToolBar">
+   <widget class="QLabel" name="toolBar">
     <property name="geometry">
      <rect>
       <x>31</x>
@@ -254,7 +254,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="assets.qrc">:/background/assets/backgrounds/Tool_Bar.png</pixmap>
+     <pixmap resource="assets.qrc">:/background/assets/backgrounds/toolBar.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -12352,20 +12352,19 @@ chance of rain or snow throughout the day.</string>
     </property>
    </widget>
    <zorder>Background</zorder>
-   <zorder>Bottom_Right_Corner_Background</zorder>
+   <zorder>bottomRightCornerBackground</zorder>
    <zorder>HourlyForecastLineSample</zorder>
    <zorder>forecastScrollAreaSample</zorder>
    <zorder>hourlyForecastScrollArea</zorder>
-   <zorder>Upper_Left_Corner_Background</zorder>
-   <zorder>Bottom_Left_Corner_Background</zorder>
+   <zorder>upperLeftCornerBackground</zorder>
+   <zorder>bottomLeftCornerBackground</zorder>
    <zorder>CurrentLocation</zorder>
    <zorder>horizontalLayoutWidget</zorder>
    <zorder>CurrentConditions</zorder>
-   <zorder>ToolBar</zorder>
+   <zorder>toolBar</zorder>
    <zorder>Exit</zorder>
    <zorder>DailyForecastWidget</zorder>
-   <zorder>Upper_Right_Corner_Background</zorder>
-   <zorder>HourlyForecastWidget</zorder>
+   <zorder>upperRightCornerBackground</zorder>
    <zorder>feelsLikeBackground</zorder>
    <zorder>label_4</zorder>
    <zorder>label_12</zorder>
@@ -12379,6 +12378,7 @@ chance of rain or snow throughout the day.</string>
    <zorder>windWidgetSample</zorder>
    <zorder>sunWidgetSample</zorder>
    <zorder>sunWidget</zorder>
+   <zorder>HourlyForecastWidget</zorder>
   </widget>
  </widget>
  <resources>

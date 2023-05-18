@@ -95,28 +95,28 @@
     </qresource>
     <qresource prefix="/config"/>
     <qresource prefix="/background">
-        <file>assets/backgrounds/Bottom_Left_Corner_Background.png</file>
-        <file>assets/backgrounds/Bottom_Right_Corner_Background.png</file>
-        <file>assets/backgrounds/Solid_Night.png</file>
-        <file>assets/backgrounds/Tool_Bar.png</file>
-        <file>assets/backgrounds/Upper_Left_Corner_Background.png</file>
-        <file>assets/backgrounds/Upper_Right_Corner_Background.png</file>
+        <file>assets/backgrounds/bottomLeftCornerBackground.png</file>
+        <file>assets/backgrounds/bottomRightCornerBackground.png</file>
+        <file>assets/backgrounds/mainWindowBackground.png</file>
+        <file>assets/backgrounds/toolBar.png</file>
+        <file>assets/backgrounds/upperLeftCornerBackground.png</file>
+        <file>assets/backgrounds/upperRightCornerBackground.png</file>
         <file>assets/backgrounds/smallWidgetBackground.png</file>
-        <file>assets/backgrounds/Grid_Template_4.png</file>
+        <file>assets/backgrounds/gridTemplate4.png</file>
         <file>assets/backgrounds/sunWidgetBackground.png</file>
         <file>assets/backgrounds/calendarWidgetBackground.png</file>
         <file>assets/backgrounds/gridTemplate.png</file>
     </qresource>
     <qresource prefix="/buttonIcons">
         <file>assets/buttonIcons/exitButton.png</file>
-        <file>assets/buttonIcons/SearchButton.png</file>
+        <file>assets/buttonIcons/searchButton.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>assets/applicationIcon/wIcon.ico</file>
     </qresource>
     <qresource prefix="/additionalWeatherIcons">
-        <file>assets/additionalWeatherIcons/Precipitations.png</file>
-        <file>assets/additionalWeatherIcons/NoPrecipitations.png</file>
+        <file>assets/additionalWeatherIcons/precipitations.png</file>
+        <file>assets/additionalWeatherIcons/noPrecipitations.png</file>
         <file>assets/additionalWeatherIcons/compass.png</file>
         <file>assets/additionalWeatherIcons/sun.png</file>
         <file>assets/additionalWeatherIcons/windDirectionArrow.png</file>

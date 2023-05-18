@@ -12,8 +12,7 @@ HourlyForecastLine::HourlyForecastLine(QWidget *parent): QWidget(parent){
     setupHourlyForecastLayout();
 }
 
-void HourlyForecastLine::fill(QString date, QString time, QString iconURL, QString precipitationProbability, QString temperature)
-{
+void HourlyForecastLine::fill(QString date, QString time, QString iconURL, QString precipitationProbability, QString temperature){
     this->dateLabel->setText(date);
     this->timeLabel->setText(time);
     this->weatherIconLabel->setPixmap(QPixmap(iconURL));
@@ -21,8 +20,7 @@ void HourlyForecastLine::fill(QString date, QString time, QString iconURL, QStri
     this->temperatureLabel->setText(temperature);
 }
 
-QLabel* HourlyForecastLine::createTextLabel(QString text, int fontSize, QFont::Weight weight, QString styleSheet, Qt::Alignment alignment, QSizePolicy::Policy policy1, QSizePolicy::Policy policy2)
-{
+QLabel* HourlyForecastLine::createTextLabel(QString text, int fontSize, QFont::Weight weight, QString styleSheet, Qt::Alignment alignment, QSizePolicy::Policy policy1, QSizePolicy::Policy policy2){
     QFontDatabase::addApplicationFont(":/fonts/assets/Fonts/SFPro/SFProDisplay-Regular.ttf");
     QFont SFPro = QFont("SF Pro Display", fontSize, 0);
     QLabel* textLabel = new QLabel(this);
@@ -35,8 +33,7 @@ QLabel* HourlyForecastLine::createTextLabel(QString text, int fontSize, QFont::W
     return textLabel;
 }
 
-QLabel *HourlyForecastLine::createIconLabel(QString iconURL, int size)
-{
+QLabel *HourlyForecastLine::createIconLabel(QString iconURL, int size){
     QLabel* iconLabel = new QLabel(this);
     iconLabel->setFixedSize(size, size);
     iconLabel->setScaledContents(true);
@@ -45,13 +42,12 @@ QLabel *HourlyForecastLine::createIconLabel(QString iconURL, int size)
     return iconLabel;
 }
 
-void HourlyForecastLine::setupPrecipitationProbabilityLayout(QString precipitationProbability)
-{
+void HourlyForecastLine::setupPrecipitationProbabilityLayout(QString precipitationProbability){
     precipitationProbabilityLeftSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Fixed);
     QString precipitationProbabilityProcessed = precipitationProbability == "0" ? "" : precipitationProbability.append("%");
     precipitationProbabilityLabel = createTextLabel(precipitationProbabilityProcessed, 13, QFont::Light, "color: qconicalgradient(cx:1, cy:0, angle:78, stop:0.72089 rgba(255, 255, 255, 255), stop:0.131285 rgba(0, 0, 0, 255))", Qt::AlignRight | Qt::AlignBottom);
     precipitationIconLabel = new QLabel(this);
-    QString precipitationIconPath = precipitationProbability == "0" ? ":/additionalWeatherIcons/assets/additionalWeatherIcons/NoPrecipitations.png" : ":/additionalWeatherIcons/assets/additionalWeatherIcons/Precipitations.png";
+    QString precipitationIconPath = precipitationProbability == "0" ? ":/additionalWeatherIcons/assets/additionalWeatherIcons/noPrecipitations.png" : ":/additionalWeatherIcons/assets/additionalWeatherIcons/precipitations.png";
     precipitationIconLabel = createIconLabel(precipitationIconPath, 15);
     precipitationIconLayout = new QVBoxLayout();
     precipitationIconLayout->addWidget(precipitationIconLabel);
@@ -66,8 +62,7 @@ void HourlyForecastLine::setupPrecipitationProbabilityLayout(QString precipitati
     precipitationProbabilityLayout->addSpacerItem(precipitationProbabilityRightSpacer);
 }
 
-void HourlyForecastLine::setupTemperatureLayout(QString temperature)
-{
+void HourlyForecastLine::setupTemperatureLayout(QString temperature){
     temperatureLeftSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Fixed);
     temperatureLabel = createTextLabel(temperature, 39, QFont::Normal, "color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.9 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));", Qt::AlignTop | Qt::AlignRight);
     celciusLabel = createTextLabel("°C", 24, QFont::Normal, "color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255,255,255,0), stop:0.6 rgba(255,255,255,255),  stop:1 rgba(202, 162, 203, 255));", Qt::AlignLeft | Qt::AlignTop);
@@ -84,8 +79,7 @@ void HourlyForecastLine::setupTemperatureLayout(QString temperature)
     temperatureLayout->addSpacerItem(temperatureRightSpacer);
 }
 
-void HourlyForecastLine::setupHourlyForecastLayout()
-{
+void HourlyForecastLine::setupHourlyForecastLayout(){
     hourlyForecastLayout = new QVBoxLayout(this);
     hourlyForecastLayout->setContentsMargins(9, 26, 9, 24);
     hourlyForecastLayout->setSpacing(6);

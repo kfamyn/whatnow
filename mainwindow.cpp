@@ -15,18 +15,18 @@ MainWindow::MainWindow(QWidget *parent)
     this->setupAttributes();
     this->setupFonts();
     this->animateFadingIn();
-    weather = new Weather("saint petersburg");
+    weather = new Weather("los angeles");
     this->setupCurrentConditionsWidget();
     this->adjustCurrentTemperatureFont();
 
     ui->forecastScrollAreaSample->setVisible(false);
     dailyForecastWidget = new DailyForecastWidget(ui->DailyForecastWidget);
     dailyForecastWidget->setup(*weather);
-    dailyForecastWidget->setBackground(":/background/assets/backgrounds/Bottom_Left_Corner_Background.png", QSize(340, 324));
+    dailyForecastWidget->setBackground(":/background/assets/backgrounds/bottomLeftCornerBackground.png", QSize(340, 324));
 
     hourlyForecastWidget = new HourlyForecastWidget(ui->HourlyForecastWidget);
     hourlyForecastWidget->setup(*weather);
-    hourlyForecastWidget->setBackground(":/background/assets/backgrounds/Upper_Right_Corner_Background.png", QSize(677, 360));
+    hourlyForecastWidget->setBackground(":/background/assets/backgrounds/upperRightCornerBackground.png", QSize(677, 360));
     this->fadeWidgetsIn();
     for (int index = 0; index < 14; ++index) {
         QObject::connect(dailyForecastWidget->getLine(index), SIGNAL(linePressed(int)), this, SLOT(dailyForecastLinePressed(int)));
