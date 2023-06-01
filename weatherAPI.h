@@ -5,7 +5,8 @@
 
 class Weather {
 public:
-    Weather(std::string unprocessedCityData);
+    Weather();
+    void update(std::string city);
     std::string getAddress();
     std::string getValue(int day, std::string key);
     std::string getCurrentConditions(std::string key);

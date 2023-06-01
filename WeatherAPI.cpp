@@ -6,9 +6,12 @@
 #include <stdlib.h>
 
 
-Weather::Weather(std::string unprocessedCityData){
-        weatherData = nlohmann::json::parse(request(formatInput(unprocessedCityData)));
-    }
+Weather::Weather(){}
+
+void Weather::update(std::string city)
+{
+    weatherData = nlohmann::json::parse(request(formatInput(city)));
+}
 
 std::string Weather::getAddress(){
         std::string fullAddress(weatherData.value("resolvedAddress", "Error getting precise address"));
