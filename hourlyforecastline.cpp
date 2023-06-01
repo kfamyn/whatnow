@@ -16,7 +16,14 @@ void HourlyForecastLine::fill(QString date, QString time, QString iconURL, QStri
     this->dateLabel->setText(date);
     this->timeLabel->setText(time);
     this->weatherIconLabel->setPixmap(QPixmap(iconURL));
-    this->precipitationProbabilityLabel->setText(precipitationProbability.append("%"));
+    QString precipitationIconPath = precipitationProbability == "0" ? ":/additionalWeatherIcons/assets/additionalWeatherIcons/noPrecipitations.png" : ":/additionalWeatherIcons/assets/additionalWeatherIcons/precipitations.png";
+    this->precipitationIconLabel->setPixmap(precipitationIconPath);
+    if (precipitationProbability != "0"){
+        this->precipitationProbabilityLabel->setText(precipitationProbability.append("%"));
+    }
+    else {
+        this->precipitationProbabilityLabel->setText("");
+    }
     this->temperatureLabel->setText(temperature);
 }
 
