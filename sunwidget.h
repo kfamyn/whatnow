@@ -13,8 +13,11 @@ class SunWidget : public InformationWidget
     Q_OBJECT
 public:
     SunWidget(QWidget *parent = nullptr);
+    QPoint cartesianToQPoint(int x, int y);
+    QPoint qPointToCartesian(QPoint qPoint);
 public slots:
     void updateInfo(int dayIndex) final;
+    void updateSunPosition(int currentTimeInSeconds);
 private:
     QString sunriseTime;
     QString sunsetTime;
