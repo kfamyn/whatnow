@@ -195,6 +195,6 @@ QPropertyAnimation* MainWindow::fadeWidget(QWidget* widget, int mode, int durati
 
 void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
-    sunWidget->updateSunPosition(value);
+    sunWidget->setSunPosition(value);
 }
 

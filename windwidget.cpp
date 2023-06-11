@@ -24,6 +24,7 @@ WindWidget::WindWidget(QWidget *parent) : InformationWidget(parent){
     east->move(100, 66);
     north->move(57, 109);
     west->move(15, 66);
+    this->arrow->raise();
 }
 
 void WindWidget::updateInfo(int dayIndex)
@@ -78,5 +79,4 @@ void WindWidget::setWindDirection(qreal meteorologicalDegrees) // to float!, to 
     float arrowLeftCornerCartesianY = arrowCartesianY + arrow->height() / 2 + ARROW_AMENDMENT;
 
     this->arrow->move(cartesianToQPoint(arrowLeftCornerCartesianX, arrowLeftCornerCartesianY));
-    this->arrow->raise();
 }

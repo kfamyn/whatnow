@@ -11,17 +11,18 @@ const QString SUN_WIDGET_STYLESHEET = "color: qconicalgradient(cx:1, cy:0, angle
 class SunWidget : public InformationWidget
 {
     Q_OBJECT
+    Q_PROPERTY(qreal sunPosition MEMBER m_sunPosition WRITE setSunPosition)
 public:
     SunWidget(QWidget *parent = nullptr);
     QPoint cartesianToQPoint(int x, int y);
     QPoint qPointToCartesian(QPoint qPoint);
 public slots:
     void updateInfo(int dayIndex) final;
-    void updateSunPosition(int currentTimeInSeconds);
+    void setSunPosition(int currentTimeInSeconds);
 private:
     QString sunriseTime;
     QString sunsetTime;
-    int sunPosition;
+    qreal m_sunPosition;
     QLabel* sunCurve;
     QLabel* sun;
     QLabel* sunriseTimeLabel;
