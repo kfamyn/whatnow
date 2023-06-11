@@ -44,6 +44,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->sunWidgetSample->setVisible(false);
     sunWidget = new SunWidget(ui->sunWidget);
     sunWidget->setup(weather);
+
+    ui->horizontalSlider->setMaximum(86400);
+    ui->horizontalSlider->setMinimum(0);
 }
 
 MainWindow::~MainWindow()
@@ -188,4 +191,10 @@ QPropertyAnimation* MainWindow::fadeWidget(QWidget* widget, int mode, int durati
     return widgetOpacityAnimation;
 }
 
+
+
+void MainWindow::on_horizontalSlider_valueChanged(int value)
+{
+    sunWidget->updateSunPosition(value);
+}
 

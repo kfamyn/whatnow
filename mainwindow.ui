@@ -11515,7 +11515,7 @@ QScrollBar::sub-line:horizontal {
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="assets.qrc">:/additionalWeatherIcons/assets/additionalWeatherIcons/Precipitations.png</pixmap>
+            <pixmap>:/additionalWeatherIcons/assets/additionalWeatherIcons/Precipitations.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -12351,6 +12351,19 @@ chance of rain or snow throughout the day.</string>
      </rect>
     </property>
    </widget>
+   <widget class="QSlider" name="horizontalSlider">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>420</y>
+      <width>160</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
    <zorder>Background</zorder>
    <zorder>bottomRightCornerBackground</zorder>
    <zorder>HourlyForecastLineSample</zorder>
@@ -12379,6 +12392,7 @@ chance of rain or snow throughout the day.</string>
    <zorder>sunWidgetSample</zorder>
    <zorder>sunWidget</zorder>
    <zorder>HourlyForecastWidget</zorder>
+   <zorder>horizontalSlider</zorder>
   </widget>
  </widget>
  <resources>
