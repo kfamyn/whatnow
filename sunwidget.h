@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QWidget>
 #include <QLabel>
+#include <QPropertyAnimation>
 
 const QString SUN_WIDGET_STYLESHEET = "color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))";
 
@@ -27,6 +28,9 @@ private:
     QLabel* sun;
     QLabel* sunriseTimeLabel;
     QLabel* sunsetTimeLabel;
+
+    QPropertyAnimation *widgetFadeAnimation(QGraphicsEffect *widgetGraphicsEffect, int duration, QEasingCurve easingCurve, QAbstractAnimation::Direction direction);
+    void animateSunPosition();
 };
 
 #endif // SUNWIDGET_H

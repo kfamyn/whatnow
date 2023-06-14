@@ -3,6 +3,7 @@
 #include <QPropertyAnimation>
 #include <chrono>
 #include <QDateTime>
+#include <QGraphicsOpacityEffect>
 
 SunWidget::SunWidget(QWidget *parent): InformationWidget(parent){
     m_sunPosition = 0;
@@ -35,16 +36,19 @@ void SunWidget::updateInfo(int dayIndex)
     }
     sunriseTimeLabel->setText(sunriseTime);
     sunsetTimeLabel->setText(sunsetTime);
-
-    if (dayIndex == 0){
-        int currentSecond = QDateTime::currentDateTime().time().hour()*24 + QDateTime::currentDateTime().time().minute() * 60 + QDateTime::currentDateTime().time().second() * 60;
-        QPropertyAnimation* sunPositionAnimation = new QPropertyAnimation(this, "sunPosition");
-        sunPositionAnimation->setDuration(500);
-        sunPositionAnimation->setStartValue(0);
-        sunPositionAnimation->setEndValue(currentSecond);
-        sunPositionAnimation->setEasingCurve(QEasingCurve::OutCubic);
-        sunPositionAnimation->start(QAbstractAnimation::DeleteWhenStopped);
-        m_sunPosition = currentSecond;
+    static QGraphicsOpacityEffect *sunWidgetOpacity = new QGraphicsOpacityEffect(sun);
+    sun->setGraphicsEffect(sunWidgetOpacity);
+    if (m_sunPosition == 0){
+        animateSunPosition();
+        widgetFadeAnimation(sunWidgetOpacity, 900, QEasingCurve::InOutCubic, QAbstractAnimation::Forward)->start(QAbstractAnimation::DeleteWhenStopped);
+    }
+    else if (dayIndex == 0){
+        if (sunWidgetOpacity->opacity() == 0)
+            widgetFadeAnimation(sunWidgetOpacity, 150, QEasingCurve::InCubic, QAbstractAnimation::Forward)->start(QAbstractAnimation::DeleteWhenStopped);
+    }
+    else {
+        if (!(sunWidgetOpacity->opacity() == 0))
+            widgetFadeAnimation(sunWidgetOpacity, 150, QEasingCurve::OutCubic, QAbstractAnimation::Backward)->start(QAbstractAnimation::DeleteWhenStopped);
     }
 }
 
@@ -64,12 +68,33 @@ void SunWidget::setSunPosition(int currentTimeInSeconds){
     static const float X_COORDINATE_RANGE = 4.52;
     static const float Y_COORDINATE_RANGE = 0.263;
     double x = (currentTimeInSeconds / (86400/(X_COORDINATE_RANGE*2))) - X_COORDINATE_RANGE;
-    qDebug() << x;
     double y = (1/(mathematicalExpectation*sqrt(2*std::atan(1)*4)))*std::exp(-0.5*std::pow((x - standartDeviation) / mathematicalExpectation, 2));
     y += 0.034;
     x -= 0.49;
     double sunX = (background->size().width()/(X_COORDINATE_RANGE * 2)) * x + background->size().width() / 2;
     double sunY = (background->size().height()/Y_COORDINATE_RANGE) * y;
-    //qDebug()<< sunX << ", " << sunY << "\n";
     sun->move(cartesianToQPoint(sunX, sunY));
+}
+
+QPropertyAnimation *SunWidget::widgetFadeAnimation(QGraphicsEffect *widgetGraphicsEffect, int duration, QEasingCurve easingCurve, QAbstractAnimation::Direction direction)
+{
+    QPropertyAnimation *widgetFadeAnimation = new QPropertyAnimation(widgetGraphicsEffect, "opacity");
+    widgetFadeAnimation->setDuration(duration);
+    widgetFadeAnimation->setStartValue(direction);
+    widgetFadeAnimation->setEndValue(1 - direction);
+    widgetFadeAnimation->setEasingCurve(easingCurve);
+    return widgetFadeAnimation;
+}
+
+void SunWidget::animateSunPosition()
+{
+    int currentSecond = QDateTime::currentDateTime().time().hour() * 3600 + QDateTime::currentDateTime().time().minute() * 60 + QDateTime::currentDateTime().time().second();
+    m_sunPosition = currentSecond;
+    QPropertyAnimation* sunPositionAnimation = new QPropertyAnimation(this, "sunPosition");
+    sunPositionAnimation->setDuration(900);
+    sunPositionAnimation->setEasingCurve(QEasingCurve::InOutCubic);
+    sunPositionAnimation->setStartValue(3600);
+    sunPositionAnimation->setEndValue(currentSecond);
+    sunPositionAnimation->start(QAbstractAnimation::DeleteWhenStopped);
+    sun->raise();
 }
