@@ -17,4 +17,6 @@ std::string formatTemperature(std::string rawTemperature);
 
 int formatTimeToInt(std::string rawTime);
 
+int secondsSinceMidnight(std::string rawTime);
+
 #endif // FORMAT_HPP

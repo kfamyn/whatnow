@@ -41,3 +41,10 @@ std::string formatTemperature(std::string rawTemperature){
 int formatTimeToInt(std::string rawTime){
     return std::stoi(rawTime.substr(0, 2));
 }
+
+int secondsSinceMidnight(std::string rawTime){
+    int hours = std::stoi(rawTime.substr(0, rawTime.find(':')));
+    int minutes = std::stoi(rawTime.substr(rawTime.find(':') + 1, 2));
+    int PM = (rawTime.substr(rawTime.length() - 2, 2) == "PM");
+    return hours * 3600 + minutes * 60 + 43200 * PM;
+}
