@@ -30,7 +30,7 @@ void SunWidget::updateInfo(int dayIndex)
         sunriseTime = QString::fromStdString(formatTime(weather->getCurrentConditions("sunrise"), HOURS_AND_MINUTES));
         sunsetTime = QString::fromStdString(formatTime(weather->getCurrentConditions("sunset"), HOURS_AND_MINUTES));
     }
-    else {
+    else{
         sunriseTime = QString::fromStdString(formatTime(weather->getValue(dayIndex, "sunrise"), HOURS_AND_MINUTES));
         sunsetTime = QString::fromStdString(formatTime(weather->getValue(dayIndex, "sunset"), HOURS_AND_MINUTES));
     }
@@ -46,7 +46,7 @@ void SunWidget::updateInfo(int dayIndex)
         if (sunWidgetOpacity->opacity() == 0)
             widgetFadeAnimation(sunWidgetOpacity, 150, QEasingCurve::InCubic, QAbstractAnimation::Forward)->start(QAbstractAnimation::DeleteWhenStopped);
     }
-    else {
+    else{
         if (!(sunWidgetOpacity->opacity() == 0))
             widgetFadeAnimation(sunWidgetOpacity, 150, QEasingCurve::OutCubic, QAbstractAnimation::Backward)->start(QAbstractAnimation::DeleteWhenStopped);
     }
@@ -88,13 +88,27 @@ QPropertyAnimation *SunWidget::widgetFadeAnimation(QGraphicsEffect *widgetGraphi
 
 void SunWidget::animateSunPosition()
 {
-    int currentSecond = QDateTime::currentDateTime().time().hour() * 3600 + QDateTime::currentDateTime().time().minute() * 60 + QDateTime::currentDateTime().time().second();
+    //qreal currentSecond = QDateTime::currentDateTime().time().hour() * 3600 + QDateTime::currentDateTime().time().minute() * 60 + QDateTime::currentDateTime().time().second();
+    qreal currentSecond = 72300;
+    qreal sunPosition = 0;
+    qreal secondsToSunrise = secondsSinceMidnight(sunriseTime.toStdString());
+    qreal secondsToSunset = secondsSinceMidnight(sunsetTime.toStdString());
+    qDebug() << secondsToSunset;
+    if (currentSecond < secondsToSunrise){
+        sunPosition = currentSecond * 23200/secondsToSunrise;
+    }
+    else if (currentSecond < secondsToSunset){
+        sunPosition = 23200 + ((currentSecond - secondsToSunrise)/(secondsToSunset-secondsToSunrise)) * (62000 - 23200);
+        qDebug() << secondsToSunrise;
+    }
+    else {
+        sunPosition = 62000 + (currentSecond - secondsToSunset) * 23200/(86400 - secondsToSunset);
+    }
     m_sunPosition = currentSecond;
     QPropertyAnimation* sunPositionAnimation = new QPropertyAnimation(this, "sunPosition");
     sunPositionAnimation->setDuration(900);
     sunPositionAnimation->setEasingCurve(QEasingCurve::InOutCubic);
     sunPositionAnimation->setStartValue(3600);
-    sunPositionAnimation->setEndValue(currentSecond);
+    sunPositionAnimation->setEndValue(sunPosition);
     sunPositionAnimation->start(QAbstractAnimation::DeleteWhenStopped);
-    sun->raise();
 }
