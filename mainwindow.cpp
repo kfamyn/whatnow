@@ -6,17 +6,26 @@
 #include <QPainter>
 #include <QSequentialAnimationGroup>
 #include <QSignalMapper>
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    QString city = "";
+    QString path = QCoreApplication::applicationDirPath() += "/config.txt";
+    QFile file(path);
+    if(file.open(QIODevice::ReadOnly)) {
+        QTextStream in(&file);
+        city = in.readLine();
+        file.close();
+    }
     ui->setupUi(this);
     this->setupAttributes();
     this->setupFonts();
     this->animateFadingIn();
     weather = new Weather();
-    weather->update("los angeles");
+    weather->update(city.toStdString());
     this->setupCurrentConditionsWidget();
     this->adjustCurrentTemperatureFont();
 
