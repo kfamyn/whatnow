@@ -10,7 +10,12 @@ Weather::Weather(){}
 
 void Weather::update(std::string city)
 {
-    weatherData = nlohmann::json::parse(request(formatInput(city)));
+    try {
+        weatherData = nlohmann::json::parse(request(formatInput(city)));
+    }
+    catch (std::exception e){
+        weatherData = nlohmann::json::parse(request("Cupertino"));
+    }
 }
 
 std::string Weather::getAddress(){
