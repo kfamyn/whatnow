@@ -36,7 +36,7 @@
     <bool>true</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">#centralwidget{border-image: url(:/assets/assets/Backgrounds/Grid_Template_4.png);}
+    <string notr="true">#centralwidget{border-image: url(:/assets/assets/Backgrounds/mainWindowBackground.png);}
 </string>
    </property>
    <widget class="QLabel" name="bottomLeftCornerBackground">
@@ -66,7 +66,7 @@
      <rect>
       <x>114</x>
       <y>22</y>
-      <width>337</width>
+      <width>339</width>
       <height>360</height>
      </rect>
     </property>
@@ -105,7 +105,7 @@
       <x>482</x>
       <y>462</y>
       <width>677</width>
-      <height>321</height>
+      <height>324</height>
      </rect>
     </property>
     <property name="text">
@@ -294,7 +294,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="assets.qrc">:/background/assets/backgrounds/gridTemplate.png</pixmap>
+     <pixmap resource="assets.qrc">:/background/assets/backgrounds/mainWindowBackground.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
