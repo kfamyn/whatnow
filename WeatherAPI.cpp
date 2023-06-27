@@ -5,7 +5,6 @@
 #include <iostream>
 #include <stdlib.h>
 
-
 Weather::Weather(){}
 
 void Weather::update(std::string city)
@@ -19,19 +18,22 @@ void Weather::update(std::string city)
 }
 
 std::string Weather::getAddress(){
-        std::string fullAddress(weatherData.value("resolvedAddress", "Error getting precise address"));
-        std::string shortAddress = "";
-        for (size_t index = 0; fullAddress[index]!= ','; ++index){
-            shortAddress += fullAddress[index];
-        }
-        int lastCommaIndex = fullAddress.length() - 1;
-        while (lastCommaIndex != 0 && (fullAddress[lastCommaIndex] != ','))
-        {
-            --lastCommaIndex;
-        }
-        shortAddress += fullAddress.substr(lastCommaIndex);
-        return shortAddress;
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    setlocale(LC_ALL, "Rus");
+    std::string fullAddress(weatherData.value("resolvedAddress", "Error getting precise address"));
+    std::string shortAddress = "";
+    for (size_t index = 0; fullAddress[index]!= ','; ++index){
+        shortAddress += fullAddress[index];
     }
+    int lastCommaIndex = fullAddress.length() - 1;
+    while (lastCommaIndex != 0 && (fullAddress[lastCommaIndex] != ','))
+    {
+        --lastCommaIndex;
+    }
+    shortAddress += fullAddress.substr(lastCommaIndex);
+    return shortAddress;
+}
 
 std::string Weather::getValue(int day, std::string key){
     std::string value(weatherData["days"][day][key].dump());
