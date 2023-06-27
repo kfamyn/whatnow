@@ -133,8 +133,13 @@ void MainWindow::animateFadingIn()
 
 void MainWindow::setupCurrentConditionsWidget()
 {
+    const int MAX_LOCATION_LENGTH = 25;
     ui->CurrentTemperature->setText(QString::number(std::stoi(weather->getCurrentConditions("temp"))));
-    ui->CurrentLocation->setText(QString::fromStdString(weather->getAddress()));
+    QString location = QString::fromStdString(weather->getAddress());
+    if (location.length() > MAX_LOCATION_LENGTH){
+        location = location.mid(0, MAX_LOCATION_LENGTH).append("...");
+    }
+    ui->CurrentLocation->setText(location);
     QString path = ":/weatherIcons/assets/weatherIcons/";
     path += QString::fromStdString(weather->getCurrentConditions("icon"));
     path += ".png";
