@@ -81,7 +81,6 @@
         <file>assets/weatherIcons/cloudy.png</file>
         <file>assets/weatherIcons/fog.png</file>
         <file>assets/weatherIcons/partly-cloudy-night-unused.png</file>
-        <file>assets/weatherIcons/partly-cloudy-day.png</file>
         <file>assets/weatherIcons/partly-cloudy-night.png</file>
         <file>assets/weatherIcons/rain.png</file>
         <file>assets/weatherIcons/showers-day.png</file>
@@ -89,9 +88,11 @@
         <file>assets/weatherIcons/snow.png</file>
         <file>assets/weatherIcons/snow-showers-day.png</file>
         <file>assets/weatherIcons/snow-showers-night.png</file>
-        <file>assets/weatherIcons/thunder-unused.png</file>
         <file>assets/weatherIcons/thunder-rain.png</file>
         <file>assets/weatherIcons/wind.png</file>
+        <file>assets/weatherIcons/partly-cloudy-day.png</file>
+        <file>assets/weatherIcons/thunder-showers-day.png</file>
+        <file>assets/weatherIcons/thunder-showers-night.png</file>
     </qresource>
     <qresource prefix="/config"/>
     <qresource prefix="/background">
