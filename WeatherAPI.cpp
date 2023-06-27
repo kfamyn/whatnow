@@ -68,7 +68,8 @@ std::string Weather::request(std::string city) {
     CURLcode res_code = CURLE_FAILED_INIT;
     CURL* curl = curl_easy_init();
     std::string result;
-    std::string url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + city + "?unitGroup=metric&key=LBME92TM9HRUY3VG2TP2D7LKF&iconSet=icons2&contentType=json";
+    std::string apiKey = "LBME92TM9HRUY3VG2TP2D7LKF";
+    std::string url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + city + "?unitGroup=metric&key=" + apiKey + "&iconSet=icons2&contentType=json";
     curl_global_init(CURL_GLOBAL_ALL);
     if (curl) {
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
