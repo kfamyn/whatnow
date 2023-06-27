@@ -6,7 +6,7 @@ DateWidget::DateWidget(QWidget *parent) : InformationWidget(parent)
     background = new QLabel(this);
     this->setBackground(":/background/assets/backgrounds/calendarWidgetBackground.png", QSize(280, 280));
     conditions = createFixedSizeTextLabel("conditions", 12, QFont::Normal, QSize(background->size().width(), 31));
-    conditions->move(0, 10);
+    conditions->move(0, 15);
     conditions->setAlignment(Qt::AlignVCenter | Qt::AlignHCenter);
     date = createFixedSizeTextLabel("1", 139, QFont::Normal, QSize(280, 160));
     date->move(0, 56);
