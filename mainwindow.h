@@ -31,8 +31,6 @@ private slots:
     void on_Exit_clicked();
     void dailyForecastLinePressed(int dayIndex);
 
-    void on_horizontalSlider_valueChanged(int value);
-
 private:
     Ui::MainWindow *ui;
     Weather* weather;
