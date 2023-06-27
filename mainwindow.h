@@ -14,6 +14,7 @@
 #include "feelslikewidget.h"
 #include "windwidget.h"
 #include "sunwidget.h"
+#include "datewidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -40,6 +41,7 @@ private:
     FeelsLikeWidget* feelsLikeWidget;
     WindWidget* windWidget;
     SunWidget* sunWidget;
+    DateWidget* dateWidget;
 
     void setupAttributes();
     void setupFonts();

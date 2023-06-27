@@ -14,6 +14,7 @@ SOURCES += \
     WeatherAPI.cpp \
     dailyforecastline.cpp \
     dailyforecastwidget.cpp \
+    datewidget.cpp \
     feelslikewidget.cpp \
     format.cpp \
     hourlyforecastline.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
 HEADERS += \
     dailyforecastline.h \
     dailyforecastwidget.h \
+    datewidget.h \
     feelslikewidget.h \
     format.hpp \
     hourlyforecastline.h \

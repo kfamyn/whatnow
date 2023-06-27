@@ -11684,25 +11684,6 @@ QScrollBar::sub-line:horizontal {
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>840</x>
-      <y>484</y>
-      <width>281</width>
-      <height>280</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="assets.qrc">:/background/assets/backgrounds/calendarWidgetBackground.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="feelsLikeHeader">
     <property name="geometry">
      <rect>
@@ -11847,83 +11828,6 @@ QScrollBar::sub-line:horizontal {
       </layout>
      </item>
     </layout>
-   </widget>
-   <widget class="QLabel" name="label_12">
-    <property name="geometry">
-     <rect>
-      <x>840</x>
-      <y>500</y>
-      <width>281</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>SF Pro Display</family>
-      <pointsize>10</pointsize>
-      <italic>false</italic>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
-    </property>
-    <property name="text">
-     <string>Cloudy skies throughout the day with a
-chance of rain or snow throughout the day.</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_13">
-    <property name="geometry">
-     <rect>
-      <x>887</x>
-      <y>546</y>
-      <width>191</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>SF Pro Display</family>
-      <pointsize>139</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
-    </property>
-    <property name="text">
-     <string>15</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_14">
-    <property name="geometry">
-     <rect>
-      <x>944</x>
-      <y>715</y>
-      <width>81</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>SF Pro Display</family>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
-    </property>
-    <property name="text">
-     <string>MAR</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
    </widget>
    <widget class="QLabel" name="thermometerSample">
     <property name="geometry">
@@ -12351,6 +12255,122 @@ chance of rain or snow throughout the day.</string>
      </rect>
     </property>
    </widget>
+   <widget class="QWidget" name="dateWidgetSample" native="true">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>484</y>
+      <width>280</width>
+      <height>280</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="dateBackground">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>280</width>
+       <height>280</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="assets.qrc">:/background/assets/backgrounds/calendarWidgetBackground.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>280</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>SF Pro Display</family>
+       <pointsize>10</pointsize>
+       <italic>false</italic>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
+     </property>
+     <property name="text">
+      <string>Cloudy skies throughout the day with a
+chance of rain or snow throughout the day.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>225</y>
+       <width>280</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>SF Pro Display</family>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
+     </property>
+     <property name="text">
+      <string>MAR</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>56</y>
+       <width>280</width>
+       <height>160</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>SF Pro Display</family>
+       <pointsize>139</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: qconicalgradient(cx:1, cy:0, angle:270, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 0, 0, 255))</string>
+     </property>
+     <property name="text">
+      <string>12</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="dateWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>484</y>
+      <width>280</width>
+      <height>280</height>
+     </rect>
+    </property>
+   </widget>
    <zorder>Background</zorder>
    <zorder>bottomRightCornerBackground</zorder>
    <zorder>HourlyForecastLineSample</zorder>
@@ -12366,10 +12386,6 @@ chance of rain or snow throughout the day.</string>
    <zorder>DailyForecastWidget</zorder>
    <zorder>upperRightCornerBackground</zorder>
    <zorder>feelsLikeBackground</zorder>
-   <zorder>label_4</zorder>
-   <zorder>label_12</zorder>
-   <zorder>label_13</zorder>
-   <zorder>label_14</zorder>
    <zorder>thermometerSample</zorder>
    <zorder>feelsLikeSample</zorder>
    <zorder>feelsLike</zorder>
@@ -12379,6 +12395,8 @@ chance of rain or snow throughout the day.</string>
    <zorder>sunWidgetSample</zorder>
    <zorder>sunWidget</zorder>
    <zorder>HourlyForecastWidget</zorder>
+   <zorder>dateWidgetSample</zorder>
+   <zorder>dateWidget</zorder>
   </widget>
  </widget>
  <resources>

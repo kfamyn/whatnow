@@ -44,6 +44,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->sunWidgetSample->setVisible(false);
     sunWidget = new SunWidget(ui->sunWidget);
     sunWidget->setup(weather);
+
+    ui->dateWidgetSample->setVisible(false);
+    dateWidget = new DateWidget(ui->dateWidget);
+    dateWidget->setup(weather);
 }
 
 MainWindow::~MainWindow()
@@ -77,10 +81,12 @@ void MainWindow::dailyForecastLinePressed(int dayIndex)
     signalMapper->setMapping(feelsLikeWidget, dayIndex);
     signalMapper->setMapping(windWidget, dayIndex);
     signalMapper->setMapping(sunWidget, dayIndex);
+    signalMapper->setMapping(dateWidget, dayIndex);
     connect(signalMapper, SIGNAL(mappedInt(int)), hourlyForecastWidget, SLOT(updateHourlyForecast(int)));
     connect(signalMapper, SIGNAL(mappedInt(int)), feelsLikeWidget, SLOT(updateInfo(int)));
     connect(signalMapper, SIGNAL(mappedInt(int)), windWidget, SLOT(updateInfo(int)));
     connect(signalMapper, SIGNAL(mappedInt(int)), sunWidget, SLOT(updateInfo(int)));
+    connect(signalMapper, SIGNAL(mappedInt(int)), dateWidget, SLOT(updateInfo(int)));
 }
 
 void MainWindow::setupAttributes()
