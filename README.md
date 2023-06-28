@@ -1,4 +1,5 @@
 # whatNow
+
 Cross-platform weather forecast app. Currently, Windows desktop version is available.
 
 # Used technologies
@@ -8,7 +9,8 @@ Cross-platform weather forecast app. Currently, Windows desktop version is avail
 - [Visual Crossing API](https://www.visualcrossing.com/weather-api)
 - [Adobe Photoshop](https://www.adobe.com/products/photoshop.html), [Figma](https://www.figma.com)
 
-# Install
+# Installation
+
 - [Download for Windows 10 x64](https://drive.google.com/drive/folders/1F6kvKCWHBaDPzXyZoUNG7M9hawGleJDz?usp=sharing)
 
 # Setup for further development
