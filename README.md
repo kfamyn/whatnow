@@ -1,6 +1,6 @@
-# whatNow
+<h1 align=center>whatNow</h1>
 
-Cross-platform weather forecast app. Currently, Windows desktop version is available.
+<p align=center>Cross-platform weather forecast app. Currently, Windows desktop version is available.</p>
 
 # Used technologies
 
