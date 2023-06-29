@@ -58,7 +58,7 @@ to match your JSON (or any other type) file structure.
 
 ### Changing the UI design
 
-Source design files can be found [here](). All the assets are stored and loaded into ```assets.qrc``` from /assets folder.
+Source design files can be found [here](https://drive.google.com/drive/folders/1MHNE3X0bIiFR21KZzGY0SP5APGhgvf-c?usp=sharing). All the assets are stored and loaded into ```assets.qrc``` from /assets folder.
 
 ### Extending functionality
 
