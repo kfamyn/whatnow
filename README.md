@@ -17,6 +17,11 @@ https://github.com/kfamyn/whatnow/assets/102179774/90ec8a42-bb98-4026-b139-727a9
 
 - [Download for Windows 10 x64](https://drive.google.com/drive/folders/1F6kvKCWHBaDPzXyZoUNG7M9hawGleJDz?usp=sharing)
 
+# User guide
+
+To see forecast for a specific city, enter its' name into ```config.txt``` file. There's no need to enter a full name for big cities (e.g. LA is enough to get 
+weather forecast for Los Angeles, California) though if you're not satisfied with the results of a search, try specifying a full address.
+
 # Setup for further development
 
 ### Windows
