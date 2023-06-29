@@ -56,3 +56,27 @@ Source design files can be found [here](). All the assets are stored and loaded 
 ### Extending functionality
 
 Following **SOLID** principles, the code is quite easy to extend. All the widget classes are encapsulateed and they are only dependant on ```weatherAPI``` class.
+
+# Main features
+
+## Smooth scroll area
+
+Since the Qt framework doesn't provide with smooth scrolling animation, I had to implement it myself.
+The ```SmoothScrollArea``` class can now be used to create smooth scroll areas which consider scroll acceleration.
+
+## Math based widgets
+
+### 'Feels like' widget
+
+```FeelsLikeWidget``` uses somewhat of interval normalization to calculate the temperature gradient position.
+
+### 'Wind' widget
+
+```WindWidget``` uses the equation of a circle to calculate the position of a dot representing wind direction, and then transforms its coordinates from 
+the Cartesian coordinate system to Qt's one.
+
+### 'Sun' widget
+
+```SunWidget``` uses the normal distibution equation and interval normalization to calculate the sun position. Therefore, the sun in a widget is always 
+representing its' relative position to the horizon line (e.g. if sun sets in 1 hour and there are 12 daylight hours on a given day, the sun in a widget will
+be located at 11/12 of the curve part up the horizon line).
