@@ -87,3 +87,21 @@ the Cartesian coordinate system to Qt's one.
 ```SunWidget``` uses the normal distibution equation and interval normalization to calculate the sun position. Therefore, the sun in a widget is always 
 representing its' relative position to the horizon line (e.g. if sun sets in 1 hour and there are 12 daylight hours on a given day, the sun in a widget will
 be located at 11/12 of the curve part above the horizon line).
+
+## UI design
+
+The UI was fully designed by me, except for using some weather icons (though some of them were also drown by me).
+
+# Summary
+
+Pros
+
+- OOP, SOLID
+- (Therefore) the ease of changing an API, extending and maintaining
+- Implementation of unique features
+- Pleasing UI
+
+Cons (to get rid of during further development)
+
+- No multithreading
+- No optimization for different screen sizes and resolutions
