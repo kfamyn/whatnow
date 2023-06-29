@@ -2,6 +2,10 @@
 
 <p align=center>Cross-platform weather forecast app. Currently, Windows desktop version is available.</p>
 
+
+https://github.com/kfamyn/whatnow/assets/102179774/475dca47-0f6b-4337-a639-ecce6ff16e6f
+
+
 # Used technologies
 
 - [cURL](https://github.com/curl/curl)
@@ -29,11 +33,11 @@ All the neccessary libraries are present in the repository.
 
 The weather API can be changed easily by modifying the **weatherAPI.cpp** file.
 
-To use your own API key, generate the key at [Visual Crossing API site](https://www.visualcrossing.com/weather-api) and replace it in 
+To use your **own API key**, generate the key at [Visual Crossing API site](https://www.visualcrossing.com/weather-api) and replace it in 
 
 ```67  std::string Weather::request(std::string city)``` method.
 
-To use a custom API, you will need to modify the following methods:
+To use a **custom API**, you will need to modify the following methods:
 
 ```38  std::string Weather::getValue(int day, std::string key)```
 
