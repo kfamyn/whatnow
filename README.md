@@ -22,6 +22,8 @@ https://github.com/kfamyn/whatnow/assets/102179774/90ec8a42-bb98-4026-b139-727a9
 To see forecast for a specific city, enter its' name into ```config.txt``` file. There's no need to enter a full name for big cities (e.g. LA is enough to get 
 weather forecast for Los Angeles, California) though if you're not satisfied with the results of a search, try specifying a full address.
 
+To exit the app, click a cross button bottom of a toolbar located to the left.
+
 # Setup for further development
 
 ### Windows
@@ -84,4 +86,4 @@ the Cartesian coordinate system to Qt's one.
 
 ```SunWidget``` uses the normal distibution equation and interval normalization to calculate the sun position. Therefore, the sun in a widget is always 
 representing its' relative position to the horizon line (e.g. if sun sets in 1 hour and there are 12 daylight hours on a given day, the sun in a widget will
-be located at 11/12 of the curve part up the horizon line).
+be located at 11/12 of the curve part above the horizon line).
