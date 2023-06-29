@@ -90,7 +90,7 @@ be located at 11/12 of the curve part above the horizon line).
 
 ## UI design
 
-The UI was fully designed by me, except for using some weather icons (though some of them were also drown by me).
+The UI was fully designed by me, except for using some weather icons (though some of them were also drawn by me).
 
 # Summary
 
