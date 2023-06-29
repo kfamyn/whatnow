@@ -3,7 +3,7 @@
 <p align=center>Cross-platform weather forecast app. Currently, Windows desktop version is available.</p>
 
 
-https://github.com/kfamyn/whatnow/assets/102179774/475dca47-0f6b-4337-a639-ecce6ff16e6f
+https://github.com/kfamyn/whatnow/assets/102179774/90ec8a42-bb98-4026-b139-727a9ccd67af
 
 
 # Used technologies
