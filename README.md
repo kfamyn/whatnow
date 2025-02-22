@@ -1,6 +1,6 @@
 <h1 align=center>whatNow</h1>
 
-<p align=center>Cross-platform weather forecast app. Currently, Windows desktop version is available.</p>
+<p align=center>Educational cross-platform weather forecast app. Currently, Windows desktop version is available.</p>
 
 
 https://github.com/kfamyn/whatnow/assets/102179774/90ec8a42-bb98-4026-b139-727a9ccd67af
@@ -25,14 +25,6 @@ weather forecast for Los Angeles, California) though if you're not satisfied wit
 To exit the app, click a cross button bottom of a toolbar located to the left.
 
 # Setup for further development
-
-### Windows
-
-To contribute to the project, you will need to install [Qt Creator](https://www.qt.io/offline-installers) and clone a repository.
-
-You can setup the project in Qt Creator by opening the Weather.pro file.
-
-All the neccessary libraries are present in the repository.
 
 # Extension abilities
 
