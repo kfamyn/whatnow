@@ -1,6 +1,6 @@
 <h1 align=center>whatNow</h1>
 
-<p align=center>Educational cross-platform weather forecast app. Currently, Windows desktop version is available.</p>
+<p align=center>A ETU "LETI" C++ course project: cross-platform weather forecast app</p>
 
 
 https://github.com/kfamyn/whatnow/assets/102179774/90ec8a42-bb98-4026-b139-727a9ccd67af
